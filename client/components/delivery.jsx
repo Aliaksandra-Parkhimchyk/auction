@@ -4,10 +4,10 @@
 
 import React from 'react';
 
-class About extends React.Component{
+class Delivery extends React.Component{
     render() {
-        return <h1>About Page</h1>;
+        return <h1>Delivery Page</h1>;
     }
 }
 
-export default About;
+export default Delivery;

@@ -3,10 +3,11 @@
  */
 
 import React from 'react';
+import ProductListContainer from './containers/product-list-container.jsx'
 
-class Home extends React.Component {
+class Home extends React.Component{
     render() {
-        return <h1>Welcome to the Home Page!</h1>;
+        return <ProductListContainer />;
     }
 }
 

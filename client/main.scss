@@ -1,0 +1,46 @@
+$white: #fff;
+$grey50: #FAFAFA;
+$grey100: #F5F5F5;
+$grey200: #EEEEEE;
+$grey300: #E0E0E0;
+$grey400: #BDBDBD;
+$grey500: #9E9E9E;
+$grey600: #757575;
+$grey700: #616161;
+$grey800: #424242;
+$grey900: #212121;
+$black: #000;
+$pink900: #880E4F;
+
+div.app {
+
+    span.logo {
+        text-transform: uppercase;
+
+        &.active, &:hover {text-transform: uppercase;}
+    }
+
+    ul.header-nav {
+
+        list-style: none;
+
+        li {
+            display: inline-block;
+
+            .nav-item {
+                color: $grey300;
+                font-size: 20px;
+                text-decoration: none;
+                padding: 10px 20px 37px 20px;
+                cursor: pointer;
+
+                &.active, &:hover {
+                    color: $pink900;
+                    background: $grey300;
+                }
+            }
+        }
+    }
+}
+
+
