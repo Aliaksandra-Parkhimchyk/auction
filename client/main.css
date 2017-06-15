@@ -7,13 +7,13 @@ div.app ul.header-nav {
   div.app ul.header-nav li {
     display: inline-block; }
     div.app ul.header-nav li .nav-item {
-      color: #E0E0E0;
+      color: #fff;
       font-size: 20px;
       text-decoration: none;
       padding: 10px 20px 37px 20px;
       cursor: pointer; }
       div.app ul.header-nav li .nav-item.active, div.app ul.header-nav li .nav-item:hover {
         color: #880E4F;
-        background: #E0E0E0; }
+        background: #fff; }
 
 /*# sourceMappingURL=main.css.map */

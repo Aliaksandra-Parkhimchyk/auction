@@ -3,25 +3,63 @@
  */
 
 import React from 'react';
-import axios from 'axios';
+import {connect} from 'react-redux';
 
+import ProductFilters from '../product-filters.jsx';
 import ProductList from '../product-list.jsx';
+
+import * as productApi from '../../api/product-api';
+import store from '../../store';
 
 class ProductListContainer extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {products: []};
+        this.state = {
+            dataSource: []
+        };
+        // store.subscribe(() => {
+        //     this.setState({
+        //         products: store.getState().productState.products
+        //     });
+        //     console.log(this.state.products);
+        // });
     }
 
-    componentDidMount() {
-        axios.get('https://api.mlab.com/api/1/databases/pizzashop/collections/products?apiKey=9BGZZA0zukVJrmfAYnnLeG7V2DiUQNY_')
-            .then(response => this.setState({products: response.data}));
+    handleUpdateInput(value) {
+
+        let searchQuery = value.toLowerCase();
+
+        console.log(searchQuery);
+
+        let displayedContacts = this.props.products.filter(function(el) {
+            let searchValue = el.title.toLowerCase();
+            return searchValue.indexOf(searchQuery) !== -1;
+        });
+
+        console.log(displayedContacts);
+    }
+
+    // Сашунька ну как можно быть такой красавицей\ ну Сааааш ну смотрю на тебя и радуюсь ну мур
+
+    componentWillMount() {
+        productApi.getProducts();
     }
 
     render() {
-        return (<ProductList products={this.state.products}/>);
+        return (
+            <div className="container">
+                <ProductFilters dataSource={this.state.dataSource} handleUpdateInput={this.handleUpdateInput} />
+                <ProductList products={this.props.products} />
+            </div>
+        );
     }
 }
 
-export default ProductListContainer;
+const mapStateToProps = function (store) {
+    return {
+        products: store.productState.products
+    };
+};
+
+export default connect(mapStateToProps)(ProductListContainer);

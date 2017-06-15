@@ -4,6 +4,8 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import store from './store';
 import {Router, Route, IndexRoute, Link, browserHistory} from 'react-router'
 
 // for the latest version react-router (4.1.1)
@@ -27,11 +29,10 @@ const styles = {
         backgroundColor: '#880E4F'
     },
     appBarTitle: {
-        color: '#E0E0E0',
         cursor: 'pointer'
     },
     paper: {
-        height: '1000px',
+        height: '1100px',
         width: '100%',
         display: 'inline-block',
     }
@@ -71,15 +72,17 @@ class MainLayout extends React.Component {
 }
 
 ReactDOM.render((
-    <MuiThemeProvider>
-        <Router history={browserHistory}>
-            <Route path="/" component={MainLayout}>
-                <IndexRoute component={Home} />
-                <Route path="about" component={About}/>
-                <Route path="delivery" component={Delivery}/>
-                <Route path="contact-us" component={ContactUs}/>
-            </Route>
-        </Router>
-    </MuiThemeProvider>
+    <Provider store={store}>
+        <MuiThemeProvider>
+            <Router history={browserHistory}>
+                <Route path="/" component={MainLayout}>
+                    <IndexRoute component={Home}/>
+                    <Route path="about" component={About}/>
+                    <Route path="delivery" component={Delivery}/>
+                    <Route path="contact-us" component={ContactUs}/>
+                </Route>
+            </Router>
+        </MuiThemeProvider>
+    </Provider>
 ), document.getElementById('root'));
 

@@ -8,25 +8,24 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 export default function (props) {
     return (
-        <div className="container">
-            <div className="row">
-                <div className="col-md-9">
-                    <div className="row">
-                        {props.products.map(product => {
-
-                            return (
-                                <div className="col-md-4">
-                                    <div key={product.id}>
-                                        <h3>{product.title}</h3>
-                                        <Image
-                                            src={product.src}
-                                        />
-                                        <RaisedButton label="Order" />
-                                    </div>
+        <div className="row">
+            <div className="col-md-9">
+                <div className="row">
+                    {props.products.map(product => {
+                        return (
+                            <div key={product.id} className="col-md-4">
+                                <div className="product-item">
+                                    <h3 className="product-item-title">{product.title}</h3>
+                                    <Image
+                                        src={product.src}
+                                        className="product-item-image"/>
+                                    <RaisedButton
+                                        label="Order"
+                                        className="product-item-order"/>
                                 </div>
-                            );
-                        })}
-                    </div>
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
         </div>

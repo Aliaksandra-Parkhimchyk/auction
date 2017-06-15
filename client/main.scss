@@ -28,7 +28,7 @@ div.app {
             display: inline-block;
 
             .nav-item {
-                color: $grey300;
+                color: $white;
                 font-size: 20px;
                 text-decoration: none;
                 padding: 10px 20px 37px 20px;
@@ -36,7 +36,7 @@ div.app {
 
                 &.active, &:hover {
                     color: $pink900;
-                    background: $grey300;
+                    background: $white;
                 }
             }
         }
