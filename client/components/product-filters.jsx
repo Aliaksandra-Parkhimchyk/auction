@@ -13,7 +13,7 @@ const styles = {
     radioButton: {},
 };
 
-export default function (props) {
+export default (props) => {
 
     return (
         <div className="row">

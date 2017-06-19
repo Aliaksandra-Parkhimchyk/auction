@@ -18,47 +18,34 @@ class ProductListContainer extends React.Component {
         this.state = {
             dataSource: []
         };
-        // store.subscribe(() => {
-        //     this.setState({
-        //         products: store.getState().productState.products
-        //     });
-        //     console.log(this.state.products);
-        // });
     }
 
     handleUpdateInput(value) {
 
-        let searchQuery = value.toLowerCase();
-
-        console.log(searchQuery);
-
-        let displayedContacts = this.props.products.filter(function(el) {
-            let searchValue = el.title.toLowerCase();
-            return searchValue.indexOf(searchQuery) !== -1;
-        });
-
-        console.log(displayedContacts);
+        productApi.searchProducts(value, this.props.products);
     }
 
     // Сашунька ну как можно быть такой красавицей\ ну Сааааш ну смотрю на тебя и радуюсь ну мур
 
-    componentWillMount() {
+    componentDidMount() {
         productApi.getProducts();
     }
 
     render() {
         return (
             <div className="container">
-                <ProductFilters dataSource={this.state.dataSource} handleUpdateInput={this.handleUpdateInput} />
-                <ProductList products={this.props.products} />
+                <ProductFilters dataSource={this.state.dataSource}
+                                handleUpdateInput={this.handleUpdateInput.bind(this)} />
+                <ProductList displayedProducts={this.props.displayedProducts}/>
             </div>
         );
     }
 }
 
-const mapStateToProps = function (store) {
+const mapStateToProps = (store) => {
     return {
-        products: store.productState.products
+        products: store.productState.products,
+        displayedProducts: store.productState.displayedProducts
     };
 };
 

@@ -6,12 +6,12 @@ import React from 'react';
 import {Image} from 'material-ui-image'
 import RaisedButton from 'material-ui/RaisedButton';
 
-export default function (props) {
+export default (props) => {
     return (
         <div className="row">
             <div className="col-md-9">
                 <div className="row">
-                    {props.products.map(product => {
+                    {props.displayedProducts.map(product => {
                         return (
                             <div key={product.id} className="col-md-4">
                                 <div className="product-item">
