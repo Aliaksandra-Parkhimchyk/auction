@@ -15,13 +15,25 @@ class ProductListContainer extends React.Component {
 
     constructor(props) {
         super(props);
+
         this.state = {
             dataSource: []
         };
+
+        this.onChange = this.onChange.bind(this);
+        this.onCheck = this.onCheck.bind(this);
+        this.handleUpdateInput = this.handleUpdateInput.bind(this);
+    }
+
+    onChange(event, value) {
+        productApi.filterBySize(event, value, this.props.products);
+    }
+
+    onCheck(event) {
+        productApi.filterByIngredients(event.target.name, this.props.products, this.props.ingredients);
     }
 
     handleUpdateInput(value) {
-
         productApi.searchProducts(value, this.props.products);
     }
 
@@ -35,7 +47,9 @@ class ProductListContainer extends React.Component {
         return (
             <div className="container">
                 <ProductFilters dataSource={this.state.dataSource}
-                                handleUpdateInput={this.handleUpdateInput.bind(this)} />
+                                onChange={this.onChange}
+                                onCheck={this.onCheck}
+                                handleUpdateInput={this.handleUpdateInput} />
                 <ProductList displayedProducts={this.props.displayedProducts}/>
             </div>
         );
@@ -45,7 +59,8 @@ class ProductListContainer extends React.Component {
 const mapStateToProps = (store) => {
     return {
         products: store.productState.products,
-        displayedProducts: store.productState.displayedProducts
+        displayedProducts: store.productState.displayedProducts,
+        ingredients: store.productState.ingredients
     };
 };
 

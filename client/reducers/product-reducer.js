@@ -7,15 +7,26 @@ import _ from 'lodash';
 
 const initialState = {
     products: [],
-    displayedProducts: []
+    displayedProducts: [],
+    ingredients: {
+        beaf: false,
+        chicken: false,
+        pepper: false
+    }
 };
 
-const productReducer = function (state = initialState, action) {
+const productReducer = (state = initialState, action) => {
 
     switch (action.type) {
 
         case types.GET_PRODUCTS_SUCCESS:
             return Object.assign({}, state, {products: action.products, displayedProducts: action.products});
+
+        case types.FILTER_BY_SIZE:
+            return Object.assign({}, state, {displayedProducts: action.displayedProducts});
+
+        case types.FILTER_BY_INGREDIENTS:
+            return Object.assign({}, state, {displayedProducts: action.displayedProducts, ingredients: action.ingredients});
 
         case types.SEARCH_PRODUCTS_SUCCESS:
             return Object.assign({}, state, {displayedProducts: action.displayedProducts});

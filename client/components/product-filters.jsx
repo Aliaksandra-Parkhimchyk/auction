@@ -20,7 +20,7 @@ export default (props) => {
             <div className="col-md-3">
                 <div className="filter-size">
                     <h3 className="filter-size-title">Size:</h3>
-                    <RadioButtonGroup name="filterSize" defaultSelected="all">
+                    <RadioButtonGroup name="filterSize" defaultSelected="all" onChange={props.onChange}>
                         <RadioButton
                             value="all"
                             label="All"
@@ -46,14 +46,20 @@ export default (props) => {
                     <Checkbox
                         label="Beef"
                         style={styles.checkbox}
+                        name="beaf"
+                        onCheck={props.onCheck}
                     />
                     <Checkbox
                         label="Chicken"
                         style={styles.checkbox}
+                        name="chicken"
+                        onCheck={props.onCheck}
                     />
                     <Checkbox
                         label="Pepper"
                         style={styles.checkbox}
+                        name="pepper"
+                        onCheck={props.onCheck}
                     />
                 </div>
             </div>

@@ -3,6 +3,7 @@
  */
 
 import React from 'react';
+import Cart from './cart.jsx';
 import {Image} from 'material-ui-image'
 import RaisedButton from 'material-ui/RaisedButton';
 
@@ -28,6 +29,7 @@ export default (props) => {
                     })}
                 </div>
             </div>
+            <Cart/>
         </div>
     );
 }
