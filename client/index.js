@@ -6,7 +6,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import store from './store';
-import {Router, Route, IndexRoute, Link, browserHistory} from 'react-router'
+import { Router, Route, IndexRoute, Link, browserHistory } from 'react-router';
 
 // for the latest version react-router (4.1.1)
 // import { HashRouter, Route, Link} from 'react-router-dom';
@@ -25,64 +25,89 @@ import Paper from 'material-ui/Paper';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 const styles = {
-    appBar: {
-        backgroundColor: '#880E4F'
-    },
-    appBarTitle: {
-        cursor: 'pointer'
-    },
-    paper: {
-        height: '1100px',
-        width: '100%',
-        display: 'inline-block',
-    }
+	appBar: {
+		backgroundColor: '#880E4F'
+	},
+	appBarTitle: {
+		cursor: 'pointer'
+	},
+	paper: {
+		height: '1100px',
+		width: '100%',
+		display: 'inline-block'
+	}
 };
 
 class MainLayout extends React.Component {
+	componentWillMount() {
+		injectTapEventPlugin();
+	}
 
-    componentDidMount() {
-        injectTapEventPlugin();
-    }
+	render() {
+		return (
+			<div className="app">
 
-    render() {
-        return (
-            <div className="app">
+				<AppBar
+					style={styles.appBar}
+					title={
+						<span className="logo" style={styles.appBarTitle}>Site Name</span>
+					}
+				>
 
-                <AppBar
+					<ul className="header-nav">
+						<li>
+							<Link className="nav-item" activeClassName="active" to="/">
+								Home
+							</Link>
+						</li>
+						<li>
+							<Link className="nav-item" activeClassName="active" to="/about">
+								About
+							</Link>
+						</li>
+						<li>
+							<Link
+								className="nav-item"
+								activeClassName="active"
+								to="/delivery"
+							>
+								Delivery
+							</Link>
+						</li>
+						<li>
+							<Link
+								className="nav-item"
+								activeClassName="active"
+								to="/contact-us"
+							>
+								Contact us
+							</Link>
+						</li>
+					</ul>
 
-                    style={styles.appBar}
-                    title={<span className="logo" style={styles.appBarTitle}>Site Name</span>}>
+				</AppBar>
 
-                    <ul className="header-nav">
-                        <li><Link className="nav-item" activeClassName="active" to="/">Home</Link></li>
-                        <li><Link className="nav-item" activeClassName="active" to="/about">About</Link></li>
-                        <li><Link className="nav-item" activeClassName="active" to="/delivery">Delivery</Link></li>
-                        <li><Link className="nav-item" activeClassName="active" to="/contact-us">Contact us</Link></li>
-                    </ul>
+				<Paper style={styles.paper} zDepth={5}>
+					{this.props.children}
+				</Paper>
 
-                </AppBar>
-
-                <Paper style={styles.paper} zDepth={5}>
-                    {this.props.children}
-                </Paper>
-
-            </div>
-        )
-    }
+			</div>
+		);
+	}
 }
 
-ReactDOM.render((
-    <Provider store={store}>
-        <MuiThemeProvider>
-            <Router history={browserHistory}>
-                <Route path="/" component={MainLayout}>
-                    <IndexRoute component={Home}/>
-                    <Route path="about" component={About}/>
-                    <Route path="delivery" component={Delivery}/>
-                    <Route path="contact-us" component={ContactUs}/>
-                </Route>
-            </Router>
-        </MuiThemeProvider>
-    </Provider>
-), document.getElementById('root'));
-
+ReactDOM.render(
+	<Provider store={store}>
+		<MuiThemeProvider>
+			<Router history={browserHistory}>
+				<Route path="/" component={MainLayout}>
+					<IndexRoute component={Home} />
+					<Route path="about" component={About} />
+					<Route path="delivery" component={Delivery} />
+					<Route path="contact-us" component={ContactUs} />
+				</Route>
+			</Router>
+		</MuiThemeProvider>
+	</Provider>,
+	document.getElementById('root')
+);

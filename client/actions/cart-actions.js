@@ -4,8 +4,16 @@
 
 import * as types from '../actions/action-types';
 
-export function getCartSuccess() {
-    return {
-        type: types.GET_CART_SUCCESS
-    };
+export function actionCreatorGetCartSuccess(cart) {
+	return {
+		type: types.GET_CART_SUCCESS,
+		cart: cart
+	};
+}
+
+export function actionCreatorAddProductToCart(cart) {
+	return {
+		type: types.ADD_PRODUCT_TO_CART,
+		cart: cart
+	};
 }

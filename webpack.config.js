@@ -2,39 +2,39 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
-    template: './client/index.html',
-    filename: 'index.html',
-    inject: 'body'
+	template: './client/index.html',
+	filename: 'index.html',
+	inject: 'body'
 });
 
 const ExtractTextPluginConfig = new ExtractTextPlugin({
-    filename: 'dist/[name].bundle.css',
-    allChunks: true
+	filename: 'dist/[name].bundle.css',
+	allChunks: true
 });
 
 module.exports = {
-    entry: ['./client/index.js', './client/main.scss'],
-    output: {
-        filename: 'index_bundle.js'
-    },
-    module: {
-        loaders: [
-            {test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/},
-            {test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/},
-            {
-                test: /\.css$/,
-                loader: ExtractTextPlugin.extract('css-loader?importLoaders=1'),
-            },
-            {
-                test: /\.(sass|scss)$/,
-                loader: ExtractTextPlugin.extract(['css-loader', 'sass-loader'])
-            },
-            {
-                test: /\.(woff2?|ttf|eot|svg)(\?v=[a-z0-9]\.[a-z0-9]\.[a-z0-9])?$/,
-                loader: 'url-loader?limit=100000'
-            },
-        ]
-    },
+	entry: ['./client/index.js', './client/main.scss'],
+	output: {
+		filename: 'index_bundle.js'
+	},
+	module: {
+		loaders: [
+			{ test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
+			{ test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/ },
+			{
+				test: /\.css$/,
+				loader: ExtractTextPlugin.extract('css-loader?importLoaders=1')
+			},
+			{
+				test: /\.(sass|scss)$/,
+				loader: ExtractTextPlugin.extract(['css-loader', 'sass-loader'])
+			},
+			{
+				test: /\.(woff2?|ttf|eot|svg)(\?v=[a-z0-9]\.[a-z0-9]\.[a-z0-9])?$/,
+				loader: 'url-loader?limit=100000'
+			}
+		]
+	},
 
-    plugins: [HtmlWebpackPluginConfig, ExtractTextPluginConfig]
+	plugins: [HtmlWebpackPluginConfig, ExtractTextPluginConfig]
 };

@@ -4,10 +4,12 @@
 
 import React from 'react';
 
-class About extends React.Component{
-    render() {
-        return <h1>About Page</h1>;
-    }
-}
+export default class About extends React.Component {
+	constructor(props) {
+		super(props);
+	}
 
-export default About;
+	render() {
+		return <h1>About Page</h1>;
+	}
+}

@@ -4,10 +4,12 @@
 
 import React from 'react';
 
-class Delivery extends React.Component{
-    render() {
-        return <h1>Delivery Page</h1>;
-    }
-}
+export default class Delivery extends React.Component {
+	constructor(props) {
+		super(props);
+	}
 
-export default Delivery;
+	render() {
+		return <h1>Delivery Page</h1>;
+	}
+}

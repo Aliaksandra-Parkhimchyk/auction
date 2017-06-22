@@ -4,32 +4,40 @@
 
 import React from 'react';
 import Cart from './cart.jsx';
-import {Image} from 'material-ui-image'
+import { Image } from 'material-ui-image';
 import RaisedButton from 'material-ui/RaisedButton';
 
-export default (props) => {
-    return (
-        <div className="row">
-            <div className="col-md-9">
-                <div className="row">
-                    {props.displayedProducts.map(product => {
-                        return (
-                            <div key={product.id} className="col-md-4">
-                                <div className="product-item">
-                                    <h3 className="product-item-title">{product.title}</h3>
-                                    <Image
-                                        src={product.src}
-                                        className="product-item-image"/>
-                                    <RaisedButton
-                                        label="Order"
-                                        className="product-item-order"/>
-                                </div>
-                            </div>
-                        );
-                    })}
-                </div>
-            </div>
-            <Cart/>
-        </div>
-    );
-}
+export default props => {
+	return (
+		<div className="row">
+			<div className="col-md-9">
+				<div className="row">
+					{props.displayedProducts.map(product => {
+						return (
+							<div key={product.id} className="col-md-4">
+								<div className="product-item">
+									<h3 className="product-item-title">{product.title}</h3>
+									<Image src={product.src} className="product-item-image" />
+									<input
+										name="products-number"
+										type="number"
+										min="1"
+										max="10"
+										value={props.numberOfProducts}
+										onChange={props.handleInputChange}
+									/>
+									<RaisedButton
+										label="Order"
+										className="product-item-order"
+										onTouchTap={props.handleOnTouchTap.bind(null, product)}
+									/>
+								</div>
+							</div>
+						);
+					})}
+				</div>
+			</div>
+			<Cart cart={props.cart} />
+		</div>
+	);
+};

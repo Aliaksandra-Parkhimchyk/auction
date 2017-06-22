@@ -13,34 +13,32 @@ $black: #000;
 $pink900: #880E4F;
 
 div.app {
+	span.logo {
+		text-transform: uppercase;
 
-    span.logo {
-        text-transform: uppercase;
+		&.active, &:hover {
+			text-transform: uppercase;
+		}
+	}
 
-        &.active, &:hover {text-transform: uppercase;}
-    }
+	ul.header-nav {
+		list-style: none;
 
-    ul.header-nav {
+		li {
+			display: inline-block;
 
-        list-style: none;
+			.nav-item {
+				color: $white;
+				font-size: 20px;
+				text-decoration: none;
+				padding: 10px 20px 37px 20px;
+				cursor: pointer;
 
-        li {
-            display: inline-block;
-
-            .nav-item {
-                color: $white;
-                font-size: 20px;
-                text-decoration: none;
-                padding: 10px 20px 37px 20px;
-                cursor: pointer;
-
-                &.active, &:hover {
-                    color: $pink900;
-                    background: $white;
-                }
-            }
-        }
-    }
+				&.active, &:hover {
+					color: $pink900;
+					background: $white;
+				}
+			}
+		}
+	}
 }
-
-

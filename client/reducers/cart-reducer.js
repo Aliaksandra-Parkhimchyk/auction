@@ -6,18 +6,19 @@ import * as types from '../actions/action-types';
 import _ from 'lodash';
 
 const initialState = {
-    cart: []
+	cart: []
 };
 
 const cartReducer = (state = initialState, action) => {
+	switch (action.type) {
+		case types.GET_CART_SUCCESS:
+			return Object.assign({}, state, { cart: action.cart });
 
-    switch (action.type) {
+		case types.ADD_PRODUCT_TO_CART:
+			return Object.assign({}, state, { cart: action.cart });
+	}
 
-        case types.GET_CART_SUCCESS:
-            return Object.assign({}, state, {cart: action.cart});
-    }
-
-    return state;
-}
+	return state;
+};
 
 export default cartReducer;

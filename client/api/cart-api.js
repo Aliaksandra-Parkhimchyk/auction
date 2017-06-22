@@ -3,9 +3,16 @@
  */
 
 import store from '../store';
-import { getCartSuccess } from '../actions/cart-actions';
+import * as actionCreators from '../actions/cart-actions';
 
-export function getCart() {
-    return store.dispatch(getCartSuccess());
+export function getCart(cart) {
+	return store.dispatch(actionCreators.actionCreatorGetCartSuccess(cart));
+}
 
+export function addProductToCart(product, cart) {
+	cart.push(product);
+
+	console.log(cart);
+
+	return store.dispatch(actionCreators.actionCreatorAddProductToCart(cart));
 }
