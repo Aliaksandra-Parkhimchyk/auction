@@ -13,10 +13,11 @@ import { Router, Route, IndexRoute, Link, browserHistory } from 'react-router';
 
 import 'bootstrap/dist/css/bootstrap.css';
 
+import Home from './components/home.jsx';
 import About from './components/about.jsx';
 import ContactUs from './components/contact-us.jsx';
 import Delivery from './components/delivery.jsx';
-import Home from './components/home.jsx';
+import Checkout from './components/checkout.jsx';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
@@ -105,6 +106,7 @@ ReactDOM.render(
 					<Route path="about" component={About} />
 					<Route path="delivery" component={Delivery} />
 					<Route path="contact-us" component={ContactUs} />
+					<Route path="checkout" component={Checkout} />
 				</Route>
 			</Router>
 		</MuiThemeProvider>

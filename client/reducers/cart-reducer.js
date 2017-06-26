@@ -3,7 +3,6 @@
  */
 
 import * as types from '../actions/action-types';
-import _ from 'lodash';
 
 const initialState = {
 	cart: []
@@ -16,6 +15,9 @@ const cartReducer = (state = initialState, action) => {
 
 		case types.ADD_PRODUCT_TO_CART:
 			return Object.assign({}, state, { cart: action.cart });
+
+        case types.DELETE_PRODUCT_FROM_CART:
+            return Object.assign({}, state, { cart: action.cart });
 	}
 
 	return state;

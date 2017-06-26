@@ -12,6 +12,13 @@ export function actionCreatorGetProductsSuccess(products) {
 	};
 }
 
+export function actionCreatorGetDisplayedProductsSuccess(products) {
+    return {
+        type: types.GET_DISPLAYED_PRODUCTS_SUCCESS,
+        displayedProducts: products
+    };
+}
+
 export function actionCreatorFilterBySize(displayedProducts) {
 	return {
 		type: types.FILTER_BY_SIZE,
@@ -36,3 +43,11 @@ export function actionCreatorSearchProducts(displayedProducts) {
 		displayedProducts: displayedProducts
 	};
 }
+
+export function actionCreatorIncreaseNumberProduct(displayedProducts) {
+    return {
+        type: types.INCREASE_NUMBER_PRODUCT,
+        displayedProducts: displayedProducts
+    };
+}
+

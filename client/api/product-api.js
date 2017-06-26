@@ -5,6 +5,7 @@
 import axios from 'axios';
 import store from '../store';
 import * as actionCreators from '../actions/product-actions';
+import _ from 'lodash';
 
 export function getProducts() {
 	return axios
@@ -17,6 +18,12 @@ export function getProducts() {
 			);
 			return response;
 		});
+}
+
+export function getDisplayedProducts(products) {
+    return store.dispatch(
+        actionCreators.actionCreatorGetDisplayedProductsSuccess(products)
+    );
 }
 
 export function filterBySize(event, value, products) {
@@ -74,5 +81,17 @@ export function searchProducts(value, products) {
 
 	return store.dispatch(
 		actionCreators.actionCreatorSearchProducts(displayedProducts)
+	);
+}
+
+export function increaseNumberProduct(id, numberOfProduct, products) {
+	let obj = _.find(products, o => {
+		return o.id === id;
+	});
+
+	obj.num = numberOfProduct;
+
+	return store.dispatch(
+		actionCreators.actionCreatorIncreaseNumberProduct(products)
 	);
 }

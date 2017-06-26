@@ -17,3 +17,11 @@ export function actionCreatorAddProductToCart(cart) {
 		cart: cart
 	};
 }
+
+export function actionCreatorDeleteProductFromCart(cart) {
+    return {
+        type: types.ADD_PRODUCT_TO_CART,
+        cart: cart
+    };
+}
+

@@ -3,7 +3,6 @@
  */
 
 import * as types from '../actions/action-types';
-import _ from 'lodash';
 
 const initialState = {
 	products: [],
@@ -23,6 +22,11 @@ const productReducer = (state = initialState, action) => {
 				displayedProducts: action.products
 			});
 
+        case types.GET_DISPLAYED_PRODUCTS_SUCCESS:
+            return Object.assign({}, state, {
+                displayedProducts: action.products
+            });
+
 		case types.FILTER_BY_SIZE:
 			return Object.assign({}, state, {
 				displayedProducts: action.displayedProducts
@@ -35,6 +39,11 @@ const productReducer = (state = initialState, action) => {
 			});
 
 		case types.SEARCH_PRODUCTS_SUCCESS:
+			return Object.assign({}, state, {
+				displayedProducts: action.displayedProducts
+			});
+
+		case types.INCREASE_NUMBER_PRODUCT:
 			return Object.assign({}, state, {
 				displayedProducts: action.displayedProducts
 			});
