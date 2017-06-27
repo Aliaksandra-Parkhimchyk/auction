@@ -25,7 +25,9 @@ class ProductListContainer extends React.Component {
 		this.handleUpdateInput = this.handleUpdateInput.bind(this);
 		this.handleInputChange = this.handleInputChange.bind(this);
 		this.handleAddProductToCart = this.handleAddProductToCart.bind(this);
-		this.handleDeleteProductFromCart = this.handleDeleteProductFromCart.bind(this);
+		this.handleDeleteProductFromCart = this.handleDeleteProductFromCart.bind(
+			this
+		);
 	}
 
 	onChange(event, value) {
@@ -45,18 +47,23 @@ class ProductListContainer extends React.Component {
 	}
 
 	handleInputChange(product, event) {
-        productApi.getDisplayedProducts(this.props.products);
-		productApi.increaseNumberProduct(product.id, event.target.value, this.props.products);
+		productApi.getDisplayedProducts(this.props.products);
+		productApi.increaseNumberProduct(
+			product.id,
+			event.target.value,
+			this.props.products
+		);
 	}
 
 	handleAddProductToCart(product) {
-        productApi.getProducts();
+		productApi.getProducts();
 		cartApi.addProductToCart(product, this.props.cart);
+		cartApi.getTotalPrice(this.props.cart);
 	}
 
-    handleDeleteProductFromCart (product) {
-        productApi.getProducts();
-		cartApi.deleteProductFromCart(product, this.props.cart)
+	handleDeleteProductFromCart(product) {
+		productApi.getProducts();
+		cartApi.deleteProductFromCart(product, this.props.cart);
 	}
 
 	// Сашунька ну как можно быть такой красавицей\ ну Сааааш ну смотрю на тебя и радуюсь ну мур
@@ -77,6 +84,7 @@ class ProductListContainer extends React.Component {
 				<ProductList
 					displayedProducts={this.props.displayedProducts}
 					cart={this.props.cart}
+					totalPrice={this.props.totalPrice}
 					handleInputChange={this.handleInputChange}
 					handleAddProductToCart={this.handleAddProductToCart}
 					handleDeleteProductFromCart={this.handleDeleteProductFromCart}
@@ -91,7 +99,8 @@ const mapStateToProps = store => {
 		products: store.productState.products,
 		displayedProducts: store.productState.displayedProducts,
 		ingredientsChecked: store.productState.ingredientsChecked,
-		cart: store.cartState.cart
+		cart: store.cartState.cart,
+		totalPrice: store.cartState.totalPrice
 	};
 };
 

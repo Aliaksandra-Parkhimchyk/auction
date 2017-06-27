@@ -19,9 +19,15 @@ export function actionCreatorAddProductToCart(cart) {
 }
 
 export function actionCreatorDeleteProductFromCart(cart) {
-    return {
-        type: types.ADD_PRODUCT_TO_CART,
-        cart: cart
-    };
+	return {
+		type: types.ADD_PRODUCT_TO_CART,
+		cart: cart
+	};
 }
 
+export function actionCreatorGetTotalPrice(totalPrice) {
+	return {
+		type: types.GET_TOTAL_PRICE,
+		totalPrice: totalPrice
+	};
+}

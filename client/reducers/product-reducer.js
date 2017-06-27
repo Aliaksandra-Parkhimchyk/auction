@@ -22,10 +22,10 @@ const productReducer = (state = initialState, action) => {
 				displayedProducts: action.products
 			});
 
-        case types.GET_DISPLAYED_PRODUCTS_SUCCESS:
-            return Object.assign({}, state, {
-                displayedProducts: action.products
-            });
+		case types.GET_DISPLAYED_PRODUCTS_SUCCESS:
+			return Object.assign({}, state, {
+				displayedProducts: action.products
+			});
 
 		case types.FILTER_BY_SIZE:
 			return Object.assign({}, state, {

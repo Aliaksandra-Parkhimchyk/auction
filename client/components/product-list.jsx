@@ -39,7 +39,7 @@ export default props => {
 					})}
 				</div>
 			</div>
-			<Cart cart={props.cart} handleDeleteProductFromCart={props.handleDeleteProductFromCart}/>
+			<Cart cart={props.cart} handleDeleteProductFromCart={props.handleDeleteProductFromCart} totalPrice={props.totalPrice}/>
 		</div>
 	);
 };

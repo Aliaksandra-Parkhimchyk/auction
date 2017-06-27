@@ -28,7 +28,16 @@ export function deleteProductFromCart(product, cart) {
 	let index = cart.indexOf(product);
 	cart.splice(index, 1);
 
-	return store.dispatch(actionCreators.actionCreatorDeleteProductFromCart(cart));
+	return store.dispatch(
+		actionCreators.actionCreatorDeleteProductFromCart(cart)
+	);
 }
 
+export function getTotalPrice(cart) {
+	let totalPrice = 0;
+	cart.forEach(item => {
+		return (totalPrice += item.num * item.price);
+	});
 
+	return store.dispatch(actionCreators.actionCreatorGetTotalPrice(totalPrice));
+}

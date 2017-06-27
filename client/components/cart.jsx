@@ -15,11 +15,11 @@ export default props => {
 						return (
 							<div key={item.id}>
 								<RaisedButton label="X" className="delete-item" onTouchTap={props.handleDeleteProductFromCart.bind(null, item)}/>
-								<p>{item.title} * {item.num} = ${item.price * item.num} </p>
+								<p>{item.title} * {item.num} = ${item.price * item.num}</p>
 							</div>
 						);
 					})}
-					<p className="total">Total: $</p>
+					<p className="total">Total: ${props.totalPrice}</p>
 					<RaisedButton
 						className="checkout"
 						label="Checkout"
