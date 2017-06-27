@@ -41,3 +41,16 @@ export function getTotalPrice(cart) {
 
 	return store.dispatch(actionCreators.actionCreatorGetTotalPrice(totalPrice));
 }
+
+export function sendOrderForm(orderForm) {
+	let cart = [];
+	let isThanks = true;
+	return axios
+		.post(
+			'https://api.mlab.com/api/1/databases/pizzashop/collections/form?apiKey=9BGZZA0zukVJrmfAYnnLeG7V2DiUQNY_',
+			orderForm
+		)
+		.then(function(response) {
+			store.dispatch(actionCreators.actionCreatorSendOrderForm(cart, isThanks));
+		});
+}

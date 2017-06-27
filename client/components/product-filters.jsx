@@ -7,12 +7,6 @@ import AutoComplete from 'material-ui/AutoComplete';
 import Checkbox from 'material-ui/Checkbox';
 import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton';
 
-const styles = {
-	AutoComplete: {},
-	checkbox: {},
-	radioButton: {}
-};
-
 export default props => {
 	return (
 		<div className="row">
@@ -24,13 +18,9 @@ export default props => {
 						defaultSelected="all"
 						onChange={props.onChange}
 					>
-						<RadioButton value="all" label="All" style={styles.radioButton} />
-						<RadioButton value="big" label="Big" style={styles.radioButton} />
-						<RadioButton
-							value="small"
-							label="Small"
-							style={styles.radioButton}
-						/>
+						<RadioButton value="all" label="All" />
+						<RadioButton value="big" label="Big" />
+						<RadioButton value="small" label="Small" />
 					</RadioButtonGroup>
 				</div>
 			</div>
@@ -38,24 +28,9 @@ export default props => {
 			<div className="col-md-3">
 				<div className="filter-ingredients">
 					<h3 className="filter-ingredients-title">Ingredients:</h3>
-					<Checkbox
-						label="Beef"
-						style={styles.checkbox}
-						name="beaf"
-						onCheck={props.onCheck}
-					/>
-					<Checkbox
-						label="Chicken"
-						style={styles.checkbox}
-						name="chicken"
-						onCheck={props.onCheck}
-					/>
-					<Checkbox
-						label="Pepper"
-						style={styles.checkbox}
-						name="pepper"
-						onCheck={props.onCheck}
-					/>
+					<Checkbox label="Beef" name="beaf" onCheck={props.onCheck} />
+					<Checkbox label="Chicken" name="chicken" onCheck={props.onCheck} />
+					<Checkbox label="Pepper" name="pepper" onCheck={props.onCheck} />
 				</div>
 			</div>
 

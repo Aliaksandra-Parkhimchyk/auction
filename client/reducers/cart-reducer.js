@@ -6,7 +6,8 @@ import * as types from '../actions/action-types';
 
 const initialState = {
 	cart: [],
-	totalPrice: 0
+	totalPrice: 0,
+	isThanks: false
 };
 
 const cartReducer = (state = initialState, action) => {
@@ -22,6 +23,12 @@ const cartReducer = (state = initialState, action) => {
 
 		case types.GET_TOTAL_PRICE:
 			return Object.assign({}, state, { totalPrice: action.totalPrice });
+
+		case types.SEND_ORDER_FORM:
+			return Object.assign({}, state, {
+				cart: action.cart,
+				isThanks: action.isThanks
+			});
 	}
 
 	return state;

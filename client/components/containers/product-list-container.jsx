@@ -10,7 +10,6 @@ import ProductList from '../product-list.jsx';
 
 import * as productApi from '../../api/product-api';
 import * as cartApi from '../../api/cart-api';
-import store from '../../store';
 
 class ProductListContainer extends React.Component {
 	constructor(props) {

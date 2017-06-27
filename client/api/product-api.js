@@ -21,9 +21,9 @@ export function getProducts() {
 }
 
 export function getDisplayedProducts(products) {
-    return store.dispatch(
-        actionCreators.actionCreatorGetDisplayedProductsSuccess(products)
-    );
+	return store.dispatch(
+		actionCreators.actionCreatorGetDisplayedProductsSuccess(products)
+	);
 }
 
 export function filterBySize(event, value, products) {

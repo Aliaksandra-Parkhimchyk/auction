@@ -6,7 +6,6 @@ import React from 'react';
 import Cart from './cart.jsx';
 import { Image } from 'material-ui-image';
 import RaisedButton from 'material-ui/RaisedButton';
-import { Link } from 'react-router';
 
 export default props => {
 	return (
@@ -17,7 +16,6 @@ export default props => {
 						return (
 							<div key={product.id} className="col-md-4">
 								<div className="product-item">
-									<Link to={'/products/' + product.id}>{product.title}</Link>
 									<h3 className="product-item-title">{product.title}</h3>
 									<Image src={product.src} className="product-item-image" />
 									<input
@@ -31,7 +29,10 @@ export default props => {
 									<RaisedButton
 										label="Order"
 										className="product-item-order"
-										onTouchTap={props.handleAddProductToCart.bind(null, product)}
+										onTouchTap={props.handleAddProductToCart.bind(
+											null,
+											product
+										)}
 									/>
 								</div>
 							</div>
@@ -39,7 +40,11 @@ export default props => {
 					})}
 				</div>
 			</div>
-			<Cart cart={props.cart} handleDeleteProductFromCart={props.handleDeleteProductFromCart} totalPrice={props.totalPrice}/>
+			<Cart
+				cart={props.cart}
+				handleDeleteProductFromCart={props.handleDeleteProductFromCart}
+				totalPrice={props.totalPrice}
+			/>
 		</div>
 	);
 };

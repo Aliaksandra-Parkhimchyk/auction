@@ -13,11 +13,11 @@ import { Router, Route, IndexRoute, Link, browserHistory } from 'react-router';
 
 import 'bootstrap/dist/css/bootstrap.css';
 
-import Home from './components/home.jsx';
-import About from './components/about.jsx';
-import ContactUs from './components/contact-us.jsx';
-import Delivery from './components/delivery.jsx';
-import Checkout from './components/checkout.jsx';
+import Home from './components/containers/home.jsx';
+import About from './components/containers/about.jsx';
+import ContactUs from './components/containers/contact-us.jsx';
+import Delivery from './components/containers/delivery.jsx';
+import Checkout from './components/containers/checkout.jsx';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 

@@ -20,7 +20,7 @@ export function actionCreatorAddProductToCart(cart) {
 
 export function actionCreatorDeleteProductFromCart(cart) {
 	return {
-		type: types.ADD_PRODUCT_TO_CART,
+		type: types.DELETE_PRODUCT_FROM_CART,
 		cart: cart
 	};
 }
@@ -29,5 +29,13 @@ export function actionCreatorGetTotalPrice(totalPrice) {
 	return {
 		type: types.GET_TOTAL_PRICE,
 		totalPrice: totalPrice
+	};
+}
+
+export function actionCreatorSendOrderForm(cart, isThanks) {
+	return {
+		type: types.SEND_ORDER_FORM,
+		cart: cart,
+		isThanks: isThanks
 	};
 }

@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-import ProductListContainer from './containers/product-list-container.jsx';
+import ProductListContainer from './product-list-container.jsx';
 
 export default class Home extends React.Component {
 	constructor(props) {
