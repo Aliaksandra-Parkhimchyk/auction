@@ -46,7 +46,7 @@ export function updateInputFloor(floor) {
 export function updateInputAdditionalInformation(additionalInformation) {
 	return store.dispatch(
 		actionCreators.actionCreatorUpdateInputAdditionalInformation(
-            additionalInformation
+			additionalInformation
 		)
 	);
 }
@@ -58,5 +58,7 @@ export function changePaymentTheInternet(paymentTheInternet) {
 }
 
 export function checkCutPizza(isCheckCutPizza) {
-	return store.dispatch(actionCreators.actionCreatorCheckCutPizza(isCheckCutPizza));
+	return store.dispatch(
+		actionCreators.actionCreatorCheckCutPizza(isCheckCutPizza)
+	);
 }

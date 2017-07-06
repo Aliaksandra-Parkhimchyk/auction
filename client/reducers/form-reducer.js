@@ -14,9 +14,9 @@ const initialState = {
 	apartment: '',
 	access: '',
 	floor: '',
-    additionalInformation: '',
-    paymentTheInternet: '1',
-    isCheckCutPizza: false
+	additionalInformation: '',
+	paymentTheInternet: '1',
+	isCheckCutPizza: false
 };
 
 const formReducer = (state = initialState, action) => {
@@ -50,16 +50,18 @@ const formReducer = (state = initialState, action) => {
 
 		case types.UPDATE_INPUT_ADDITIONAL_INFORMATION:
 			return Object.assign({}, state, {
-                additionalInformation: action.additionalInformation
+				additionalInformation: action.additionalInformation
 			});
 
 		case types.CHANGE_PAYMENT_THE_INTERNET:
 			return Object.assign({}, state, {
-                paymentTheInternet: action.paymentTheInternet
+				paymentTheInternet: action.paymentTheInternet
 			});
 
 		case types.CHECK_CUT_PIZZA:
-			return Object.assign({}, state, { isCheckCutPizza: action.isCheckCutPizza });
+			return Object.assign({}, state, {
+				isCheckCutPizza: action.isCheckCutPizza
+			});
 	}
 
 	return state;

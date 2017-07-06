@@ -66,7 +66,7 @@ export function actionCreatorUpdateInputFloor(floor) {
 }
 
 export function actionCreatorUpdateInputAdditionalInformation(
-    additionalInformation
+	additionalInformation
 ) {
 	return {
 		type: types.UPDATE_INPUT_ADDITIONAL_INFORMATION,

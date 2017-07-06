@@ -17,7 +17,7 @@ class Checkout extends React.Component {
 		super(props);
 
 		this.state = {
-			dataSource: [],
+			dataSource: []
 		};
 
 		this.handleUpdateInputName = this.handleUpdateInputName.bind(this);
@@ -164,9 +164,9 @@ const mapStateToProps = store => {
 		apartment: store.formState.apartment,
 		access: store.formState.access,
 		floor: store.formState.floor,
-        additionalInformation: store.formState.additionalInformation,
-        paymentTheInternet: store.formState.paymentTheInternet,
-        isCheckCutPizza: store.formState.isCheckCutPizza
+		additionalInformation: store.formState.additionalInformation,
+		paymentTheInternet: store.formState.paymentTheInternet,
+		isCheckCutPizza: store.formState.isCheckCutPizza
 	};
 };
 

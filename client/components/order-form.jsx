@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router';
 import AutoComplete from 'material-ui/AutoComplete';
 import TextField from 'material-ui/TextField';
 import SelectField from 'material-ui/SelectField';
@@ -105,5 +104,5 @@ export default props => {
 						onTouchTap={props.handleSendOrderForm}
 					/>
 				</div>
-			</div>
+			</div>;
 };

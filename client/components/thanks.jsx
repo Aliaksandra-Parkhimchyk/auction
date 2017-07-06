@@ -7,13 +7,13 @@
  */
 
 import React from 'react';
-import { Link } from 'react-router';
+import RaisedButton from 'material-ui/RaisedButton';
 
 export default props => {
-	return props.isThanks
-		? <div className="thanks">
-				<h1>Thank you for your purchase!!!</h1>
-				<Link className="try-again" to={'/'}>Try again</Link>
-			</div>
-		: null;
+	return (
+		<div className="thanks">
+			<h1>Thank you for your purchase!!!</h1>
+			<RaisedButton className="try-again" href="/" label="Try again" />
+		</div>
+	);
 };
