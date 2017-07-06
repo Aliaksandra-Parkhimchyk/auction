@@ -2,6 +2,7 @@
  * Created by Alexandra on 14.06.17.
  */
 
+import axios from 'axios';
 import store from '../store';
 import * as actionCreators from '../actions/cart-actions';
 import _ from 'lodash';
@@ -42,13 +43,39 @@ export function getTotalPrice(cart) {
 	return store.dispatch(actionCreators.actionCreatorGetTotalPrice(totalPrice));
 }
 
-export function sendOrderForm(orderForm) {
+export function sendOrderForm(
+	name,
+	email,
+	phone,
+	city,
+	street,
+	house,
+	apartment,
+	access,
+	floor,
+	additional_information,
+	payment_the_internet,
+	cut_pizza
+) {
 	let cart = [];
 	let isThanks = true;
 	return axios
 		.post(
-			'https://api.mlab.com/api/1/databases/pizzashop/collections/form?apiKey=9BGZZA0zukVJrmfAYnnLeG7V2DiUQNY_',
-			orderForm
+			'https://api.mlab.com/api/1/databases/pizzashop/collections/forms?apiKey=9BGZZA0zukVJrmfAYnnLeG7V2DiUQNY_',
+			{
+				name: name,
+				email: email,
+				phone: phone,
+				city: city,
+				street: street,
+				house: house,
+				apartment: apartment,
+				access: access,
+				floor: floor,
+				additional_information: additional_information,
+				payment_the_internet: payment_the_internet,
+				cut_pizza: cut_pizza
+			}
 		)
 		.then(function(response) {
 			store.dispatch(actionCreators.actionCreatorSendOrderForm(cart, isThanks));

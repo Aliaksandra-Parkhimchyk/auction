@@ -16,7 +16,7 @@ export default props => {
 					<RadioButtonGroup
 						name="filterSize"
 						defaultSelected="all"
-						onChange={props.onChange}
+						onChange={props.handleFilterBySize}
 					>
 						<RadioButton value="all" label="All" />
 						<RadioButton value="big" label="Big" />
@@ -28,9 +28,21 @@ export default props => {
 			<div className="col-md-3">
 				<div className="filter-ingredients">
 					<h3 className="filter-ingredients-title">Ingredients:</h3>
-					<Checkbox label="Beef" name="beaf" onCheck={props.onCheck} />
-					<Checkbox label="Chicken" name="chicken" onCheck={props.onCheck} />
-					<Checkbox label="Pepper" name="pepper" onCheck={props.onCheck} />
+					<Checkbox
+						label="Beef"
+						name="beaf"
+						onCheck={props.handleFilterByIngredients}
+					/>
+					<Checkbox
+						label="Chicken"
+						name="chicken"
+						onCheck={props.handleFilterByIngredients}
+					/>
+					<Checkbox
+						label="Pepper"
+						name="pepper"
+						onCheck={props.handleFilterByIngredients}
+					/>
 				</div>
 			</div>
 
@@ -60,7 +72,7 @@ export default props => {
 						dataSource={props.dataSource}
 						floatingLabelText="Search"
 						fullWidth={true}
-						onUpdateInput={props.handleUpdateInput}
+						onUpdateInput={props.handleSearchProducts}
 					/>
 				</div>
 			</div>

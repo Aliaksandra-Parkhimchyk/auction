@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 
 import * as productApi from '../../api/product-api';
 import * as cartApi from '../../api/cart-api';
+import * as formApi from '../../api/form-api';
 
 import OrderForm from '../order-form.jsx';
 import Cart from '../cart.jsx';
@@ -17,17 +18,78 @@ class Checkout extends React.Component {
 
 		this.state = {
 			dataSource: [],
-			value: 1
 		};
 
-		this.handleChange = this.handleChange.bind(this);
+		this.handleUpdateInputName = this.handleUpdateInputName.bind(this);
+		this.handleUpdateInputEmail = this.handleUpdateInputEmail.bind(this);
+		this.handleUpdateInputPhone = this.handleUpdateInputPhone.bind(this);
+		this.handleUpdateInputCity = this.handleUpdateInputCity.bind(this);
+		this.handleUpdateInputStreet = this.handleUpdateInputStreet.bind(this);
+		this.handleUpdateInputHouse = this.handleUpdateInputHouse.bind(this);
+		this.handleUpdateInputApartment = this.handleUpdateInputApartment.bind(
+			this
+		);
+		this.handleUpdateInputAccess = this.handleUpdateInputAccess.bind(this);
+		this.handleUpdateInputFloor = this.handleUpdateInputFloor.bind(this);
+		this.handleUpdateAdditionalInformation = this.handleUpdateAdditionalInformation.bind(
+			this
+		);
+		this.handleChangePaymentTheInternet = this.handleChangePaymentTheInternet.bind(
+			this
+		);
+		this.handleCheckCutPizza = this.handleCheckCutPizza.bind(this);
 		this.handleDeleteProductFromCart = this.handleDeleteProductFromCart.bind(
 			this
 		);
+		this.handleSendOrderForm = this.handleSendOrderForm.bind(this);
 	}
 
-	handleChange(event, index, value) {
-		this.setState({ value: value });
+	handleUpdateInputName(value) {
+		formApi.updateInputName(value);
+	}
+
+	handleUpdateInputEmail(value) {
+		formApi.updateInputEmail(value);
+	}
+
+	handleUpdateInputPhone(value) {
+		formApi.updateInputPhone(value);
+	}
+
+	handleUpdateInputCity(value) {
+		formApi.updateInputCity(value);
+	}
+
+	handleUpdateInputStreet(value) {
+		formApi.updateInputStreet(value);
+	}
+
+	handleUpdateInputHouse(value) {
+		formApi.updateInputHouse(value);
+	}
+
+	handleUpdateInputApartment(value) {
+		formApi.updateInputApartment(value);
+	}
+
+	handleUpdateInputAccess(value) {
+		formApi.updateInputAccess(value);
+	}
+
+	handleUpdateInputFloor(value) {
+		formApi.updateInputFloor(value);
+	}
+
+	handleUpdateAdditionalInformation(event) {
+		formApi.updateInputAdditionalInformation(event.target.value);
+	}
+
+	handleChangePaymentTheInternet(event, index, value) {
+		formApi.changePaymentTheInternet(value);
+	}
+
+	handleCheckCutPizza(event) {
+		formApi.checkCutPizza(event.target.checked);
 	}
 
 	handleDeleteProductFromCart(product) {
@@ -36,7 +98,20 @@ class Checkout extends React.Component {
 	}
 
 	handleSendOrderForm() {
-		cartApi.sendOrderForm();
+		cartApi.sendOrderForm(
+			this.props.name,
+			this.props.email,
+			this.props.phone,
+			this.props.city,
+			this.props.street,
+			this.props.house,
+			this.props.apartment,
+			this.props.access,
+			this.props.floor,
+			this.props.additionalInformation,
+			this.props.paymentTheInternet,
+			this.props.isCheckCutPizza
+		);
 	}
 
 	render() {
@@ -45,9 +120,23 @@ class Checkout extends React.Component {
 				<div className="row">
 					<OrderForm
 						dataSource={this.state.dataSource}
-						value={this.state.value}
-						handleChange={this.handleChange}
+						paymentTheInternet={this.props.paymentTheInternet}
 						isThanks={this.props.isThanks}
+						handleUpdateInputName={this.handleUpdateInputName}
+						handleUpdateInputEmail={this.handleUpdateInputEmail}
+						handleUpdateInputPhone={this.handleUpdateInputPhone}
+						handleUpdateInputCity={this.handleUpdateInputCity}
+						handleUpdateInputStreet={this.handleUpdateInputStreet}
+						handleUpdateInputHouse={this.handleUpdateInputHouse}
+						handleUpdateInputApartment={this.handleUpdateInputApartment}
+						handleUpdateInputAccess={this.handleUpdateInputAccess}
+						handleUpdateInputFloor={this.handleUpdateInputFloor}
+						handleUpdateAdditionalInformation={
+							this.handleUpdateAdditionalInformation
+						}
+						handleChangePaymentTheInternet={this.handleChangePaymentTheInternet}
+						handleCheckCutPizza={this.handleCheckCutPizza}
+						handleSendOrderForm={this.handleSendOrderForm}
 					/>
 					<Cart
 						cart={this.props.cart}
@@ -65,7 +154,19 @@ const mapStateToProps = store => {
 		products: store.productState.products,
 		cart: store.cartState.cart,
 		totalPrice: store.cartState.totalPrice,
-		isThanks: store.cartState.isThanks
+		isThanks: store.cartState.isThanks,
+		name: store.formState.name,
+		email: store.formState.email,
+		phone: store.formState.phone,
+		city: store.formState.city,
+		street: store.formState.street,
+		house: store.formState.house,
+		apartment: store.formState.apartment,
+		access: store.formState.access,
+		floor: store.formState.floor,
+        additionalInformation: store.formState.additionalInformation,
+        paymentTheInternet: store.formState.paymentTheInternet,
+        isCheckCutPizza: store.formState.isCheckCutPizza
 	};
 };
 

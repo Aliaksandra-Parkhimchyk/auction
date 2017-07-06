@@ -19,9 +19,9 @@ class ProductListContainer extends React.Component {
 			dataSource: []
 		};
 
-		this.onChange = this.onChange.bind(this);
-		this.onCheck = this.onCheck.bind(this);
-		this.handleUpdateInput = this.handleUpdateInput.bind(this);
+		this.handleFilterBySize = this.handleFilterBySize.bind(this);
+		this.handleFilterByIngredients = this.handleFilterByIngredients.bind(this);
+		this.handleSearchProducts = this.handleSearchProducts.bind(this);
 		this.handleInputChange = this.handleInputChange.bind(this);
 		this.handleAddProductToCart = this.handleAddProductToCart.bind(this);
 		this.handleDeleteProductFromCart = this.handleDeleteProductFromCart.bind(
@@ -29,11 +29,11 @@ class ProductListContainer extends React.Component {
 		);
 	}
 
-	onChange(event, value) {
+	handleFilterBySize(event, value) {
 		productApi.filterBySize(event, value, this.props.products);
 	}
 
-	onCheck(event) {
+	handleFilterByIngredients(event) {
 		productApi.filterByIngredients(
 			event.target.name,
 			this.props.products,
@@ -41,7 +41,7 @@ class ProductListContainer extends React.Component {
 		);
 	}
 
-	handleUpdateInput(value) {
+	handleSearchProducts(value) {
 		productApi.searchProducts(value, this.props.products);
 	}
 
@@ -76,9 +76,9 @@ class ProductListContainer extends React.Component {
 			<div className="container">
 				<ProductFilters
 					dataSource={this.state.dataSource}
-					onChange={this.onChange}
-					onCheck={this.onCheck}
-					handleUpdateInput={this.handleUpdateInput}
+					handleFilterBySize={this.handleFilterBySize}
+					handleFilterByIngredients={this.handleFilterByIngredients}
+					handleSearchProducts={this.handleSearchProducts}
 				/>
 				<ProductList
 					displayedProducts={this.props.displayedProducts}
