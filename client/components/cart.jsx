@@ -28,7 +28,9 @@ export default props => {
 						);
 					})}
 					<p className="total">Total: ${props.totalPrice}</p>
-					<Link className="checkout" to={'/checkout'}>Checkout</Link>
+					{window.location.href.indexOf('/checkout') === -1
+						? <Link className="checkout" to={'/checkout'}>Checkout</Link>
+						: null}
 				</div>
 			</div>
 		: null;
