@@ -55,7 +55,8 @@ export function sendOrderForm(
 	floor,
 	additional_information,
 	payment_the_internet,
-	cut_pizza
+	cut_pizza,
+	order
 ) {
 	let cart = [];
 	let isThanks = true;
@@ -74,7 +75,8 @@ export function sendOrderForm(
 				floor: floor,
 				additional_information: additional_information,
 				payment_the_internet: payment_the_internet,
-				cut_pizza: cut_pizza
+				cut_pizza: cut_pizza,
+				order: order
 			}
 		)
 		.then(function(response) {

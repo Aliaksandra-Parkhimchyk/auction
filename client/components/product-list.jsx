@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-import Cart from './cart.jsx';
+import Cart from './containers/cart.jsx';
 import { Image } from 'material-ui-image';
 import RaisedButton from 'material-ui/RaisedButton';
 

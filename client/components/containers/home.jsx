@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 
 import ProductFilters from '../product-filters.jsx';
 import ProductList from '../product-list.jsx';
-import Cart from '../cart.jsx';
+import Cart from './cart.jsx';
 
 import * as productApi from '../../api/product-api';
 import * as cartApi from '../../api/cart-api';
@@ -25,9 +25,6 @@ class Home extends React.Component {
 		this.handleSearchProducts = this.handleSearchProducts.bind(this);
 		this.handleInputChange = this.handleInputChange.bind(this);
 		this.handleAddProductToCart = this.handleAddProductToCart.bind(this);
-		this.handleDeleteProductFromCart = this.handleDeleteProductFromCart.bind(
-			this
-		);
 	}
 
 	handleFilterBySize(event, value) {
@@ -56,14 +53,8 @@ class Home extends React.Component {
 	}
 
 	handleAddProductToCart(product) {
-		productApi.getProducts();
 		cartApi.addProductToCart(product, this.props.cart);
 		cartApi.getTotalPrice(this.props.cart);
-	}
-
-	handleDeleteProductFromCart(product) {
-		productApi.getProducts();
-		cartApi.deleteProductFromCart(product, this.props.cart);
 	}
 
 	// Сашунька ну как можно быть такой красавицей\ ну Сааааш ну смотрю на тебя и радуюсь ну мур
@@ -84,17 +75,10 @@ class Home extends React.Component {
 				<div className="row">
 					<ProductList
 						displayedProducts={this.props.displayedProducts}
-						cart={this.props.cart}
-						totalPrice={this.props.totalPrice}
 						handleInputChange={this.handleInputChange}
 						handleAddProductToCart={this.handleAddProductToCart}
-						handleDeleteProductFromCart={this.handleDeleteProductFromCart}
 					/>
-					<Cart
-						cart={this.props.cart}
-						handleDeleteProductFromCart={this.handleDeleteProductFromCart}
-						totalPrice={this.props.totalPrice}
-					/>
+					<Cart />
 				</div>
 			</div>
 		);
@@ -106,8 +90,7 @@ const mapStateToProps = store => {
 		products: store.productState.products,
 		displayedProducts: store.productState.displayedProducts,
 		ingredientsChecked: store.productState.ingredientsChecked,
-		cart: store.cartState.cart,
-		totalPrice: store.cartState.totalPrice
+		cart: store.cartState.cart
 	};
 };
 

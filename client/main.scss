@@ -13,30 +13,63 @@ $black: #000;
 $pink900: #880E4F;
 
 div.app {
-	span.logo {
-		text-transform: uppercase;
-
-		&.active, &:hover {
+	.header {
+		span.logo {
 			text-transform: uppercase;
+			&.active, &:hover {
+				text-transform: uppercase;
+			}
+		}
+		ul.header-nav {
+			list-style: none;
+			li {
+				display: inline-block;
+				.nav-item {
+					color: $white;
+					font-size: 20px;
+					text-decoration: none;
+					padding: 10px 20px 37px 20px;
+					cursor: pointer;
+					&.active, &:hover {
+						color: $pink900;
+						background: $white;
+					}
+				}
+			}
 		}
 	}
 
-	ul.header-nav {
-		list-style: none;
+	footer.footer {
+		background: $pink900;
+		padding: 75px 0;
 
-		li {
-			display: inline-block;
+		//position: absolute;
+		//left: 0;
+		//bottom: 0;
+		//width: 100%;
 
-			.nav-item {
-				color: $white;
-				font-size: 20px;
-				text-decoration: none;
-				padding: 10px 20px 37px 20px;
-				cursor: pointer;
-
-				&.active, &:hover {
-					color: $pink900;
-					background: $white;
+		ul.footer-nav {
+			list-style: none;
+			padding-left: 0;
+			li {
+				display: inline-block;
+				margin-right: 18px;
+				&:after {
+					content: '';
+					display: inline-block;
+					width: 20px;
+					height: 10px;
+					// background: url(images/icon11.png) 15px 0 no-repeat;
+				}
+				&:last-child:after {
+					content: '';
+					display: none;
+					margin-right: 0;
+				}
+				a {
+					cursor: pointer;
+					color: $white;
+					font-size: 14px;
 				}
 			}
 		}

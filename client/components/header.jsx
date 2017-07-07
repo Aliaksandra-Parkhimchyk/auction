@@ -40,7 +40,7 @@ export default props => {
 				</li>
 				<li>
 					<Link className="nav-item" activeClassName="active" to="/contact-us">
-						Contact us
+						Contact Us
 					</Link>
 				</li>
 			</ul>

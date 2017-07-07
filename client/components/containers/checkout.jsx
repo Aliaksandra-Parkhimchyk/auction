@@ -10,7 +10,7 @@ import * as cartApi from '../../api/cart-api';
 import * as formApi from '../../api/form-api';
 
 import OrderForm from '../order-form.jsx';
-import Cart from '../cart.jsx';
+import Cart from './cart.jsx';
 
 class Checkout extends React.Component {
 	constructor(props) {
@@ -38,9 +38,6 @@ class Checkout extends React.Component {
 			this
 		);
 		this.handleCheckCutPizza = this.handleCheckCutPizza.bind(this);
-		this.handleDeleteProductFromCart = this.handleDeleteProductFromCart.bind(
-			this
-		);
 		this.handleSendOrderForm = this.handleSendOrderForm.bind(this);
 	}
 
@@ -92,11 +89,6 @@ class Checkout extends React.Component {
 		formApi.checkCutPizza(event.target.checked);
 	}
 
-	handleDeleteProductFromCart(product) {
-		productApi.getProducts();
-		cartApi.deleteProductFromCart(product, this.props.cart);
-	}
-
 	handleSendOrderForm() {
 		cartApi.sendOrderForm(
 			this.props.name,
@@ -110,7 +102,8 @@ class Checkout extends React.Component {
 			this.props.floor,
 			this.props.additionalInformation,
 			this.props.paymentTheInternet,
-			this.props.isCheckCutPizza
+			this.props.isCheckCutPizza,
+			this.props.cart
 		);
 	}
 
@@ -138,11 +131,7 @@ class Checkout extends React.Component {
 						handleCheckCutPizza={this.handleCheckCutPizza}
 						handleSendOrderForm={this.handleSendOrderForm}
 					/>
-					<Cart
-						cart={this.props.cart}
-						handleDeleteProductFromCart={this.handleDeleteProductFromCart}
-						totalPrice={this.props.totalPrice}
-					/>
+					<Cart />
 				</div>
 			</div>
 		);
@@ -153,7 +142,6 @@ const mapStateToProps = store => {
 	return {
 		products: store.productState.products,
 		cart: store.cartState.cart,
-		totalPrice: store.cartState.totalPrice,
 		isThanks: store.cartState.isThanks,
 		name: store.formState.name,
 		email: store.formState.email,

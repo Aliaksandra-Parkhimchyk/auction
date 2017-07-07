@@ -18,6 +18,10 @@ import About from './components/containers/about.jsx';
 import ContactUs from './components/containers/contact-us.jsx';
 import Delivery from './components/containers/delivery.jsx';
 import Checkout from './components/containers/checkout.jsx';
+import Orders from './components/containers/orders.jsx';
+import Login from './components/containers/login.jsx';
+import Logout from './components/containers/logout.jsx';
+import SignUp from './components/containers/signup.jsx';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
@@ -47,14 +51,13 @@ class MainLayout extends React.Component {
 	render() {
 		return (
 			<div className="app">
-
 				<AppBar
+					className="header"
 					style={styles.appBar}
 					title={
 						<span className="logo" style={styles.appBarTitle}>Site Name</span>
 					}
 				>
-
 					<ul className="header-nav">
 						<li>
 							<Link className="nav-item" activeClassName="active" to="/">
@@ -81,17 +84,122 @@ class MainLayout extends React.Component {
 								activeClassName="active"
 								to="/contact-us"
 							>
-								Contact us
+								Contact Us
 							</Link>
 						</li>
 					</ul>
 
 				</AppBar>
 
-				<Paper style={styles.paper} zDepth={5}>
+				<Paper className="main-section" style={styles.paper} zDepth={5}>
 					{this.props.children}
 				</Paper>
 
+				<footer className="footer">
+					<div className="container">
+						<div className="row">
+							<div className="col-md-8">
+								<nav className="footer_nav">
+									<ul className="footer-nav">
+										<li>
+											<Link
+												className="nav-item"
+												activeClassName="active"
+												to="/"
+											>
+												Home
+											</Link>
+										</li>
+										<li>
+											<Link
+												className="nav-item"
+												activeClassName="active"
+												to="/about"
+											>
+												About
+											</Link>
+										</li>
+										<li>
+											<Link
+												className="nav-item"
+												activeClassName="active"
+												to="/delivery"
+											>
+												Delivery
+											</Link>
+										</li>
+										<li>
+											<Link
+												className="nav-item"
+												activeClassName="active"
+												to="/contact-us"
+											>
+												Contact Us
+											</Link>
+										</li>
+										<li>
+											<Link
+												className="nav-item"
+												activeClassName="active"
+												to="/orders"
+											>
+												Orders
+											</Link>
+										</li>
+										<li>
+											<Link
+												className="nav-item"
+												activeClassName="active"
+												to="login"
+											>
+												Login
+											</Link>
+										</li>
+										<li>
+											<Link
+												className="nav-item"
+												activeClassName="active"
+												to="/logout"
+											>
+												Logout
+											</Link>
+										</li>
+									</ul>
+								</nav>
+								<small className="copyright">
+									<span>Designed by: </span>
+									<a href="#" className="design">
+										www.alltemplateneeds.com
+										/{' '}
+									</a>Images from:{' '}
+									<a href="#" className="images">
+										www.wallpaperswide.com /{' '}
+									</a>Copyright(c) website
+									name.
+								</small>
+							</div>
+							<div className="col-md-2 col-md-offset-2">
+								<figure className="footer_icons">
+									<a href="https://www.facebook.com/">
+										<div className="circle">
+											<i className="icon-facebook" />
+										</div>
+									</a>
+									<a href="https://twitter.com/?lang=ru">
+										<div className="circle">
+											<i className="icon-twitter" />
+										</div>
+									</a>
+									<a href="https://www.linkedin.com/nhome/">
+										<div className="circle">
+											<i className="icon-linkedin" />
+										</div>
+									</a>
+								</figure>
+							</div>
+						</div>
+					</div>
+				</footer>
 			</div>
 		);
 	}
@@ -107,6 +215,10 @@ ReactDOM.render(
 					<Route path="delivery" component={Delivery} />
 					<Route path="contact-us" component={ContactUs} />
 					<Route path="checkout" component={Checkout} />
+					<Route path="orders" component={Orders} />
+					<Route path="login" component={Login} />
+					<Route path="logout" component={Logout} />
+					<Route path="sign-up" component={SignUp} />
 				</Route>
 			</Router>
 		</MuiThemeProvider>
