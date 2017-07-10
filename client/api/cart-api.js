@@ -83,3 +83,19 @@ export function sendOrderForm(
 			store.dispatch(actionCreators.actionCreatorSendOrderForm(cart, isThanks));
 		});
 }
+
+export function sendContactUsForm(name, email, query) {
+	let isThanksForQuery = true;
+	return axios
+		.post(
+			'https://api.mlab.com/api/1/databases/pizzashop/collections/contact-us-forms?apiKey=9BGZZA0zukVJrmfAYnnLeG7V2DiUQNY_',
+			{
+				name: name,
+				email: email,
+				query: query
+			}
+		)
+		.then(function(response) {
+			store.dispatch(actionCreators.actionCreatorSendContactUsForm(isThanksForQuery));
+		});
+}

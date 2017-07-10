@@ -5,7 +5,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import * as productApi from '../../api/product-api';
 import * as cartApi from '../../api/cart-api';
 import * as formApi from '../../api/form-api';
 

@@ -9,7 +9,7 @@ import Thanks from './thanks.jsx';
 
 export default props => {
 	return props.isThanks
-		? <Thanks isThanks={props.isThanks} />
+		? <Thanks template="purchase" />
 		: <div className="col-md-9">
 				<div className="order-form">
 					<h1>Order Form</h1>

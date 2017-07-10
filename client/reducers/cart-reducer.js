@@ -7,7 +7,8 @@ import * as types from '../actions/action-types';
 const initialState = {
 	cart: [],
 	totalPrice: 0,
-	isThanks: false
+	isThanks: false,
+	isThanksForQuery: false
 };
 
 const cartReducer = (state = initialState, action) => {
@@ -28,6 +29,11 @@ const cartReducer = (state = initialState, action) => {
 			return Object.assign({}, state, {
 				cart: action.cart,
 				isThanks: action.isThanks
+			});
+
+		case types.SEND_CONTACT_US_FORM:
+			return Object.assign({}, state, {
+				isThanksForQuery: action.isThanksForQuery
 			});
 	}
 
