@@ -16,7 +16,8 @@ const initialState = {
 	floor: '',
 	additionalInformation: '',
 	paymentTheInternet: '1',
-	isCheckCutPizza: false
+	isCheckCutPizza: false,
+	password: ''
 };
 
 const formReducer = (state = initialState, action) => {
@@ -62,6 +63,9 @@ const formReducer = (state = initialState, action) => {
 			return Object.assign({}, state, {
 				isCheckCutPizza: action.isCheckCutPizza
 			});
+
+		case types.UPDATE_INPUT_PASSWORD:
+			return Object.assign({}, state, { password: action.password });
 	}
 
 	return state;

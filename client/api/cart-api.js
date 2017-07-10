@@ -59,7 +59,7 @@ export function sendOrderForm(
 	order
 ) {
 	let cart = [];
-	let isThanks = true;
+	let isThanksForPurchase = true;
 	return axios
 		.post(
 			'https://api.mlab.com/api/1/databases/pizzashop/collections/forms?apiKey=9BGZZA0zukVJrmfAYnnLeG7V2DiUQNY_',
@@ -80,7 +80,9 @@ export function sendOrderForm(
 			}
 		)
 		.then(function(response) {
-			store.dispatch(actionCreators.actionCreatorSendOrderForm(cart, isThanks));
+			store.dispatch(
+				actionCreators.actionCreatorSendOrderForm(cart, isThanksForPurchase)
+			);
 		});
 }
 
@@ -96,6 +98,8 @@ export function sendContactUsForm(name, email, query) {
 			}
 		)
 		.then(function(response) {
-			store.dispatch(actionCreators.actionCreatorSendContactUsForm(isThanksForQuery));
+			store.dispatch(
+				actionCreators.actionCreatorSendContactUsForm(isThanksForQuery)
+			);
 		});
 }

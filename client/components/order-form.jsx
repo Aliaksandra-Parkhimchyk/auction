@@ -8,7 +8,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Thanks from './thanks.jsx';
 
 export default props => {
-	return props.isThanks
+	return props.isThanksForPurchase
 		? <Thanks template="purchase" />
 		: <div className="col-md-9">
 				<div className="order-form">

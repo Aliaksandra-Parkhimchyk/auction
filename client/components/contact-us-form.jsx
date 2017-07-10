@@ -8,7 +8,7 @@ export default props => {
 	return props.isThanksForQuery
 		? <Thanks template="query" />
 		: <div className="col-md-9">
-				<div className="order-form">
+				<div className="contact-us-form">
 					<h1>Contact Us Form</h1>
 					<AutoComplete
 						hintText="Name..."

@@ -113,7 +113,7 @@ class Checkout extends React.Component {
 					<OrderForm
 						dataSource={this.state.dataSource}
 						paymentTheInternet={this.props.paymentTheInternet}
-						isThanks={this.props.isThanks}
+						isThanksForPurchase={this.props.isThanksForPurchase}
 						handleUpdateInputName={this.handleUpdateInputName}
 						handleUpdateInputEmail={this.handleUpdateInputEmail}
 						handleUpdateInputPhone={this.handleUpdateInputPhone}
@@ -141,7 +141,7 @@ const mapStateToProps = store => {
 	return {
 		products: store.productState.products,
 		cart: store.cartState.cart,
-		isThanks: store.cartState.isThanks,
+		isThanksForPurchase: store.cartState.isThanksForPurchase,
 		name: store.formState.name,
 		email: store.formState.email,
 		phone: store.formState.phone,

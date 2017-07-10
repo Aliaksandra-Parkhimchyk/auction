@@ -62,3 +62,9 @@ export function checkCutPizza(isCheckCutPizza) {
 		actionCreators.actionCreatorCheckCutPizza(isCheckCutPizza)
 	);
 }
+
+export function updateInputPassword(password) {
+	return store.dispatch(
+		actionCreators.actionCreatorUpdateInputPassword(password)
+	);
+}

@@ -32,11 +32,11 @@ export function actionCreatorGetTotalPrice(totalPrice) {
 	};
 }
 
-export function actionCreatorSendOrderForm(cart, isThanks) {
+export function actionCreatorSendOrderForm(cart, isThanksForPurchase) {
 	return {
 		type: types.SEND_ORDER_FORM,
 		cart: cart,
-		isThanks: isThanks
+		isThanksForPurchase: isThanksForPurchase
 	};
 }
 

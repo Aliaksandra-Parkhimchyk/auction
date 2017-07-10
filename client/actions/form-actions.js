@@ -87,3 +87,10 @@ export function actionCreatorCheckCutPizza(isCheckCutPizza) {
 		isCheckCutPizza: isCheckCutPizza
 	};
 }
+
+export function actionCreatorUpdateInputPassword(password) {
+	return {
+		type: types.UPDATE_INPUT_PASSWORD,
+		password: password
+	};
+}
