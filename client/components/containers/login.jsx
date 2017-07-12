@@ -44,10 +44,11 @@ class Login extends React.Component {
 
 	componentDidMount() {
 		signUpApi.getRegisteredUsers();
+		loginLogoutApi.getCurrentUser();
 	}
 
 	render() {
-		return !this.props.isLogin
+		return !this.props.currentUser
 			? <div className="container">
 					<div className="row">
 						<LoginForm
@@ -55,7 +56,6 @@ class Login extends React.Component {
 							handleUpdateInputName={this.handleUpdateInputName}
 							handleUpdateInputPassword={this.handleUpdateInputPassword}
 							handleLogin={this.handleLogin}
-							isLogin={this.props.isLogin}
 						/>
 						<Cart />
 					</div>
@@ -69,7 +69,7 @@ const mapStateToProps = store => {
 		name: store.formState.name,
 		password: store.formState.password,
 		registered_users: store.signUpState.registered_users,
-		isLogin: store.loginLogoutState.isLogin
+		currentUser: store.loginLogoutState.currentUser
 	};
 };
 

@@ -9,7 +9,7 @@ import store from '../store';
 import * as actionCreators from '../actions/login-logout-actions';
 
 export function login(registered_users, name, password) {
-	let isLogin = false;
+	let currentUser = '';
 	registered_users.forEach(registered_user => {
 		if (
 			registered_user.hasOwnProperty('name') &&
@@ -18,20 +18,20 @@ export function login(registered_users, name, password) {
 			registered_user.password === password
 		) {
 			// window.location.href = '/orders';
-			browserHistory.push('/orders');
 			localStorage.setItem('currentUser', name);
-			isLogin = true;
+			browserHistory.push('/orders');
+			currentUser = name;
 		}
-		return isLogin;
+		return currentUser;
 	});
 
-	return store.dispatch(actionCreators.actionCreatorLogin(isLogin));
+	return store.dispatch(actionCreators.actionCreatorLogin(currentUser));
 }
 
 export function logout() {
-	let isLogin = false;
+	let currentUser = '';
 	localStorage.clear();
-	return store.dispatch(actionCreators.actionCreatorLogout(isLogin));
+	return store.dispatch(actionCreators.actionCreatorLogout(currentUser));
 }
 
 export function getCurrentUser() {

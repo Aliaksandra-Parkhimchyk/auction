@@ -5,7 +5,6 @@
 import * as types from '../actions/action-types';
 
 const initialState = {
-	isLogin: false,
 	currentUser: ''
 };
 
@@ -13,12 +12,12 @@ const LoginLogoutReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case types.LOGIN:
 			return Object.assign({}, state, {
-				isLogin: action.isLogin
+				currentUser: action.currentUser
 			});
 
 		case types.LOGOUT:
 			return Object.assign({}, state, {
-				isLogin: action.isLogin
+				currentUser: action.currentUser
 			});
 
 		case types.GET_CURRENT_USER:

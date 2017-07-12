@@ -141,7 +141,7 @@ class MainLayout extends React.Component {
 												Contact Us
 											</Link>
 										</li>
-										{this.props.isLogin
+										{this.props.currentUser
 											? <li>
 													<Link
 														className="nav-item"
@@ -152,7 +152,7 @@ class MainLayout extends React.Component {
 													</Link>
 												</li>
 											: null}
-										{!this.props.isLogin
+										{!this.props.currentUser
 											? <li>
 													<Link
 														className="nav-item"
@@ -163,7 +163,7 @@ class MainLayout extends React.Component {
 													</Link>
 												</li>
 											: null}
-										{this.props.isLogin
+										{this.props.currentUser
 											? <li>
 													<Link
 														className="nav-item"
@@ -219,7 +219,6 @@ class MainLayout extends React.Component {
 
 const mapStateToProps = store => {
 	return {
-		isLogin: store.loginLogoutState.isLogin,
 		currentUser: store.loginLogoutState.currentUser
 	};
 };

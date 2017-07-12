@@ -6,6 +6,8 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 
+import * as loginLogoutApi from '../../api/login-logout-api';
+
 import OrdersList from '../orders-list.jsx';
 import Cart from './cart.jsx';
 
@@ -14,8 +16,12 @@ class Orders extends React.Component {
 		super(props);
 	}
 
+	componentDidMount() {
+		loginLogoutApi.getCurrentUser();
+	}
+
 	render() {
-		return this.props.isLogin
+		return this.props.currentUser
 			? <div className="container">
 					<div className="row">
 						<OrdersList
@@ -32,8 +38,7 @@ class Orders extends React.Component {
 const mapStateToProps = store => {
 	return {
 		cart: store.cartState.cart,
-		currentUser: store.loginLogoutState.currentUser,
-		isLogin: store.loginLogoutState.isLogin
+		currentUser: store.loginLogoutState.currentUser
 	};
 };
 

@@ -4,17 +4,17 @@
 
 import * as types from '../actions/action-types';
 
-export function actionCreatorLogin(isLogin) {
+export function actionCreatorLogin(currentUser) {
 	return {
 		type: types.LOGIN,
-		isLogin: isLogin
+		currentUser: currentUser
 	};
 }
 
-export function actionCreatorLogout(isLogin) {
+export function actionCreatorLogout(currentUser) {
 	return {
 		type: types.LOGOUT,
-		isLogin: isLogin
+		currentUser: currentUser
 	};
 }
 
