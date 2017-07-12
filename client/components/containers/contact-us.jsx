@@ -50,6 +50,7 @@ class ContactUs extends React.Component {
 			<div className="container">
 				<div className="row">
 					<ContactUsForm
+						cart={this.props.cart}
 						dataSource={this.state.dataSource}
 						isThanksForQuery={this.props.isThanksForQuery}
 						handleUpdateInputName={this.handleUpdateInputName}
@@ -66,6 +67,7 @@ class ContactUs extends React.Component {
 
 const mapStateToProps = store => {
 	return {
+		cart: store.cartState.cart,
 		isThanksForQuery: store.cartState.isThanksForQuery,
 		name: store.formState.name,
 		email: store.formState.email,

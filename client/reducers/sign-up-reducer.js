@@ -5,7 +5,8 @@
 import * as types from '../actions/action-types';
 
 const initialState = {
-	isThanksForRegistration: false
+	isThanksForRegistration: false,
+	registered_users: []
 };
 
 const signUpReducer = (state = initialState, action) => {
@@ -13,6 +14,11 @@ const signUpReducer = (state = initialState, action) => {
 		case types.SIGN_UP_FORM:
 			return Object.assign({}, state, {
 				isThanksForRegistration: action.isThanksForRegistration
+			});
+
+		case types.GET_REGISTERED_USERS:
+			return Object.assign({}, state, {
+				registered_users: action.registered_users
 			});
 	}
 

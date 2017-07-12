@@ -7,10 +7,6 @@ import store from '../store';
 import * as actionCreators from '../actions/cart-actions';
 import _ from 'lodash';
 
-export function getCart(cart) {
-	return store.dispatch(actionCreators.actionCreatorGetCartSuccess(cart));
-}
-
 export function addProductToCart(product, cart) {
 	let obj = _.find(cart, o => {
 		return o.id === product.id;
@@ -90,7 +86,7 @@ export function sendContactUsForm(name, email, query) {
 	let isThanksForQuery = true;
 	return axios
 		.post(
-			'https://api.mlab.com/api/1/databases/pizzashop/collections/contact-us-forms?apiKey=9BGZZA0zukVJrmfAYnnLeG7V2DiUQNY_',
+			'https://api.mlab.com/api/1/databases/pizzashop/collections/contact_us_forms?apiKey=9BGZZA0zukVJrmfAYnnLeG7V2DiUQNY_',
 			{
 				name: name,
 				email: email,

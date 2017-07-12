@@ -94,6 +94,7 @@ class SignUp extends React.Component {
 			<div className="container">
 				<div className="row">
 					<SignUpForm
+						cart={this.props.cart}
 						dataSource={this.state.dataSource}
 						isThanksForRegistration={this.props.isThanksForRegistration}
 						handleUpdateInputName={this.handleUpdateInputName}
@@ -117,6 +118,7 @@ class SignUp extends React.Component {
 
 const mapStateToProps = store => {
 	return {
+		cart: store.cartState.cart,
 		isThanksForRegistration: store.signUpState.isThanksForRegistration,
 		name: store.formState.name,
 		email: store.formState.email,

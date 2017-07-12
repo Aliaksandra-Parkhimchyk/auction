@@ -13,14 +13,20 @@ export default props => {
 					dataSource={props.dataSource}
 					floatingLabelText="Name..."
 					fullWidth={true}
+					onUpdateInput={props.handleUpdateInputName}
 				/>
 				<AutoComplete
 					hintText="Password..."
 					dataSource={props.dataSource}
 					floatingLabelText="Password..."
 					fullWidth={true}
+					onUpdateInput={props.handleUpdateInputPassword}
 				/>
-				<RaisedButton label="Login" className="login" />
+				<RaisedButton
+					label="Login"
+					className="login"
+					onTouchTap={props.handleLogin}
+				/>
 				<Link className="sign-up" to={'/sign-up'}>Sign Up</Link>
 			</div>
 		</div>

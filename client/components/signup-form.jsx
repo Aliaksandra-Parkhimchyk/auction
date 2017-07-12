@@ -5,7 +5,7 @@ import Thanks from './thanks.jsx';
 
 export default props => {
 	return props.isThanksForRegistration
-		? <Thanks template="registration" />
+		? <Thanks template="registration" cart={props.cart} />
 		: <div className="col-md-9">
 				<div className="sign-up-form">
 					<h1>Registration Form</h1>

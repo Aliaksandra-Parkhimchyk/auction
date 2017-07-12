@@ -6,7 +6,7 @@ import Thanks from './thanks.jsx';
 
 export default props => {
 	return props.isThanksForQuery
-		? <Thanks template="query" />
+		? <Thanks template="query" cart={props.cart} />
 		: <div className="col-md-9">
 				<div className="contact-us-form">
 					<h1>Contact Us Form</h1>

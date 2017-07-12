@@ -24,7 +24,7 @@ class Cart extends React.Component {
 	}
 
 	render() {
-		return this.props.cart.length > 0
+		return this.props.cart && this.props.cart.length > 0
 			? <div className="col-md-3">
 					<div className="cart">
 						<h3>Your cart</h3>

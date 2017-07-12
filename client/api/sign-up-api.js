@@ -18,7 +18,6 @@ export function sendSignUpForm(
 	floor,
 	password
 ) {
-	let cart = [];
 	let isThanksForRegistration = true;
 	return axios
 		.post(
@@ -40,5 +39,18 @@ export function sendSignUpForm(
 			store.dispatch(
 				actionCreators.actionCreatorSignUpForm(isThanksForRegistration)
 			);
+		});
+}
+
+export function getRegisteredUsers() {
+	return axios
+		.get(
+			'https://api.mlab.com/api/1/databases/pizzashop/collections/registered_users?apiKey=9BGZZA0zukVJrmfAYnnLeG7V2DiUQNY_'
+		)
+		.then(response => {
+			store.dispatch(
+				actionCreators.actionCreatorGetRegisteredUsers(response.data)
+			);
+			return response.data;
 		});
 }

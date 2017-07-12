@@ -12,6 +12,13 @@ export default props => {
 			{window.location.href.indexOf('/checkout') !== -1
 				? <RaisedButton className="try-again" href="/" label="Try again" />
 				: null}
+			{props.cart && props.cart.length === 0
+				? <RaisedButton
+						className="start-shopping"
+						href="/"
+						label="Start shopping"
+					/>
+				: null}
 		</div>
 	);
 };

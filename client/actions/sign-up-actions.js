@@ -10,3 +10,10 @@ export function actionCreatorSignUpForm(isThanksForRegistration) {
 		isThanksForRegistration: isThanksForRegistration
 	};
 }
+
+export function actionCreatorGetRegisteredUsers(registered_users) {
+	return {
+		type: types.GET_REGISTERED_USERS,
+		registered_users: registered_users
+	};
+}

@@ -32,5 +32,9 @@ export const CHECK_CUT_PIZZA = 'CHECK_CUT_PIZZA';
 export const SEND_CONTACT_US_FORM = 'SEND_CONTACT_US_FORM';
 
 export const UPDATE_INPUT_PASSWORD = 'UPDATE_INPUT_PASSWORD';
-
 export const SIGN_UP_FORM = 'SIGN_UP_FORM';
+export const GET_REGISTERED_USERS = 'GET_REGISTERED_USERS';
+
+export const LOGIN = 'LOGIN';
+export const LOGOUT = 'LOGOUT';
+export const GET_CURRENT_USER = 'GET_CURRENT_USER';
