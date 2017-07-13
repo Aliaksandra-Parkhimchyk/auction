@@ -64,20 +64,34 @@ class MainLayout extends React.Component {
 				>
 					<ul className="header-nav">
 						<li>
-							<Link className="nav-item" activeClassName="active" to="/">
+							<Link
+								className="nav-item"
+								to="/"
+								activeClassName={
+									window.location.pathname === '/' ? 'active' : ''
+								}
+							>
 								Home
 							</Link>
 						</li>
 						<li>
-							<Link className="nav-item" activeClassName="active" to="/about">
+							<Link
+								className="nav-item"
+								to="/about"
+								activeClassName={
+									window.location.pathname === '/about' ? 'active' : ''
+								}
+							>
 								About
 							</Link>
 						</li>
 						<li>
 							<Link
 								className="nav-item"
-								activeClassName="active"
 								to="/delivery"
+								activeClassName={
+									window.location.pathname === '/delivery' ? 'active' : ''
+								}
 							>
 								Delivery
 							</Link>
@@ -85,8 +99,10 @@ class MainLayout extends React.Component {
 						<li>
 							<Link
 								className="nav-item"
-								activeClassName="active"
 								to="/contact-us"
+								activeClassName={
+									window.location.pathname === '/contact-us' ? 'active' : ''
+								}
 							>
 								Contact Us
 							</Link>
@@ -108,8 +124,10 @@ class MainLayout extends React.Component {
 										<li>
 											<Link
 												className="nav-item"
-												activeClassName="active"
 												to="/"
+												activeClassName={
+													window.location.pathname === '/' ? 'active' : ''
+												}
 											>
 												Home
 											</Link>
@@ -117,8 +135,10 @@ class MainLayout extends React.Component {
 										<li>
 											<Link
 												className="nav-item"
-												activeClassName="active"
 												to="/about"
+												activeClassName={
+													window.location.pathname === '/about' ? 'active' : ''
+												}
 											>
 												About
 											</Link>
@@ -126,8 +146,12 @@ class MainLayout extends React.Component {
 										<li>
 											<Link
 												className="nav-item"
-												activeClassName="active"
 												to="/delivery"
+												activeClassName={
+													window.location.pathname === '/delivery'
+														? 'active'
+														: ''
+												}
 											>
 												Delivery
 											</Link>
@@ -135,8 +159,12 @@ class MainLayout extends React.Component {
 										<li>
 											<Link
 												className="nav-item"
-												activeClassName="active"
 												to="/contact-us"
+												activeClassName={
+													window.location.pathname === '/contact-us'
+														? 'active'
+														: ''
+												}
 											>
 												Contact Us
 											</Link>
@@ -145,8 +173,12 @@ class MainLayout extends React.Component {
 											? <li>
 													<Link
 														className="nav-item"
-														activeClassName="active"
 														to="/orders"
+														activeClassName={
+															window.location.pathname === '/orders'
+																? 'active'
+																: ''
+														}
 													>
 														Orders
 													</Link>
@@ -156,8 +188,12 @@ class MainLayout extends React.Component {
 											? <li>
 													<Link
 														className="nav-item"
-														activeClassName="active"
 														to="login"
+														activeClassName={
+															window.location.pathname === '/login'
+																? 'active'
+																: ''
+														}
 													>
 														Login
 													</Link>
@@ -167,7 +203,6 @@ class MainLayout extends React.Component {
 											? <li>
 													<Link
 														className="nav-item"
-														activeClassName="active"
 														to="/"
 														onClick={this.handleLogout}
 													>
