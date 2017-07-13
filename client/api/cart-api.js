@@ -31,6 +31,8 @@ export function deleteProductFromCart(product, cart) {
 	let index = cart.indexOf(product);
 	cart.splice(index, 1);
 
+	localStorage.setItem('cart', JSON.stringify(cart));
+
 	return store.dispatch(
 		actionCreators.actionCreatorDeleteProductFromCart(cart)
 	);
