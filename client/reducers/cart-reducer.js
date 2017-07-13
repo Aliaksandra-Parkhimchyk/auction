@@ -5,8 +5,8 @@
 import * as types from '../actions/action-types';
 
 const initialState = {
-	cart: [],
-	totalPrice: 0,
+	cart: JSON.parse(localStorage.getItem('cart')),
+	totalPrice: localStorage.getItem('totalPrice'),
 	isThanksForPurchase: false,
 	isThanksForQuery: false
 };

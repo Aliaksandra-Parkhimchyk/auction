@@ -20,6 +20,7 @@ class Cart extends React.Component {
 
 	handleDeleteProductFromCart(product) {
 		cartApi.deleteProductFromCart(product, this.props.cart);
+		cartApi.getTotalPrice(this.props.cart);
 		this.forceUpdate();
 	}
 

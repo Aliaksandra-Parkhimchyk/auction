@@ -12,11 +12,17 @@ export function addProductToCart(product, cart) {
 		return o.id === product.id;
 	});
 
+	if (!cart) {
+		cart = [];
+	}
+
 	if (cart.length === 0 || !obj) {
 		cart.push(product);
 	} else {
 		obj.num = product.num;
 	}
+
+	localStorage.setItem('cart', JSON.stringify(cart));
 
 	return store.dispatch(actionCreators.actionCreatorAddProductToCart(cart));
 }
@@ -32,9 +38,16 @@ export function deleteProductFromCart(product, cart) {
 
 export function getTotalPrice(cart) {
 	let totalPrice = 0;
+
+	if (!cart) {
+		return null;
+	}
+
 	cart.forEach(item => {
 		return (totalPrice += item.num * item.price);
 	});
+
+	localStorage.setItem('totalPrice', totalPrice);
 
 	return store.dispatch(actionCreators.actionCreatorGetTotalPrice(totalPrice));
 }
@@ -56,6 +69,7 @@ export function sendOrderForm(
 ) {
 	let cart = [];
 	let isThanksForPurchase = true;
+	localStorage.removeItem('cart');
 	return axios
 		.post(
 			'https://api.mlab.com/api/1/databases/pizzashop/collections/forms?apiKey=9BGZZA0zukVJrmfAYnnLeG7V2DiUQNY_',
