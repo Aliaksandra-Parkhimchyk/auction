@@ -17,10 +17,6 @@ class Login extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {
-			dataSource: []
-		};
-
 		this.handleUpdateInputName = this.handleUpdateInputName.bind(this);
 		this.handleUpdateInputPassword = this.handleUpdateInputPassword.bind(this);
 		this.handleLogin = this.handleLogin.bind(this);
@@ -35,11 +31,8 @@ class Login extends React.Component {
 	}
 
 	handleLogin() {
-		loginLogoutApi.login(
-			this.props.registered_users,
-			this.props.name,
-			this.props.password
-		);
+		const { registered_users, name, password } = this.props;
+		loginLogoutApi.login(registered_users, name, password);
 	}
 
 	componentDidMount() {
@@ -48,11 +41,11 @@ class Login extends React.Component {
 	}
 
 	render() {
-		return !this.props.currentUser
+		const { currentUser } = this.props;
+		return !currentUser
 			? <div className="container">
 					<div className="row">
 						<LoginForm
-							dataSource={this.state.dataSource}
 							handleUpdateInputName={this.handleUpdateInputName}
 							handleUpdateInputPassword={this.handleUpdateInputPassword}
 							handleLogin={this.handleLogin}

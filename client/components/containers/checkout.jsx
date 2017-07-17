@@ -15,10 +15,6 @@ class Checkout extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {
-			dataSource: []
-		};
-
 		this.handleUpdateInputName = this.handleUpdateInputName.bind(this);
 		this.handleUpdateInputEmail = this.handleUpdateInputEmail.bind(this);
 		this.handleUpdateInputPhone = this.handleUpdateInputPhone.bind(this);
@@ -89,31 +85,47 @@ class Checkout extends React.Component {
 	}
 
 	handleSendOrderForm() {
+		const {
+			name,
+			email,
+			phone,
+			city,
+			street,
+			house,
+			apartment,
+			access,
+			floor,
+			additionalInformation,
+			paymentTheInternet,
+			isCheckCutPizza,
+			cart
+		} = this.props;
+
 		cartApi.sendOrderForm(
-			this.props.name,
-			this.props.email,
-			this.props.phone,
-			this.props.city,
-			this.props.street,
-			this.props.house,
-			this.props.apartment,
-			this.props.access,
-			this.props.floor,
-			this.props.additionalInformation,
-			this.props.paymentTheInternet,
-			this.props.isCheckCutPizza,
-			this.props.cart
+			name,
+			email,
+			phone,
+			city,
+			street,
+			house,
+			apartment,
+			access,
+			floor,
+			additionalInformation,
+			paymentTheInternet,
+			isCheckCutPizza,
+			cart
 		);
 	}
 
 	render() {
+		const { paymentTheInternet, isThanksForPurchase } = this.props;
 		return (
 			<div className="container">
 				<div className="row">
 					<OrderForm
-						dataSource={this.state.dataSource}
-						paymentTheInternet={this.props.paymentTheInternet}
-						isThanksForPurchase={this.props.isThanksForPurchase}
+						paymentTheInternet={paymentTheInternet}
+						isThanksForPurchase={isThanksForPurchase}
 						handleUpdateInputName={this.handleUpdateInputName}
 						handleUpdateInputEmail={this.handleUpdateInputEmail}
 						handleUpdateInputPhone={this.handleUpdateInputPhone}

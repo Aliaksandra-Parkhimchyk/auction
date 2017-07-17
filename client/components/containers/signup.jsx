@@ -15,10 +15,6 @@ class SignUp extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {
-			dataSource: []
-		};
-
 		this.handleUpdateInputName = this.handleUpdateInputName.bind(this);
 		this.handleUpdateInputEmail = this.handleUpdateInputEmail.bind(this);
 		this.handleUpdateInputPhone = this.handleUpdateInputPhone.bind(this);
@@ -216,6 +212,18 @@ class SignUp extends React.Component {
 	}
 
 	handleSignUp() {
+		const {
+			name,
+			email,
+			phone,
+			city,
+			street,
+			house,
+			apartment,
+			access,
+			floor,
+			password
+		} = this.props;
 		const { stepIndex } = this.state;
 
 		if (stepIndex < 3) {
@@ -223,28 +231,42 @@ class SignUp extends React.Component {
 		}
 
 		signUpApi.sendSignUpForm(
-			this.props.name,
-			this.props.email,
-			this.props.phone,
-			this.props.city,
-			this.props.street,
-			this.props.house,
-			this.props.apartment,
-			this.props.access,
-			this.props.floor,
-			this.props.password
+			name,
+			email,
+			phone,
+			city,
+			street,
+			house,
+			apartment,
+			access,
+			floor,
+			password
 		);
 	}
 
 	getStepContent(stepIndex) {
+		const {
+			name,
+			email,
+			password,
+			phone,
+			city,
+			street,
+			house,
+			apartment,
+			access,
+			floor,
+			cart
+		} = this.props;
+		const { dataSource } = this.state;
 		switch (stepIndex) {
 			case 0:
 				return (
 					<AccountFields
-						dataSource={this.state.dataSource}
-						name={this.props.name}
-						email={this.props.email}
-						password={this.props.password}
+						dataSource={dataSource}
+						name={name}
+						email={email}
+						password={password}
 						handleBack={this.handleBack}
 						handleNext={this.handleNext}
 						handleUpdateInputName={this.handleUpdateInputName}
@@ -256,14 +278,14 @@ class SignUp extends React.Component {
 			case 1:
 				return (
 					<AddressFields
-						dataSource={this.state.dataSource}
-						phone={this.props.phone}
-						city={this.props.city}
-						street={this.props.street}
-						house={this.props.house}
-						apartment={this.props.apartment}
-						access={this.props.access}
-						floor={this.props.floor}
+						dataSource={dataSource}
+						phone={phone}
+						city={city}
+						street={street}
+						house={house}
+						apartment={apartment}
+						access={access}
+						floor={floor}
 						handleBack={this.handleBack}
 						handleNext={this.handleNext}
 						handleUpdateInputPhone={this.handleUpdateInputPhone}
@@ -279,44 +301,50 @@ class SignUp extends React.Component {
 			case 2:
 				return (
 					<ConfirmRegistration
-						name={this.props.name}
-						email={this.props.email}
-						password={this.props.password}
-						phone={this.props.phone}
-						city={this.props.city}
-						street={this.props.street}
-						house={this.props.house}
-						apartment={this.props.apartment}
-						access={this.props.access}
-						floor={this.props.floor}
+						name={name}
+						email={email}
+						password={password}
+						phone={phone}
+						city={city}
+						street={street}
+						house={house}
+						apartment={apartment}
+						access={access}
+						floor={floor}
 						handleBack={this.handleBack}
 						handleSignUp={this.handleSignUp}
 					/>
 				);
 			case 3:
-				return <Thanks template="registration" cart={this.props.cart} />;
+				return <Thanks template="registration" cart={cart} />;
 		}
 	}
 
 	handleBack() {
-		if (this.state.stepIndex > 0) {
-			this.setState({ stepIndex: this.state.stepIndex - 1 });
+		const { stepIndex } = this.state;
+
+		if (stepIndex > 0) {
+			this.setState({ stepIndex: stepIndex - 1 });
 		}
 	}
 
 	handleNext() {
-		if (this.state.stepIndex < 3) {
-			this.setState({ stepIndex: this.state.stepIndex + 1 });
+		const { stepIndex } = this.state;
+
+		if (stepIndex < 3) {
+			this.setState({ stepIndex: stepIndex + 1 });
 		}
 	}
 
 	render() {
+		const { stepIndex } = this.state;
+
 		return (
 			<div className="container">
 				<div className="row">
 					<SignupForm
-						stepIndex={this.state.stepIndex}
-						getStepContent={this.getStepContent(this.state.stepIndex)}
+						stepIndex={stepIndex}
+						getStepContent={this.getStepContent(stepIndex)}
 					/>
 					<Cart />
 				</div>

@@ -28,33 +28,34 @@ class Home extends React.Component {
 	}
 
 	handleFilterBySize(event, value) {
-		productApi.filterBySize(event, value, this.props.products);
+	    const { products } = this.props;
+		productApi.filterBySize(event, value, products);
 	}
 
 	handleFilterByIngredients(event) {
+		const { products, ingredientsChecked } = this.props;
 		productApi.filterByIngredients(
 			event.target.name,
-			this.props.products,
-			this.props.ingredientsChecked
+			products,
+			ingredientsChecked
 		);
 	}
 
 	handleSearchProducts(value) {
-		productApi.searchProducts(value, this.props.products);
+        const { products } = this.props;
+		productApi.searchProducts(value, products);
 	}
 
 	handleInputChange(product, event) {
-		productApi.getDisplayedProducts(this.props.products);
-		productApi.increaseNumberProduct(
-			product.id,
-			event.target.value,
-			this.props.products
-		);
+		const { products } = this.props;
+		productApi.getDisplayedProducts(products);
+		productApi.increaseNumberProduct(product.id, event.target.value, products);
 	}
 
 	handleAddProductToCart(product) {
-		cartApi.addProductToCart(product, this.props.cart);
-		cartApi.getTotalPrice(this.props.cart);
+		const { cart } = this.props;
+		cartApi.addProductToCart(product, cart);
+		cartApi.getTotalPrice(cart);
 	}
 
 	// Сашунька ну как можно быть такой красавицей\ ну Сааааш ну смотрю на тебя и радуюсь ну мур
@@ -64,17 +65,19 @@ class Home extends React.Component {
 	}
 
 	render() {
+		const { displayedProducts } = this.props;
+		const { dataSource } = this.state;
 		return (
 			<div className="container">
 				<ProductFilters
-					dataSource={this.state.dataSource}
+					dataSource={dataSource}
 					handleFilterBySize={this.handleFilterBySize}
 					handleFilterByIngredients={this.handleFilterByIngredients}
 					handleSearchProducts={this.handleSearchProducts}
 				/>
 				<div className="row">
 					<ProductList
-						displayedProducts={this.props.displayedProducts}
+						displayedProducts={displayedProducts}
 						handleInputChange={this.handleInputChange}
 						handleAddProductToCart={this.handleAddProductToCart}
 					/>

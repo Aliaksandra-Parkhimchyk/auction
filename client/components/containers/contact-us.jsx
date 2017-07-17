@@ -15,10 +15,6 @@ class ContactUs extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {
-			dataSource: []
-		};
-
 		this.handleUpdateInputName = this.handleUpdateInputName.bind(this);
 		this.handleUpdateInputEmail = this.handleUpdateInputEmail.bind(this);
 		this.handleUpdateQuery = this.handleUpdateQuery.bind(this);
@@ -38,21 +34,18 @@ class ContactUs extends React.Component {
 	}
 
 	handleSendContactUsForm() {
-		cartApi.sendContactUsForm(
-			this.props.name,
-			this.props.email,
-			this.props.additionalInformation
-		);
+		const { name, email, additionalInformation } = this.props;
+		cartApi.sendContactUsForm(name, email, additionalInformation);
 	}
 
 	render() {
+		const { cart, isThanksForQuery } = this.props;
 		return (
 			<div className="container">
 				<div className="row">
 					<ContactUsForm
-						cart={this.props.cart}
-						dataSource={this.state.dataSource}
-						isThanksForQuery={this.props.isThanksForQuery}
+						cart={cart}
+						isThanksForQuery={isThanksForQuery}
 						handleUpdateInputName={this.handleUpdateInputName}
 						handleUpdateInputEmail={this.handleUpdateInputEmail}
 						handleUpdateQuery={this.handleUpdateQuery}

@@ -18,6 +18,7 @@ export default props => {
 			className="header"
 			style={styles.appBar}
 			title={<span className="logo" style={styles.appBarTitle}>Site Name</span>}
+			onTitleTouchTap={props.handleTouchTap}
 		>
 			<ul className="header-nav">
 				<li>

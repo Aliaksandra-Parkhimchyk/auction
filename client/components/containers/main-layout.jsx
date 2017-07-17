@@ -3,6 +3,7 @@
  */
 
 import React from 'react';
+import { browserHistory } from 'react-router';
 
 import { connect } from 'react-redux';
 
@@ -33,6 +34,10 @@ class MainLayout extends React.Component {
 		this.handleLogout = this.handleLogout.bind(this);
 	}
 
+	handleTouchTap() {
+		browserHistory.push('/');
+	}
+
 	handleLogout() {
 		loginLogoutApi.logout();
 	}
@@ -46,17 +51,20 @@ class MainLayout extends React.Component {
 	}
 
 	render() {
+	    const { children, currentUser } = this.props;
 		return (
 			<div className="app">
 
-				<Header />
+				<Header
+					handleTouchTap={this.handleTouchTap}
+				/>
 
 				<Paper className="main-section" style={styles.paper} zDepth={5}>
-					{this.props.children}
+					{children}
 				</Paper>
 
 				<Footer
-					currentUser={this.props.currentUser}
+					currentUser={currentUser}
 					handleLogout={this.handleLogout}
 				/>
 

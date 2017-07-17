@@ -21,12 +21,13 @@ class Orders extends React.Component {
 	}
 
 	render() {
-		return this.props.currentUser
+	    const { currentUser, cart } = this.props;
+		return currentUser
 			? <div className="container">
 					<div className="row">
 						<OrdersList
-							cart={this.props.cart}
-							currentUser={this.props.currentUser}
+							cart={cart}
+							currentUser={currentUser}
 						/>
 						<Cart />
 					</div>

@@ -19,20 +19,25 @@ class Cart extends React.Component {
 	}
 
 	handleDeleteProductFromCart(product) {
-		cartApi.deleteProductFromCart(product, this.props.cart);
-		cartApi.getTotalPrice(this.props.cart);
+		const { cart } = this.props;
+		cartApi.deleteProductFromCart(product, cart);
+		cartApi.getTotalPrice(cart);
 		this.forceUpdate();
 	}
 
 	render() {
-		return this.props.cart && this.props.cart.length > 0
+		const { cart, totalPrice } = this.props;
+
+		return cart && cart.length > 0
 			? <div className="col-md-3">
 					<div className="cart">
 						<h3>Your cart</h3>
-						<p>All goods: {this.props.cart.length}</p>
-						{this.props.cart.map(item => {
+						<p>All goods: {cart.length}</p>
+						{cart.map(item => {
+							const { id, title, num, price } = item;
+
 							return (
-								<div key={item.id}>
+								<div key={id}>
 									<RaisedButton
 										label="X"
 										className="delete-item"
@@ -41,11 +46,11 @@ class Cart extends React.Component {
 											item
 										)}
 									/>
-									<p>{item.title} * {item.num} = ${item.price * item.num}</p>
+									<p>{title} * {num} = ${price * num}</p>
 								</div>
 							);
 						})}
-						<p className="total">Total: ${this.props.totalPrice}</p>
+						<p className="total">Total: ${totalPrice}</p>
 						{window.location.href.indexOf('/checkout') === -1
 							? <Link className="checkout" to={'/checkout'}>Checkout</Link>
 							: null}

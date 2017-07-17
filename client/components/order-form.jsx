@@ -1,5 +1,6 @@
 import React from 'react';
-import AutoComplete from 'material-ui/AutoComplete';
+import Divider from 'material-ui/Divider';
+import Paper from 'material-ui/Paper';
 import TextField from 'material-ui/TextField';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
@@ -7,97 +8,125 @@ import Checkbox from 'material-ui/Checkbox';
 import RaisedButton from 'material-ui/RaisedButton';
 import Thanks from './thanks.jsx';
 
+const style = {
+	marginLeft: 20
+};
+
 export default props => {
 	return props.isThanksForPurchase
 		? <Thanks template="purchase" />
 		: <div className="col-md-9">
 				<div className="order-form">
 					<h1>Order Form</h1>
-					<AutoComplete
-						hintText="Name..."
-						dataSource={props.dataSource}
-						floatingLabelText="Name..."
-						fullWidth={true}
-						onUpdateInput={props.handleUpdateInputName}
-					/>
-					<AutoComplete
-						hintText="Email..."
-						dataSource={props.dataSource}
-						floatingLabelText="Email..."
-						fullWidth={true}
-						onUpdateInput={props.handleUpdateInputEmail}
-					/>
-					<AutoComplete
-						hintText="Phone..."
-						dataSource={props.dataSource}
-						floatingLabelText="Phone..."
-						fullWidth={true}
-						onUpdateInput={props.handleUpdateInputPhone}
-					/>
-					<AutoComplete
-						hintText="City..."
-						dataSource={props.dataSource}
-						floatingLabelText="City..."
-						fullWidth={true}
-						onUpdateInput={props.handleUpdateInputCity}
-					/>
-					<AutoComplete
-						hintText="Street..."
-						dataSource={props.dataSource}
-						floatingLabelText="Street..."
-						fullWidth={true}
-						onUpdateInput={props.handleUpdateInputStreet}
-					/>
-					<AutoComplete
-						hintText="House..."
-						dataSource={props.dataSource}
-						floatingLabelText="House..."
-						fullWidth={true}
-						onUpdateInput={props.handleUpdateInputHouse}
-					/>
-					<AutoComplete
-						hintText="Apartment..."
-						dataSource={props.dataSource}
-						floatingLabelText="Apartment..."
-						fullWidth={true}
-						onUpdateInput={props.handleUpdateInputApartment}
-					/>
-					<AutoComplete
-						hintText="Access..."
-						dataSource={props.dataSource}
-						floatingLabelText="Access..."
-						fullWidth={true}
-						onUpdateInput={props.handleUpdateInputAccess}
-					/>
-					<AutoComplete
-						hintText="Floor..."
-						dataSource={props.dataSource}
-						floatingLabelText="Floor..."
-						fullWidth={true}
-						onUpdateInput={props.handleUpdateInputFloor}
-					/>
-					<TextField
-						hintText="Additional information..."
-						multiLine={true}
-						rows={2}
-						rowsMax={4}
-						fullWidth={true}
-						onChange={props.handleUpdateAdditionalInformation}
-					/>
+					<Paper zDepth={1}>
+						<TextField
+							hintText="Name..."
+							floatingLabelText="Name..."
+							fullWidth={true}
+							style={style}
+							underlineShow={false}
+							onChange={props.handleUpdateInputName}
+						/>
+						<Divider />
+						<TextField
+							hintText="Email..."
+							floatingLabelText="Email..."
+							fullWidth={true}
+							style={style}
+							underlineShow={false}
+							onChange={props.handleUpdateInputEmail}
+						/>
+						<Divider />
+						<TextField
+							hintText="Phone..."
+							floatingLabelText="Phone..."
+							fullWidth={true}
+							style={style}
+							underlineShow={false}
+							onChange={props.handleUpdateInputPhone}
+						/>
+						<Divider />
+						<TextField
+							hintText="City..."
+							floatingLabelText="City..."
+							fullWidth={true}
+							style={style}
+							underlineShow={false}
+							onChange={props.handleUpdateInputCity}
+						/>
+						<Divider />
+						<TextField
+							hintText="Street..."
+							floatingLabelText="Street..."
+							fullWidth={true}
+							style={style}
+							underlineShow={false}
+							onChange={props.handleUpdateInputStreet}
+						/>
+						<Divider />
+						<TextField
+							hintText="House..."
+							floatingLabelText="House..."
+							fullWidth={true}
+							style={style}
+							underlineShow={false}
+							onChange={props.handleUpdateInputHouse}
+						/>
+						<Divider />
+						<TextField
+							hintText="Apartment..."
+							floatingLabelText="Apartment..."
+							fullWidth={true}
+							style={style}
+							underlineShow={false}
+							onChange={props.handleUpdateInputApartment}
+						/>
+						<Divider />
+						<TextField
+							hintText="Access..."
+							floatingLabelText="Access..."
+							fullWidth={true}
+							style={style}
+							underlineShow={false}
+							onChange={props.handleUpdateInputAccess}
+						/>
+						<Divider />
+						<TextField
+							hintText="Floor..."
+							floatingLabelText="Floor..."
+							fullWidth={true}
+							style={style}
+							underlineShow={false}
+							onChange={props.handleUpdateInputFloor}
+						/>
+						<Divider />
+						<TextField
+							hintText="Additional information..."
+							multiLine={true}
+							rows={2}
+							rowsMax={4}
+							fullWidth={true}
+							style={style}
+							underlineShow={false}
+							onChange={props.handleUpdateAdditionalInformation}
+						/>
+						<Divider />
+					</Paper>
 					<SelectField
 						floatingLabelText="Payment option:"
 						value={props.paymentTheInternet}
 						onChange={props.handleChangePaymentTheInternet}
 					>
-						<MenuItem value={1} primaryText="Through the Internet" />
-						<MenuItem value={2} primaryText="Cash to the courier" />
-						<MenuItem value={3} primaryText="Card to the courier" />
+						<MenuItem value={1} primaryText="By card through the Internet" />
+						<MenuItem value={2} primaryText="In cash to the courier" />
+						<MenuItem value={3} primaryText="By card to the courier" />
 					</SelectField>
 					<Checkbox
 						label="Cut pizza"
 						name="cut-pizza"
 						onCheck={props.handleCheckCutPizza}
 					/>
+
 					<RaisedButton
 						label="Send"
 						className="send-order-form"
