@@ -13,6 +13,8 @@ export default props => {
 				/>
 			</div>
 		: <div className="col-md-9">
-				<h1>Your orders:</h1>
+				<h1>
+					Your orders: {props.cart}
+				</h1>
 			</div>;
 };
