@@ -71,6 +71,22 @@ export function filterByIngredients(name, products, ingredientsChecked) {
 	);
 }
 
+export function changePriceFrom(priceFrom) {
+	return store.dispatch(actionCreators.actionCreatorChangePriceFrom(priceFrom));
+}
+export function changePriceTo(priceTo) {
+	return store.dispatch(actionCreators.actionCreatorChangePriceTo(priceTo));
+}
+export function filterByPrice(priceFrom, priceTo, products) {
+	let displayedProducts = products.filter(el => {
+		return el.price >= priceFrom && el.price <= priceTo;
+	});
+
+	return store.dispatch(
+		actionCreators.actionCreatorFilterByPrice(displayedProducts)
+	);
+}
+
 export function searchProducts(value, products) {
 	let searchQuery = value.toLowerCase();
 

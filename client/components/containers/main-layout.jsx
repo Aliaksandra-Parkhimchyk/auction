@@ -21,7 +21,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 
 const styles = {
 	paper: {
-		height: '1100px',
+		height: '1200px',
 		width: '100%',
 		display: 'inline-block'
 	}
@@ -51,22 +51,17 @@ class MainLayout extends React.Component {
 	}
 
 	render() {
-	    const { children, currentUser } = this.props;
+		const { children, currentUser } = this.props;
 		return (
 			<div className="app">
 
-				<Header
-					handleTouchTap={this.handleTouchTap}
-				/>
+				<Header handleTouchTap={this.handleTouchTap} />
 
 				<Paper className="main-section" style={styles.paper} zDepth={5}>
 					{children}
 				</Paper>
 
-				<Footer
-					currentUser={currentUser}
-					handleLogout={this.handleLogout}
-				/>
+				<Footer currentUser={currentUser} handleLogout={this.handleLogout} />
 
 			</div>
 		);

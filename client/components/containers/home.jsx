@@ -22,13 +22,16 @@ class Home extends React.Component {
 
 		this.handleFilterBySize = this.handleFilterBySize.bind(this);
 		this.handleFilterByIngredients = this.handleFilterByIngredients.bind(this);
+		this.handleChangePriceFrom = this.handleChangePriceFrom.bind(this);
+		this.handleChangePriceTo = this.handleChangePriceTo.bind(this);
+		this.handleFilterByPrice = this.handleFilterByPrice.bind(this);
 		this.handleSearchProducts = this.handleSearchProducts.bind(this);
 		this.handleInputChange = this.handleInputChange.bind(this);
 		this.handleAddProductToCart = this.handleAddProductToCart.bind(this);
 	}
 
 	handleFilterBySize(event, value) {
-	    const { products } = this.props;
+		const { products } = this.props;
 		productApi.filterBySize(event, value, products);
 	}
 
@@ -41,8 +44,21 @@ class Home extends React.Component {
 		);
 	}
 
+	handleChangePriceFrom(event, newValue) {
+		productApi.changePriceFrom(newValue);
+	}
+
+	handleChangePriceTo(event, newValue) {
+		productApi.changePriceTo(newValue);
+	}
+
+	handleFilterByPrice() {
+		const { priceFrom, priceTo, products } = this.props;
+		productApi.filterByPrice(priceFrom, priceTo, products);
+	}
+
 	handleSearchProducts(value) {
-        const { products } = this.props;
+		const { products } = this.props;
 		productApi.searchProducts(value, products);
 	}
 
@@ -65,14 +81,19 @@ class Home extends React.Component {
 	}
 
 	render() {
-		const { displayedProducts } = this.props;
+		const { displayedProducts, priceFrom, priceTo } = this.props;
 		const { dataSource } = this.state;
 		return (
 			<div className="container">
 				<ProductFilters
 					dataSource={dataSource}
+					priceFrom={priceFrom}
+					priceTo={priceTo}
 					handleFilterBySize={this.handleFilterBySize}
 					handleFilterByIngredients={this.handleFilterByIngredients}
+					handleChangePriceFrom={this.handleChangePriceFrom}
+					handleChangePriceTo={this.handleChangePriceTo}
+					handleFilterByPrice={this.handleFilterByPrice}
 					handleSearchProducts={this.handleSearchProducts}
 				/>
 				<div className="row">
@@ -93,7 +114,9 @@ const mapStateToProps = store => {
 		products: store.productState.products,
 		displayedProducts: store.productState.displayedProducts,
 		ingredientsChecked: store.productState.ingredientsChecked,
-		cart: store.cartState.cart
+		cart: store.cartState.cart,
+		priceFrom: store.productState.priceFrom,
+		priceTo: store.productState.priceTo
 	};
 };
 

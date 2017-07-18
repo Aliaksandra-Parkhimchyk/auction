@@ -11,7 +11,9 @@ const initialState = {
 		beaf: false,
 		chicken: false,
 		pepper: false
-	}
+	},
+	priceFrom: '',
+	priceTo: ''
 };
 
 const productReducer = (state = initialState, action) => {
@@ -36,6 +38,21 @@ const productReducer = (state = initialState, action) => {
 			return Object.assign({}, state, {
 				displayedProducts: action.displayedProducts,
 				ingredientsChecked: action.ingredientsChecked
+			});
+
+		case types.CHANGE_PRICE_FROM:
+			return Object.assign({}, state, {
+				priceFrom: action.priceFrom
+			});
+
+		case types.CHANGE_PRICE_TO:
+			return Object.assign({}, state, {
+				priceTo: action.priceTo
+			});
+
+		case types.FILTER_BY_PRICE:
+			return Object.assign({}, state, {
+				displayedProducts: action.displayedProducts
 			});
 
 		case types.SEARCH_PRODUCTS_SUCCESS:

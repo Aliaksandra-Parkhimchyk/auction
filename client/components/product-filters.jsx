@@ -6,6 +6,8 @@ import React from 'react';
 import AutoComplete from 'material-ui/AutoComplete';
 import Checkbox from 'material-ui/Checkbox';
 import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton';
+import Slider from 'material-ui/Slider';
+import RaisedButton from 'material-ui/RaisedButton';
 
 export default props => {
 	return (
@@ -49,18 +51,21 @@ export default props => {
 			<div className="col-md-3">
 				<div className="filter-price">
 					<h3 className="filter-ingredients-title">Price:</h3>
-					<AutoComplete
-						hintText="From"
-						dataSource={props.dataSource}
-						floatingLabelText="From"
-						fullWidth={true}
+					<p className="price-from">From: ${props.priceFrom}</p>
+					<Slider
+						min={0}
+						max={10}
+						step={0.1}
+						onChange={props.handleChangePriceFrom}
 					/>
-					<AutoComplete
-						hintText="To"
-						dataSource={props.dataSource}
-						floatingLabelText="To"
-						fullWidth={true}
+					<p className="price-to">To: ${props.priceTo}</p>
+					<Slider
+						min={0}
+						max={10}
+						step={0.1}
+						onChange={props.handleChangePriceTo}
 					/>
+					<RaisedButton label="Show" onTouchTap={props.handleFilterByPrice} />
 				</div>
 			</div>
 

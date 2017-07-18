@@ -37,6 +37,27 @@ export function actionCreatorFilterByIngredients(
 	};
 }
 
+export function actionCreatorChangePriceFrom(priceFrom) {
+	return {
+		type: types.CHANGE_PRICE_FROM,
+		priceFrom: priceFrom
+	};
+}
+
+export function actionCreatorChangePriceTo(priceTo) {
+	return {
+		type: types.CHANGE_PRICE_TO,
+		priceTo: priceTo
+	};
+}
+
+export function actionCreatorFilterByPrice(displayedProducts) {
+	return {
+		type: types.FILTER_BY_PRICE,
+		displayedProducts: displayedProducts
+	};
+}
+
 export function actionCreatorSearchProducts(displayedProducts) {
 	return {
 		type: types.SEARCH_PRODUCTS_SUCCESS,
