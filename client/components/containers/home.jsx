@@ -28,18 +28,19 @@ class Home extends React.Component {
 		this.handleSearchProducts = this.handleSearchProducts.bind(this);
 		this.handleInputChange = this.handleInputChange.bind(this);
 		this.handleAddProductToCart = this.handleAddProductToCart.bind(this);
+		this.handleReset = this.handleReset.bind(this);
 	}
 
 	handleFilterBySize(event, value) {
-		const { products } = this.props;
-		productApi.filterBySize(event, value, products);
+		const { displayedProducts } = this.props;
+		productApi.filterBySize(event, value, displayedProducts);
 	}
 
 	handleFilterByIngredients(event) {
-		const { products, ingredientsChecked } = this.props;
+		const { displayedProducts, ingredientsChecked } = this.props;
 		productApi.filterByIngredients(
 			event.target.name,
-			products,
+			displayedProducts,
 			ingredientsChecked
 		);
 	}
@@ -53,13 +54,13 @@ class Home extends React.Component {
 	}
 
 	handleFilterByPrice() {
-		const { priceFrom, priceTo, products } = this.props;
-		productApi.filterByPrice(priceFrom, priceTo, products);
+		const { priceFrom, priceTo, displayedProducts } = this.props;
+		productApi.filterByPrice(priceFrom, priceTo, displayedProducts);
 	}
 
 	handleSearchProducts(value) {
-		const { products } = this.props;
-		productApi.searchProducts(value, products);
+		const { displayedProducts } = this.props;
+		productApi.searchProducts(value, displayedProducts);
 	}
 
 	handleInputChange(product, event) {
@@ -72,6 +73,10 @@ class Home extends React.Component {
 		const { cart } = this.props;
 		cartApi.addProductToCart(product, cart);
 		cartApi.getTotalPrice(cart);
+	}
+
+	handleReset() {
+		productApi.getProducts();
 	}
 
 	// Сашунька ну как можно быть такой красавицей\ ну Сааааш ну смотрю на тебя и радуюсь ну мур
@@ -95,6 +100,7 @@ class Home extends React.Component {
 					handleChangePriceTo={this.handleChangePriceTo}
 					handleFilterByPrice={this.handleFilterByPrice}
 					handleSearchProducts={this.handleSearchProducts}
+					handleReset={this.handleReset}
 				/>
 				<div className="row">
 					<ProductList
