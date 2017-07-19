@@ -150,8 +150,7 @@ class SignUp extends React.Component {
 		super(props);
 
 		this.state = {
-			stepIndex: 0,
-			dataSource: []
+			stepIndex: 0
 		};
 
 		this.handleBack = this.handleBack.bind(this);
@@ -258,12 +257,10 @@ class SignUp extends React.Component {
 			floor,
 			cart
 		} = this.props;
-		const { dataSource } = this.state;
 		switch (stepIndex) {
 			case 0:
 				return (
 					<AccountFields
-						dataSource={dataSource}
 						name={name}
 						email={email}
 						password={password}
@@ -278,7 +275,6 @@ class SignUp extends React.Component {
 			case 1:
 				return (
 					<AddressFields
-						dataSource={dataSource}
 						phone={phone}
 						city={city}
 						street={street}

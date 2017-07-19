@@ -5,23 +5,26 @@
 import React from 'react';
 import { Image } from 'material-ui-image';
 import RaisedButton from 'material-ui/RaisedButton';
+import { Link } from 'react-router';
 
 export default props => {
 	return (
 		<div className="col-md-9">
 			<div className="row">
 				{props.displayedProducts.map(product => {
+					const { id, title, src, num } = product;
 					return (
-						<div key={product.id} className="col-md-4">
+						<div key={id} className="col-md-4">
 							<div className="product-item">
-								<h3 className="product-item-title">{product.title}</h3>
-								<Image src={product.src} className="product-item-image" />
+								<h3 className="product-item-title">{title}</h3>
+								<Link to={'' + title}>{title}</Link>
+								<Image src={src} className="product-item-image" />
 								<input
 									name="products-number"
 									type="number"
 									min="1"
 									max="10"
-									value={product.num}
+									value={num}
 									onChange={props.handleInputChange.bind(null, product)}
 								/>
 								<RaisedButton
