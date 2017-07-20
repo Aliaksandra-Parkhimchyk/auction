@@ -60,7 +60,7 @@ export function actionCreatorFilterByPrice(displayedProducts) {
 
 export function actionCreatorSearchProducts(displayedProducts) {
 	return {
-		type: types.SEARCH_PRODUCTS_SUCCESS,
+		type: types.SEARCH_PRODUCTS,
 		displayedProducts: displayedProducts
 	};
 }

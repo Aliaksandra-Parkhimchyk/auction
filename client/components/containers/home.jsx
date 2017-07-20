@@ -76,7 +76,8 @@ class Home extends React.Component {
 	}
 
 	handleReset() {
-		productApi.getProducts();
+		const { products } = this.props;
+		productApi.getDisplayedProducts(products);
 	}
 
 	// Сашунька ну как можно быть такой красавицей\ ну Сааааш ну смотрю на тебя и радуюсь ну мур
