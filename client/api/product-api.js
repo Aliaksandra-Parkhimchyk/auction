@@ -43,7 +43,7 @@ export function filterBySize(event, value, products) {
 }
 
 export function filterByIngredients(name, products, ingredientsChecked) {
-	if (ingredientsChecked[name] === false) {
+	if (!ingredientsChecked[name]) {
 		ingredientsChecked[name] = true;
 	} else {
 		ingredientsChecked[name] = false;
@@ -55,7 +55,7 @@ export function filterByIngredients(name, products, ingredientsChecked) {
 			if (
 				ingredientsChecked.hasOwnProperty(prop) &&
 				ingredientsChecked[prop] &&
-				el.ingridients.indexOf(prop) < 0
+				el.ingridients.indexOf(prop) === -1
 			) {
 				productChecked = false;
 			}

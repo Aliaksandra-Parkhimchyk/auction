@@ -85,37 +85,9 @@ class Checkout extends React.Component {
 	}
 
 	handleSendOrderForm() {
-		const {
-			name,
-			email,
-			phone,
-			city,
-			street,
-			house,
-			apartment,
-			access,
-			floor,
-			additionalInformation,
-			paymentTheInternet,
-			isCheckCutPizza,
-			cart
-		} = this.props;
+		const { form, cart } = this.props;
 
-		cartApi.sendOrderForm(
-			name,
-			email,
-			phone,
-			city,
-			street,
-			house,
-			apartment,
-			access,
-			floor,
-			additionalInformation,
-			paymentTheInternet,
-			isCheckCutPizza,
-			cart
-		);
+		cartApi.sendOrderForm(form, cart);
 	}
 
 	render() {
@@ -154,18 +126,7 @@ const mapStateToProps = store => {
 		products: store.productState.products,
 		cart: store.cartState.cart,
 		isThanksForPurchase: store.cartState.isThanksForPurchase,
-		name: store.formState.name,
-		email: store.formState.email,
-		phone: store.formState.phone,
-		city: store.formState.city,
-		street: store.formState.street,
-		house: store.formState.house,
-		apartment: store.formState.apartment,
-		access: store.formState.access,
-		floor: store.formState.floor,
-		additionalInformation: store.formState.additionalInformation,
-		paymentTheInternet: store.formState.paymentTheInternet,
-		isCheckCutPizza: store.formState.isCheckCutPizza
+		form: store.formState.form
 	};
 };
 
