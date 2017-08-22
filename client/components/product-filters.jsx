@@ -12,7 +12,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 export default props => {
 	return (
 		<div className="row">
-			<div className="col-md-3">
+			<div className="col-md-3 col-sm-3">
 				<div className="filter-size">
 					<h3 className="filter-size-title">Size:</h3>
 					<RadioButtonGroup
@@ -27,7 +27,7 @@ export default props => {
 				</div>
 			</div>
 
-			<div className="col-md-3">
+			<div className="col-md-3 col-sm-3">
 				<div className="filter-ingredients">
 					<h3 className="filter-ingredients-title">Ingredients:</h3>
 					<Checkbox
@@ -48,7 +48,7 @@ export default props => {
 				</div>
 			</div>
 
-			<div className="col-md-3">
+			<div className="col-md-3 col-sm-3">
 				<div className="filter-price">
 					<h3 className="filter-ingredients-title">Price:</h3>
 					<p className="price-from">From: ${props.priceFrom ? props.priceFrom : 0}</p>
@@ -68,7 +68,7 @@ export default props => {
 				</div>
 			</div>
 
-			<div className="col-md-3">
+			<div className="col-md-3 col-sm-3">
 				<div className="filter-search">
 					<h3 className="filter-search-title">Search:</h3>
 					<AutoComplete

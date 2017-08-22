@@ -9,12 +9,12 @@ import { Link } from 'react-router';
 
 export default props => {
 	return (
-		<div className="col-md-9">
+		<div className="col-md-9 col-sm-9">
 			<div className="row">
 				{props.displayedProducts.map(product => {
 					const { id, title, src, num } = product;
 					return (
-						<div key={id} className="col-md-4">
+						<div key={id} className="col-md-4 col-sm-4">
 							<div className="product-item">
 								<h3 className="product-item-title">{title}</h3>
 								<Link to={'' + title}>{title}</Link>

@@ -136,8 +136,8 @@ class Login extends React.Component {
 
 const mapStateToProps = store => {
 	return {
-		name: store.formState.name,
-		password: store.formState.password,
+		name: store.loginLogoutState.name,
+		password: store.loginLogoutState.password,
 		registered_users: store.signUpState.registered_users,
 		currentUser: store.loginLogoutState.currentUser
 	};

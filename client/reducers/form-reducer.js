@@ -18,8 +18,7 @@ const initialState = {
 		additionalInformation: '',
 		paymentTheInternet: '1',
 		isCheckCutPizza: false
-	},
-    password: ''
+	}
 };
 
 const formReducer = (state = initialState, action) => {
