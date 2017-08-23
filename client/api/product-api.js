@@ -5,19 +5,17 @@
 import axios from 'axios';
 import store from '../store';
 import * as actionCreators from '../actions/product-actions';
+import * as urlsConst from '../const/urls';
+
 import _ from 'lodash';
 
 export function getProducts() {
-	return axios
-		.get(
-			'https://api.mlab.com/api/1/databases/pizzashop/collections/products?apiKey=9BGZZA0zukVJrmfAYnnLeG7V2DiUQNY_'
-		)
-		.then(response => {
-			store.dispatch(
-				actionCreators.actionCreatorGetProductsSuccess(response.data)
-			);
-			return response;
-		});
+	return axios.get(urlsConst.PRODUCTS).then(response => {
+		store.dispatch(
+			actionCreators.actionCreatorGetProductsSuccess(response.data)
+		);
+		return response;
+	});
 }
 
 export function getDisplayedProducts(products) {

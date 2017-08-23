@@ -5,6 +5,7 @@
 import axios from 'axios';
 import store from '../store';
 import * as actionCreators from '../actions/sign-up-actions';
+import * as urlsConst from '../const/urls';
 
 export function sendSignUpForm(
 	name,
@@ -20,21 +21,18 @@ export function sendSignUpForm(
 ) {
 	let isThanksForRegistration = true;
 	return axios
-		.post(
-			'https://api.mlab.com/api/1/databases/pizzashop/collections/registered_users?apiKey=9BGZZA0zukVJrmfAYnnLeG7V2DiUQNY_',
-			{
-				name: name,
-				email: email,
-				phone: phone,
-				city: city,
-				street: street,
-				house: house,
-				apartment: apartment,
-				access: access,
-				floor: floor,
-				password: password
-			}
-		)
+		.post(urlsConst.REGISTERED_USERS, {
+			name: name,
+			email: email,
+			phone: phone,
+			city: city,
+			street: street,
+			house: house,
+			apartment: apartment,
+			access: access,
+			floor: floor,
+			password: password
+		})
 		.then(function(response) {
 			store.dispatch(
 				actionCreators.actionCreatorSignUpForm(isThanksForRegistration)
@@ -43,14 +41,10 @@ export function sendSignUpForm(
 }
 
 export function getRegisteredUsers() {
-	return axios
-		.get(
-			'https://api.mlab.com/api/1/databases/pizzashop/collections/registered_users?apiKey=9BGZZA0zukVJrmfAYnnLeG7V2DiUQNY_'
-		)
-		.then(response => {
-			store.dispatch(
-				actionCreators.actionCreatorGetRegisteredUsers(response.data)
-			);
-			return response.data;
-		});
+	return axios.get(urlsConst.REGISTERED_USERS).then(response => {
+		store.dispatch(
+			actionCreators.actionCreatorGetRegisteredUsers(response.data)
+		);
+		return response.data;
+	});
 }

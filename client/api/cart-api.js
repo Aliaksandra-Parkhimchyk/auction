@@ -5,6 +5,7 @@
 import axios from 'axios';
 import store from '../store';
 import * as actionCreators from '../actions/cart-actions';
+import * as urlsConst from '../const/urls';
 import _ from 'lodash';
 
 export function addProductToCart(product, cart) {
@@ -73,24 +74,21 @@ export function sendOrderForm(
 	let isThanksForPurchase = true;
 	localStorage.removeItem('cart');
 	return axios
-		.post(
-			'https://api.mlab.com/api/1/databases/pizzashop/collections/forms?apiKey=9BGZZA0zukVJrmfAYnnLeG7V2DiUQNY_',
-			{
-				name: name,
-				email: email,
-				phone: phone,
-				city: city,
-				street: street,
-				house: house,
-				apartment: apartment,
-				access: access,
-				floor: floor,
-				additional_information: additional_information,
-				payment_the_internet: payment_the_internet,
-				cut_pizza: cut_pizza,
-				order: order
-			}
-		)
+		.post(urlsConst.FORMS, {
+			name: name,
+			email: email,
+			phone: phone,
+			city: city,
+			street: street,
+			house: house,
+			apartment: apartment,
+			access: access,
+			floor: floor,
+			additional_information: additional_information,
+			payment_the_internet: payment_the_internet,
+			cut_pizza: cut_pizza,
+			order: order
+		})
 		.then(function(response) {
 			store.dispatch(
 				actionCreators.actionCreatorSendOrderForm(cart, isThanksForPurchase)
@@ -101,14 +99,11 @@ export function sendOrderForm(
 export function sendContactUsForm(name, email, query) {
 	let isThanksForQuery = true;
 	return axios
-		.post(
-			'https://api.mlab.com/api/1/databases/pizzashop/collections/contact_us_forms?apiKey=9BGZZA0zukVJrmfAYnnLeG7V2DiUQNY_',
-			{
-				name: name,
-				email: email,
-				query: query
-			}
-		)
+		.post(urlsConst.CONTACT_US_FORMS, {
+			name: name,
+			email: email,
+			query: query
+		})
 		.then(function(response) {
 			store.dispatch(
 				actionCreators.actionCreatorSendContactUsForm(isThanksForQuery)
