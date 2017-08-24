@@ -51,7 +51,9 @@ export default props => {
 			<div className="col-md-3 col-sm-3">
 				<div className="filter-price">
 					<h3 className="filter-ingredients-title">Price:</h3>
-					<p className="price-from">From: ${props.priceFrom ? props.priceFrom : 0}</p>
+					<p className="price-from">
+						From: ${props.priceFrom ? props.priceFrom : 0}
+					</p>
 					<Slider
 						min={0}
 						max={10}
@@ -78,8 +80,11 @@ export default props => {
 						fullWidth={true}
 						onUpdateInput={props.handleSearchProducts}
 					/>
-                    <RaisedButton label="Show" onTouchTap={props.handleFilterByPrice} />
-                    <RaisedButton label="Reset All Filters" onTouchTap={props.handleReset} />
+					<RaisedButton label="Show" onTouchTap={props.handleFilterByPrice} />
+					<RaisedButton
+						label="Reset All Filters"
+						onTouchTap={props.handleReset}
+					/>
 				</div>
 			</div>
 		</div>

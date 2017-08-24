@@ -70,12 +70,12 @@ export default props => {
 					dataSource={props.dataSource}
 					floatingLabelText="Password..."
 					fullWidth={true}
+					type="password"
 					onUpdateInput={props.handleUpdateInputPassword}
 				/>
 				<RaisedButton
 					label="Login"
 					className="login"
-					type="password"
 					onTouchTap={props.handleLogin}
 				/>
 				<Link className="sign-up" to={'/sign-up'}>Sign Up</Link>
