@@ -14,7 +14,6 @@ export function getProducts() {
 		store.dispatch(
 			actionCreators.actionCreatorGetProductsSuccess(response.data)
 		);
-		return response;
 	});
 }
 

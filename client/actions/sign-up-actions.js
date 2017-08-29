@@ -7,13 +7,13 @@ import * as types from '../actions/action-types';
 export function actionCreatorSignUpForm(isThanksForRegistration) {
 	return {
 		type: types.SIGN_UP_FORM,
-		isThanksForRegistration: isThanksForRegistration
+		isThanksForRegistration
 	};
 }
 
 export function actionCreatorGetRegisteredUsers(registered_users) {
 	return {
 		type: types.GET_REGISTERED_USERS,
-		registered_users: registered_users
+		registered_users
 	};
 }

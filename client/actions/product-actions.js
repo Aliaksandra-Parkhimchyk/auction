@@ -7,8 +7,8 @@ import * as types from '../actions/action-types';
 export function actionCreatorGetProductsSuccess(products) {
 	return {
 		type: types.GET_PRODUCTS_SUCCESS,
-		products: products,
-		displayedProducts: products
+		displayedProducts: products,
+        products
 	};
 }
 
@@ -22,7 +22,7 @@ export function actionCreatorGetDisplayedProductsSuccess(products) {
 export function actionCreatorFilterBySize(displayedProducts) {
 	return {
 		type: types.FILTER_BY_SIZE,
-		displayedProducts: displayedProducts
+		displayedProducts
 	};
 }
 
@@ -32,42 +32,42 @@ export function actionCreatorFilterByIngredients(
 ) {
 	return {
 		type: types.FILTER_BY_INGREDIENTS,
-		displayedProducts: displayedProducts,
-		ingredientsChecked: ingredients
+		ingredientsChecked: ingredients,
+        displayedProducts
 	};
 }
 
 export function actionCreatorChangePriceFrom(priceFrom) {
 	return {
 		type: types.CHANGE_PRICE_FROM,
-		priceFrom: priceFrom
+		priceFrom
 	};
 }
 
 export function actionCreatorChangePriceTo(priceTo) {
 	return {
 		type: types.CHANGE_PRICE_TO,
-		priceTo: priceTo
+		priceTo
 	};
 }
 
 export function actionCreatorFilterByPrice(displayedProducts) {
 	return {
 		type: types.FILTER_BY_PRICE,
-		displayedProducts: displayedProducts
+		displayedProducts
 	};
 }
 
 export function actionCreatorSearchProducts(displayedProducts) {
 	return {
 		type: types.SEARCH_PRODUCTS,
-		displayedProducts: displayedProducts
+		displayedProducts
 	};
 }
 
 export function actionCreatorIncreaseNumberProduct(displayedProducts) {
 	return {
 		type: types.INCREASE_NUMBER_PRODUCT,
-		displayedProducts: displayedProducts
+		displayedProducts
 	};
 }

@@ -50,6 +50,7 @@
     "redux": "^3.6.0",
     "redux-form": "^6.7.0",
     "redux-form-material-ui": "^4.2.0",
+    "redux-infinite-scroll": "^1.0.9",
     "sass-loader": "^6.0.5",
     "url-loader": "^0.5.8",
     "webpack-dev-server": "^2.4.5",

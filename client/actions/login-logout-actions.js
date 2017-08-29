@@ -7,20 +7,20 @@ import * as types from '../actions/action-types';
 export function actionCreatorLogin(currentUser) {
 	return {
 		type: types.LOGIN,
-		currentUser: currentUser
+		currentUser
 	};
 }
 
 export function actionCreatorLogout(currentUser) {
 	return {
 		type: types.LOGOUT,
-		currentUser: currentUser
+		currentUser
 	};
 }
 
 export function actionCreatorGetCurrentUser(currentUser) {
 	return {
 		type: types.GET_CURRENT_USER,
-		currentUser: currentUser
+		currentUser
 	};
 }

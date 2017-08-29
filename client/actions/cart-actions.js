@@ -7,42 +7,42 @@ import * as types from '../actions/action-types';
 export function actionCreatorGetCartSuccess(cart) {
 	return {
 		type: types.GET_CART_SUCCESS,
-		cart: cart
+		cart
 	};
 }
 
 export function actionCreatorAddProductToCart(cart) {
 	return {
 		type: types.ADD_PRODUCT_TO_CART,
-		cart: cart
+		cart
 	};
 }
 
 export function actionCreatorDeleteProductFromCart(cart) {
 	return {
 		type: types.DELETE_PRODUCT_FROM_CART,
-		cart: cart
+		cart
 	};
 }
 
 export function actionCreatorGetTotalPrice(totalPrice) {
 	return {
 		type: types.GET_TOTAL_PRICE,
-		totalPrice: totalPrice
+		totalPrice
 	};
 }
 
 export function actionCreatorSendOrderForm(cart, isThanksForPurchase) {
 	return {
 		type: types.SEND_ORDER_FORM,
-		cart: cart,
-		isThanksForPurchase: isThanksForPurchase
+		cart,
+		isThanksForPurchase
 	};
 }
 
 export function actionCreatorSendContactUsForm(isThanksForQuery) {
 	return {
 		type: types.SEND_CONTACT_US_FORM,
-		isThanksForQuery: isThanksForQuery
+		isThanksForQuery
 	};
 }

@@ -17,7 +17,7 @@ module.exports = {
 	output: {
 		filename: 'index_bundle.js'
 	},
-    devtool: 'source-map',
+	devtool: 'source-map', // For debug in browser
 	module: {
 		loaders: [
 			{ test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
