@@ -67,6 +67,7 @@ export default props => {
 						step={0.1}
 						onChange={props.handleChangePriceTo}
 					/>
+					<RaisedButton label="Show" onTouchTap={props.handleFilterByPrice} />
 				</div>
 			</div>
 
@@ -79,11 +80,6 @@ export default props => {
 						floatingLabelText="Search"
 						fullWidth={true}
 						onUpdateInput={props.handleSearchProducts}
-					/>
-					<RaisedButton label="Show" onTouchTap={props.handleFilterByPrice} />
-					<RaisedButton
-						label="Reset All Filters"
-						onTouchTap={props.handleReset}
 					/>
 				</div>
 			</div>

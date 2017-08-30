@@ -28,19 +28,18 @@ class Home extends React.Component {
 		this.handleSearchProducts = this.handleSearchProducts.bind(this);
 		this.handleInputChange = this.handleInputChange.bind(this);
 		this.handleAddProductToCart = this.handleAddProductToCart.bind(this);
-		this.handleReset = this.handleReset.bind(this);
 	}
 
 	handleFilterBySize(event, value) {
-		const { displayedProducts } = this.props;
-		productApi.filterBySize(event, value, displayedProducts);
+		const { products } = this.props;
+		productApi.filterBySize(event, value, products);
 	}
 
 	handleFilterByIngredients(event) {
-		const { displayedProducts, ingredientsChecked } = this.props;
+		const { products, ingredientsChecked } = this.props;
 		productApi.filterByIngredients(
 			event.target.name,
-			displayedProducts,
+			products,
 			ingredientsChecked
 		);
 	}
@@ -54,13 +53,13 @@ class Home extends React.Component {
 	}
 
 	handleFilterByPrice() {
-		const { priceFrom, priceTo, displayedProducts } = this.props;
-		productApi.filterByPrice(priceFrom, priceTo, displayedProducts);
+		const { priceFrom, priceTo, products } = this.props;
+		productApi.filterByPrice(priceFrom, priceTo, products);
 	}
 
 	handleSearchProducts(value) {
-		const { displayedProducts } = this.props;
-		productApi.searchProducts(value, displayedProducts);
+		const { products } = this.props;
+		productApi.searchProducts(value, products);
 	}
 
 	handleInputChange(product, event) {
@@ -101,7 +100,6 @@ class Home extends React.Component {
 					handleChangePriceTo={this.handleChangePriceTo}
 					handleFilterByPrice={this.handleFilterByPrice}
 					handleSearchProducts={this.handleSearchProducts}
-					handleReset={this.handleReset}
 				/>
 				<div className="row">
 					<ProductList
