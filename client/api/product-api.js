@@ -10,16 +10,23 @@ import * as urlsConst from '../const/urls';
 import _ from 'lodash';
 
 export function getProducts() {
+	const NUMBER_PIZZAS = 9;
+	let products = [];
+
 	return axios.get(urlsConst.PRODUCTS).then(response => {
-		store.dispatch(
-			actionCreators.actionCreatorGetProductsSuccess(response.data)
-		);
+		response.data.forEach((item, i) => {
+			if (i < NUMBER_PIZZAS) {
+				products.push(item);
+			}
+		});
+
+		store.dispatch(actionCreators.actionCreatorGetProducts(products));
 	});
 }
 
 export function getDisplayedProducts(products) {
 	return store.dispatch(
-		actionCreators.actionCreatorGetDisplayedProductsSuccess(products)
+		actionCreators.actionCreatorGetDisplayedProducts(products)
 	);
 }
 

@@ -11,6 +11,8 @@ import * as formApi from '../../api/form-api';
 import OrderForm from '../order-form.jsx';
 import Cart from './cart.jsx';
 
+import Stripe from 'stripe.js';
+
 class Checkout extends React.Component {
 	constructor(props) {
 		super(props);
@@ -34,6 +36,31 @@ class Checkout extends React.Component {
 		);
 		this.handleCheckCutPizza = this.handleCheckCutPizza.bind(this);
 		this.handleSendOrderForm = this.handleSendOrderForm.bind(this);
+		this.onSubmit = this.onSubmit.bind(this);
+	}
+
+	onSubmit(card) {
+		console;
+		const { number, exp_month, exp_year, cvc, name, zip } = card;
+		Stripe.card.createToken(
+			{
+				number,
+				exp_month,
+				exp_year,
+				cvc,
+				name,
+				address_zip: zip
+			},
+			(status, response) => {
+				if (response.error) {
+					alert('Adding card failed with error: ' + response.error.message);
+				} else {
+					const cardToken = response.id;
+					// send cardToken to server to be saved under the current user
+					// show success message and navigate away from form
+				}
+			}
+		);
 	}
 
 	handleUpdateInputName(value) {
@@ -91,7 +118,7 @@ class Checkout extends React.Component {
 	}
 
 	render() {
-		const { paymentTheInternet, isThanksForPurchase } = this.props;
+		const { paymentTheInternet, isThanksForPurchase } = this.props.form;
 		return (
 			<div className="container">
 				<div className="row">
@@ -113,6 +140,7 @@ class Checkout extends React.Component {
 						handleChangePaymentTheInternet={this.handleChangePaymentTheInternet}
 						handleCheckCutPizza={this.handleCheckCutPizza}
 						handleSendOrderForm={this.handleSendOrderForm}
+						onSubmit={this.onSubmit}
 					/>
 					<Cart />
 				</div>

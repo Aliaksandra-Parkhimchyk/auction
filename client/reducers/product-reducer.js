@@ -18,13 +18,13 @@ const initialState = {
 
 const productReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case types.GET_PRODUCTS_SUCCESS:
+		case types.GET_PRODUCTS:
 			return Object.assign({}, state, {
 				products: action.products,
 				displayedProducts: action.products
 			});
 
-		case types.GET_DISPLAYED_PRODUCTS_SUCCESS:
+		case types.GET_DISPLAYED_PRODUCTS:
 			return Object.assign({}, state, {
 				displayedProducts: action.displayedProducts
 			});

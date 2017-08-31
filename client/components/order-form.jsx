@@ -8,6 +8,8 @@ import Checkbox from 'material-ui/Checkbox';
 import RaisedButton from 'material-ui/RaisedButton';
 import Thanks from './thanks.jsx';
 
+import { CardForm } from 'react-payment';
+
 const style = {
 	marginLeft: 20
 };
@@ -121,12 +123,18 @@ export default props => {
 						<MenuItem value={2} primaryText="In cash to the courier" />
 						<MenuItem value={3} primaryText="By card to the courier" />
 					</SelectField>
+					{props.paymentTheInternet === 1
+						? <CardForm
+								onSubmit={props.onSubmit}
+								getName={true}
+								getZip={true}
+							/>
+						: null}
 					<Checkbox
 						label="Cut pizza"
 						name="cut-pizza"
 						onCheck={props.handleCheckCutPizza}
 					/>
-
 					<RaisedButton
 						label="Send"
 						className="send-order-form"

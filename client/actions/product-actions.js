@@ -4,17 +4,17 @@
 
 import * as types from '../actions/action-types';
 
-export function actionCreatorGetProductsSuccess(products) {
+export function actionCreatorGetProducts(products) {
 	return {
-		type: types.GET_PRODUCTS_SUCCESS,
+		type: types.GET_PRODUCTS,
 		displayedProducts: products,
-        products
+		products
 	};
 }
 
-export function actionCreatorGetDisplayedProductsSuccess(products) {
+export function actionCreatorGetDisplayedProducts(products) {
 	return {
-		type: types.GET_DISPLAYED_PRODUCTS_SUCCESS,
+		type: types.GET_DISPLAYED_PRODUCTS,
 		displayedProducts: products
 	};
 }
@@ -33,7 +33,7 @@ export function actionCreatorFilterByIngredients(
 	return {
 		type: types.FILTER_BY_INGREDIENTS,
 		ingredientsChecked: ingredients,
-        displayedProducts
+		displayedProducts
 	};
 }
 

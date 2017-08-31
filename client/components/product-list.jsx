@@ -9,7 +9,7 @@ import { Link } from 'react-router';
 
 export default props => {
 	return (
-		<div className="col-md-9 col-sm-9">
+		<div className="col-md-9 col-sm-9 product-list">
 			<div className="row">
 				{props.displayedProducts.map(product => {
 					const { id, title, src, num } = product;
