@@ -11,7 +11,7 @@ import * as formApi from '../../api/form-api';
 import OrderForm from '../order-form.jsx';
 import Cart from './cart.jsx';
 
-import Stripe from 'stripe.js';
+// let loadedStripe = false;
 
 class Checkout extends React.Component {
 	constructor(props) {
@@ -36,31 +36,11 @@ class Checkout extends React.Component {
 		);
 		this.handleCheckCutPizza = this.handleCheckCutPizza.bind(this);
 		this.handleSendOrderForm = this.handleSendOrderForm.bind(this);
-		this.onSubmit = this.onSubmit.bind(this);
+		this.handleAddCart = this.handleAddCart.bind(this);
 	}
 
-	onSubmit(card) {
-		console;
-		const { number, exp_month, exp_year, cvc, name, zip } = card;
-		Stripe.card.createToken(
-			{
-				number,
-				exp_month,
-				exp_year,
-				cvc,
-				name,
-				address_zip: zip
-			},
-			(status, response) => {
-				if (response.error) {
-					alert('Adding card failed with error: ' + response.error.message);
-				} else {
-					const cardToken = response.id;
-					// send cardToken to server to be saved under the current user
-					// show success message and navigate away from form
-				}
-			}
-		);
+	handleAddCart(card) {
+		formApi.addCard(card);
 	}
 
 	handleUpdateInputName(value) {
@@ -117,6 +97,23 @@ class Checkout extends React.Component {
 		cartApi.sendOrderForm(form, cart);
 	}
 
+	/*componentWillMount() {
+        if (loadedStripe) {
+            return;
+        }
+
+        const script = document.createElement("script");
+        script.src = "https://js.stripe.com/v2/";
+        script.type = "text/javascript";
+        script.async = true;
+        script.onload = () => {
+            Stripe.setPublishableKey('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
+        };
+        document.body.appendChild(script);
+
+        loadedStripe = true;
+    }*/
+
 	render() {
 		const { paymentTheInternet, isThanksForPurchase } = this.props.form;
 		return (
@@ -140,7 +137,7 @@ class Checkout extends React.Component {
 						handleChangePaymentTheInternet={this.handleChangePaymentTheInternet}
 						handleCheckCutPizza={this.handleCheckCutPizza}
 						handleSendOrderForm={this.handleSendOrderForm}
-						onSubmit={this.onSubmit}
+						handleAddCart={this.handleAddCart}
 					/>
 					<Cart />
 				</div>

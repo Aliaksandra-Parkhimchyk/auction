@@ -4,6 +4,7 @@
 
 import store from '../store';
 import * as actionCreators from '../actions/form-actions';
+import server from '../../server/server';
 
 export function updateInputName(name) {
 	return store.dispatch(actionCreators.actionCreatorUpdateInputName(name));
@@ -67,4 +68,17 @@ export function updateInputPassword(password) {
 	return store.dispatch(
 		actionCreators.actionCreatorUpdateInputPassword(password)
 	);
+}
+
+export function addCard(card) {
+	Stripe.setPublishableKey('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
+	Stripe.card.createToken(card, (status, response) => {
+		if (response.error) {
+			alert('Adding card failed with error: ' + response.error.message);
+		} else {
+			const cardToken = response.id;
+			console.log(cardToken);
+			// server.saveCard(cardToken);
+		}
+	});
 }

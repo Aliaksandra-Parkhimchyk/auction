@@ -3584,6 +3584,12 @@ react-router@^4.1.1:
     prop-types "^15.5.4"
     warning "^3.0.0"
 
+react-stripe-elements@^0.0.8:
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/react-stripe-elements/-/react-stripe-elements-0.0.8.tgz#154fb38a89960073020b5a96bdc160fae5de1859"
+  dependencies:
+    prop-types "^15.5.8"
+
 react-tap-event-plugin@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/react-tap-event-plugin/-/react-tap-event-plugin-2.0.1.tgz#316beb3bc6556e29ec869a7293e89c826a9074d2"

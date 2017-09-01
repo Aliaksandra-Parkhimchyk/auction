@@ -124,11 +124,7 @@ export default props => {
 						<MenuItem value={3} primaryText="By card to the courier" />
 					</SelectField>
 					{props.paymentTheInternet === 1
-						? <CardForm
-								onSubmit={props.onSubmit}
-								getName={true}
-								getZip={true}
-							/>
+						? <CardForm onSubmit={props.handleAddCart} getName={true} />
 						: null}
 					<Checkbox
 						label="Cut pizza"
