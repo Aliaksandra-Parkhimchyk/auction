@@ -4,93 +4,86 @@
 
 import * as types from '../actions/action-types';
 
-export function actionCreatorUpdateInputName(name) {
+export function actionCreatorUpdateInputNameOrderForm(name) {
 	return {
-		type: types.UPDATE_INPUT_NAME,
+		type: types.UPDATE_INPUT_NAME_ORDER_FORM,
 		name
 	};
 }
 
-export function actionCreatorUpdateInputEmail(email) {
+export function actionCreatorUpdateInputEmailOrderForm(email) {
 	return {
-		type: types.UPDATE_INPUT_EMAIL,
+		type: types.UPDATE_INPUT_EMAIL_ORDER_FORM,
 		email
 	};
 }
-export function actionCreatorUpdateInputPhone(phone) {
+export function actionCreatorUpdateInputPhoneOrderForm(phone) {
 	return {
-		type: types.UPDATE_INPUT_PHONE,
+		type: types.UPDATE_INPUT_PHONE_ORDER_FORM,
 		phone
 	};
 }
-export function actionCreatorUpdateInputCity(city) {
+export function actionCreatorUpdateInputCityOrderForm(city) {
 	return {
-		type: types.UPDATE_INPUT_CITY,
+		type: types.UPDATE_INPUT_CITY_ORDER_FORM,
 		city
 	};
 }
 
-export function actionCreatorUpdateInputStreet(street) {
+export function actionCreatorUpdateInputStreetOrderForm(street) {
 	return {
-		type: types.UPDATE_INPUT_STREET,
+		type: types.UPDATE_INPUT_STREET_ORDER_FORM,
 		street
 	};
 }
 
-export function actionCreatorUpdateInputHouse(house) {
+export function actionCreatorUpdateInputHouseOrderForm(house) {
 	return {
-		type: types.UPDATE_INPUT_HOUSE,
+		type: types.UPDATE_INPUT_HOUSE_ORDER_FORM,
 		house
 	};
 }
 
-export function actionCreatorUpdateInputApartment(apartment) {
+export function actionCreatorUpdateInputApartmentOrderForm(apartment) {
 	return {
-		type: types.UPDATE_INPUT_APARTMENT,
+		type: types.UPDATE_INPUT_APARTMENT_ORDER_FORM,
 		apartment
 	};
 }
 
-export function actionCreatorUpdateInputAccess(access) {
+export function actionCreatorUpdateInputAccessOrderForm(access) {
 	return {
-		type: types.UPDATE_INPUT_ACCESS,
+		type: types.UPDATE_INPUT_ACCESS_ORDER_FORM,
 		access
 	};
 }
 
-export function actionCreatorUpdateInputFloor(floor) {
+export function actionCreatorUpdateInputFloorOrderForm(floor) {
 	return {
-		type: types.UPDATE_INPUT_FLOOR,
+		type: types.UPDATE_INPUT_FLOOR_ORDER_FORM,
 		floor
 	};
 }
 
-export function actionCreatorUpdateInputAdditionalInformation(
+export function actionCreatorUpdateInputAdditionalInformationOrderForm(
 	additionalInformation
 ) {
 	return {
-		type: types.UPDATE_INPUT_ADDITIONAL_INFORMATION,
+		type: types.UPDATE_INPUT_ADDITIONAL_INFORMATION_ORDER_FORM,
 		additionalInformation
 	};
 }
 
-export function actionCreatorChangePaymentTheInternet(paymentTheInternet) {
+export function actionCreatorChangePaymentTheInternetOrderForm(paymentTheInternet) {
 	return {
-		type: types.CHANGE_PAYMENT_THE_INTERNET,
+		type: types.CHANGE_PAYMENT_THE_INTERNET_ORDER_FORM,
 		paymentTheInternet
 	};
 }
 
-export function actionCreatorCheckCutPizza(isCheckCutPizza) {
+export function actionCreatorCheckCutPizzaOrderForm(isCheckCutPizza) {
 	return {
-		type: types.CHECK_CUT_PIZZA,
+		type: types.CHECK_CUT_PIZZA_ORDER_FORM,
 		isCheckCutPizza
-	};
-}
-
-export function actionCreatorUpdateInputPassword(password) {
-	return {
-		type: types.UPDATE_INPUT_PASSWORD,
-		password
 	};
 }

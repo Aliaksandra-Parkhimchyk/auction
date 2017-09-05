@@ -5,22 +5,28 @@
 import * as types from '../actions/action-types';
 
 const initialState = {
-	currentUser: '',
-	name: '',
-	password: ''
+    login_form: {
+        name: '',
+        password: ''
+    },
+	currentUser: ''
 };
 
 const LoginLogoutReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case types.UPDATE_INPUT_NAME:
-			return Object.assign({}, state, {
-				name: action.name
-			});
+        case types.UPDATE_INPUT_NAME_LOGIN_FORM:
+            return Object.assign({}, state, {
+                login_form: Object.assign({}, state.login_form, {
+                    name: action.name
+                })
+            });
 
-		case types.UPDATE_INPUT_PASSWORD:
-			return Object.assign({}, state, {
-				password: action.password
-			});
+        case types.UPDATE_INPUT_PASSWORD_LOGIN_FORM:
+            return Object.assign({}, state, {
+                login_form: Object.assign({}, state.login_form, {
+                    password: action.password
+                })
+            });
 
 		case types.LOGIN:
 			return Object.assign({}, state, {

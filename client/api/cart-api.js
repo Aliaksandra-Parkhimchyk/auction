@@ -55,58 +55,18 @@ export function getTotalPrice(cart) {
 	return store.dispatch(actionCreators.actionCreatorGetTotalPrice(totalPrice));
 }
 
-export function sendOrderForm(
-	name,
-	email,
-	phone,
-	city,
-	street,
-	house,
-	apartment,
-	access,
-	floor,
-	additional_information,
-	payment_the_internet,
-	cut_pizza,
-	order
-) {
+export function sendOrderForm(form, order) {
 	let cart = [];
 	let isThanksForPurchase = true;
 	localStorage.removeItem('cart');
 	return axios
 		.post(urlsConst.FORMS, {
-			name: name,
-			email: email,
-			phone: phone,
-			city: city,
-			street: street,
-			house: house,
-			apartment: apartment,
-			access: access,
-			floor: floor,
-			additional_information: additional_information,
-			payment_the_internet: payment_the_internet,
-			cut_pizza: cut_pizza,
+			form: form,
 			order: order
 		})
 		.then(function(response) {
 			store.dispatch(
 				actionCreators.actionCreatorSendOrderForm(cart, isThanksForPurchase)
-			);
-		});
-}
-
-export function sendContactUsForm(name, email, query) {
-	let isThanksForQuery = true;
-	return axios
-		.post(urlsConst.CONTACT_US_FORMS, {
-			name: name,
-			email: email,
-			query: query
-		})
-		.then(function(response) {
-			store.dispatch(
-				actionCreators.actionCreatorSendContactUsForm(isThanksForQuery)
 			);
 		});
 }

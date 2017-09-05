@@ -6,67 +6,61 @@ import store from '../store';
 import * as actionCreators from '../actions/form-actions';
 import server from '../../server/server';
 
-export function updateInputName(name) {
-	return store.dispatch(actionCreators.actionCreatorUpdateInputName(name));
+export function updateInputNameOrderForm(name) {
+	return store.dispatch(actionCreators.actionCreatorUpdateInputNameOrderForm(name));
 }
 
-export function updateInputEmail(email) {
-	return store.dispatch(actionCreators.actionCreatorUpdateInputEmail(email));
+export function updateInputEmailOrderForm(email) {
+	return store.dispatch(actionCreators.actionCreatorUpdateInputEmailOrderForm(email));
 }
 
-export function updateInputPhone(phone) {
-	return store.dispatch(actionCreators.actionCreatorUpdateInputPhone(phone));
+export function updateInputPhoneOrderForm(phone) {
+	return store.dispatch(actionCreators.actionCreatorUpdateInputPhoneOrderForm(phone));
 }
 
-export function updateInputCity(city) {
-	return store.dispatch(actionCreators.actionCreatorUpdateInputCity(city));
+export function updateInputCityOrderForm(city) {
+	return store.dispatch(actionCreators.actionCreatorUpdateInputCityOrderForm(city));
 }
 
-export function updateInputStreet(street) {
-	return store.dispatch(actionCreators.actionCreatorUpdateInputStreet(street));
+export function updateInputStreetOrderForm(street) {
+	return store.dispatch(actionCreators.actionCreatorUpdateInputStreetOrderForm(street));
 }
 
-export function updateInputHouse(house) {
-	return store.dispatch(actionCreators.actionCreatorUpdateInputHouse(house));
+export function updateInputHouseOrderForm(house) {
+	return store.dispatch(actionCreators.actionCreatorUpdateInputHouseOrderForm(house));
 }
 
-export function updateInputApartment(apartment) {
+export function updateInputApartmentOrderForm(apartment) {
 	return store.dispatch(
-		actionCreators.actionCreatorUpdateInputApartment(apartment)
+		actionCreators.actionCreatorUpdateInputApartmentOrderForm(apartment)
 	);
 }
 
-export function updateInputAccess(access) {
-	return store.dispatch(actionCreators.actionCreatorUpdateInputAccess(access));
+export function updateInputAccessOrderForm(access) {
+	return store.dispatch(actionCreators.actionCreatorUpdateInputAccessOrderForm(access));
 }
 
-export function updateInputFloor(floor) {
-	return store.dispatch(actionCreators.actionCreatorUpdateInputFloor(floor));
+export function updateInputFloorOrderForm(floor) {
+	return store.dispatch(actionCreators.actionCreatorUpdateInputFloorOrderForm(floor));
 }
 
-export function updateInputAdditionalInformation(additionalInformation) {
+export function updateInputAdditionalInformationOrderForm(additionalInformation) {
 	return store.dispatch(
-		actionCreators.actionCreatorUpdateInputAdditionalInformation(
+		actionCreators.actionCreatorUpdateInputAdditionalInformationOrderForm(
 			additionalInformation
 		)
 	);
 }
 
-export function changePaymentTheInternet(paymentTheInternet) {
+export function changePaymentTheInternetOrderForm(paymentTheInternet) {
 	return store.dispatch(
-		actionCreators.actionCreatorChangePaymentTheInternet(paymentTheInternet)
+		actionCreators.actionCreatorChangePaymentTheInternetOrderForm(paymentTheInternet)
 	);
 }
 
-export function checkCutPizza(isCheckCutPizza) {
+export function checkCutPizzaOrderForm(isCheckCutPizza) {
 	return store.dispatch(
-		actionCreators.actionCreatorCheckCutPizza(isCheckCutPizza)
-	);
-}
-
-export function updateInputPassword(password) {
-	return store.dispatch(
-		actionCreators.actionCreatorUpdateInputPassword(password)
+		actionCreators.actionCreatorCheckCutPizzaOrderForm(isCheckCutPizza)
 	);
 }
 
@@ -82,3 +76,4 @@ export function addCard(card) {
 		}
 	});
 }
+

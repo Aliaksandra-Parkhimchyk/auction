@@ -97,19 +97,16 @@ class Login extends React.Component {
 	}
 
 	handleUpdateInputName(value) {
-		formApi.updateInputName(value);
+		loginLogoutApi.updateInputNameLoginForm(value);
 	}
 
 	handleUpdateInputPassword(value) {
-		formApi.updateInputPassword(value);
+		loginLogoutApi.updateInputPasswordLoginForm(value);
 	}
 
 	handleLogin() {
-		loginLogoutApi.login(
-			this.props.registered_users,
-			this.props.name,
-			this.props.password
-		);
+		const { login_form, registered_users } = this.props;
+		loginLogoutApi.login(registered_users, login_form);
 	}
 
 	componentDidMount() {
@@ -136,10 +133,9 @@ class Login extends React.Component {
 
 const mapStateToProps = store => {
 	return {
-		name: store.loginLogoutState.name,
-		password: store.loginLogoutState.password,
-		registered_users: store.signUpState.registered_users,
-		currentUser: store.loginLogoutState.currentUser
+		login_form: store.loginLogoutState.login_form,
+		currentUser: store.loginLogoutState.currentUser,
+		registered_users: store.signUpState.registered_users
 	};
 };
 

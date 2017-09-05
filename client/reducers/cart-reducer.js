@@ -7,8 +7,7 @@ import * as types from '../actions/action-types';
 const initialState = {
 	cart: JSON.parse(localStorage.getItem('cart')),
 	totalPrice: localStorage.getItem('totalPrice'),
-	isThanksForPurchase: false,
-	isThanksForQuery: false
+	isThanksForPurchase: false
 };
 
 const cartReducer = (state = initialState, action) => {
@@ -29,11 +28,6 @@ const cartReducer = (state = initialState, action) => {
 			return Object.assign({}, state, {
 				cart: action.cart,
 				isThanksForPurchase: action.isThanksForPurchase
-			});
-
-		case types.SEND_CONTACT_US_FORM:
-			return Object.assign({}, state, {
-				isThanksForQuery: action.isThanksForQuery
 			});
 	}
 

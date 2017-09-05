@@ -43,57 +43,57 @@ class Checkout extends React.Component {
 		formApi.addCard(card);
 	}
 
-	handleUpdateInputName(value) {
-		formApi.updateInputName(value);
+	handleUpdateInputName(event) {
+		formApi.updateInputNameOrderForm(event.target.value);
 	}
 
-	handleUpdateInputEmail(value) {
-		formApi.updateInputEmail(value);
+	handleUpdateInputEmail(event) {
+		formApi.updateInputEmailOrderForm(event.target.value);
 	}
 
-	handleUpdateInputPhone(value) {
-		formApi.updateInputPhone(value);
+	handleUpdateInputPhone(event) {
+		formApi.updateInputPhoneOrderForm(event.target.value);
 	}
 
-	handleUpdateInputCity(value) {
-		formApi.updateInputCity(value);
+	handleUpdateInputCity(event) {
+		formApi.updateInputCityOrderForm(event.target.value);
 	}
 
-	handleUpdateInputStreet(value) {
-		formApi.updateInputStreet(value);
+	handleUpdateInputStreet(event) {
+		formApi.updateInputStreetOrderForm(event.target.value);
 	}
 
-	handleUpdateInputHouse(value) {
-		formApi.updateInputHouse(value);
+	handleUpdateInputHouse(event) {
+		formApi.updateInputHouseOrderForm(event.target.value);
 	}
 
-	handleUpdateInputApartment(value) {
-		formApi.updateInputApartment(value);
+	handleUpdateInputApartment(event) {
+		formApi.updateInputApartmentOrderForm(event.target.value);
 	}
 
-	handleUpdateInputAccess(value) {
-		formApi.updateInputAccess(value);
+	handleUpdateInputAccess(event) {
+		formApi.updateInputAccessOrderForm(event.target.value);
 	}
 
-	handleUpdateInputFloor(value) {
-		formApi.updateInputFloor(value);
+	handleUpdateInputFloor(event) {
+		formApi.updateInputFloorOrderForm(event.target.value);
 	}
 
 	handleUpdateAdditionalInformation(event) {
-		formApi.updateInputAdditionalInformation(event.target.value);
+		formApi.updateInputAdditionalInformationOrderForm(event.target.value);
 	}
 
 	handleChangePaymentTheInternet(event, index, value) {
-		formApi.changePaymentTheInternet(value);
+		formApi.changePaymentTheInternetOrderForm(value);
 	}
 
 	handleCheckCutPizza(event) {
-		formApi.checkCutPizza(event.target.checked);
+		formApi.checkCutPizzaOrderForm(event.target.checked);
 	}
 
 	handleSendOrderForm() {
 		const { form, cart } = this.props;
-
+        console.log(form);
 		cartApi.sendOrderForm(form, cart);
 	}
 
@@ -115,7 +115,8 @@ class Checkout extends React.Component {
     }*/
 
 	render() {
-		const { paymentTheInternet, isThanksForPurchase } = this.props.form;
+		const { paymentTheInternet } = this.props.form;
+		const { isThanksForPurchase } = this.props;
 		return (
 			<div className="container">
 				<div className="row">

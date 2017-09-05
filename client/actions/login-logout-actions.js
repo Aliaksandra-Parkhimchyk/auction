@@ -4,6 +4,20 @@
 
 import * as types from '../actions/action-types';
 
+export function actionCreatorUpdateInputNameLoginForm(name) {
+    return {
+        type: types.UPDATE_INPUT_NAME_LOGIN_FORM,
+        name
+    };
+}
+
+export function actionCreatorUpdateInputPasswordLoginForm(password) {
+    return {
+        type: types.UPDATE_INPUT_PASSWORD_LOGIN_FORM,
+        password
+    };
+}
+
 export function actionCreatorLogin(currentUser) {
 	return {
 		type: types.LOGIN,

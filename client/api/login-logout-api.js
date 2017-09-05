@@ -8,7 +8,16 @@ import { browserHistory } from 'react-router';
 import store from '../store';
 import * as actionCreators from '../actions/login-logout-actions';
 
-export function login(registered_users, name, password) {
+export function updateInputNameLoginForm(name) {
+    return store.dispatch(actionCreators.actionCreatorUpdateInputNameLoginForm(name));
+}
+
+export function updateInputPasswordLoginForm(password) {
+    return store.dispatch(actionCreators.actionCreatorUpdateInputPasswordLoginForm(password));
+}
+
+export function login(registered_users, login_form) {
+    const { name, password } = login_form;
 	let currentUser = '';
 	registered_users.forEach(registered_user => {
 		if (

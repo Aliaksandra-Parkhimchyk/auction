@@ -6,6 +6,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import * as cartApi from '../../api/cart-api';
+import * as contactUsFormApi from '../../api/contact-us-api';
 import * as formApi from '../../api/form-api';
 
 import ContactUsForm from '../contact-us-form.jsx';
@@ -21,21 +22,20 @@ class ContactUs extends React.Component {
 		this.handleSendContactUsForm = this.handleSendContactUsForm.bind(this);
 	}
 
-	handleUpdateInputName(value) {
-		formApi.updateInputName(value);
+	handleUpdateInputName(event) {
+		contactUsFormApi.updateInputNameContactUsForm(event.target.value);
 	}
 
-	handleUpdateInputEmail(value) {
-		formApi.updateInputEmail(value);
+	handleUpdateInputEmail(event) {
+        contactUsFormApi.updateInputEmailContactUsForm(event.target.value);
 	}
 
 	handleUpdateQuery(event) {
-		formApi.updateInputAdditionalInformation(event.target.value);
+        contactUsFormApi.updateInputQueryContactUsForm(event.target.value);
 	}
 
 	handleSendContactUsForm() {
-		const { name, email, additionalInformation } = this.props;
-		cartApi.sendContactUsForm(name, email, additionalInformation);
+		contactUsFormApi.sendContactUsForm(this.props.contact_us_form);
 	}
 
 	render() {
@@ -61,10 +61,8 @@ class ContactUs extends React.Component {
 const mapStateToProps = store => {
 	return {
 		cart: store.cartState.cart,
-		isThanksForQuery: store.cartState.isThanksForQuery,
-		name: store.formState.name,
-		email: store.formState.email,
-		additionalInformation: store.formState.additionalInformation
+        contact_us_form: store.contactUsState.contact_us_form,
+        isThanksForQuery: store.contactUsState.isThanksForQuery
 	};
 };
 

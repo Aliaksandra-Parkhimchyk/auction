@@ -39,10 +39,3 @@ export function actionCreatorSendOrderForm(cart, isThanksForPurchase) {
 		isThanksForPurchase
 	};
 }
-
-export function actionCreatorSendContactUsForm(isThanksForQuery) {
-	return {
-		type: types.SEND_CONTACT_US_FORM,
-		isThanksForQuery
-	};
-}
