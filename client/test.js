@@ -466,6 +466,21 @@ describe('actions', () => {
 });
 
 describe('actions', () => {
+	it('action creator increase number product', () => {
+		const displayedProducts = [];
+		const expectedAction = {
+			type: types.INCREASE_NUMBER_PRODUCT,
+			displayedProducts
+		};
+		expect(
+			actionCreatorsProductActions.actionCreatorIncreaseNumberProduct(
+				displayedProducts
+			)
+		).toEqual(expectedAction);
+	});
+});
+
+describe('actions', () => {
 	it('action creator update name for sign up form', () => {
 		const name = 'Sasha';
 		const expectedAction = {
