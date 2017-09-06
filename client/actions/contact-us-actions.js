@@ -7,14 +7,14 @@ import * as types from '../actions/action-types';
 export function actionCreatorUpdateInputNameContactUsForm(name) {
 	return {
 		type: types.UPDATE_INPUT_NAME_CONTACT_US_FORM,
-		name: name
+		name
 	};
 }
 
 export function actionCreatorUpdateInputEmailContactUsForm(email) {
 	return {
 		type: types.UPDATE_INPUT_EMAIL_CONTACT_US_FORM,
-		email: email
+		email
 	};
 }
 
