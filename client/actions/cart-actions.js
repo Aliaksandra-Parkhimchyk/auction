@@ -4,13 +4,6 @@
 
 import * as types from '../actions/action-types';
 
-export function actionCreatorGetCartSuccess(cart) {
-	return {
-		type: types.GET_CART_SUCCESS,
-		cart
-	};
-}
-
 export function actionCreatorAddProductToCart(cart) {
 	return {
 		type: types.ADD_PRODUCT_TO_CART,

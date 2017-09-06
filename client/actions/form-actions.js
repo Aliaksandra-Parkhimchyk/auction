@@ -17,12 +17,14 @@ export function actionCreatorUpdateInputEmailOrderForm(email) {
 		email
 	};
 }
+
 export function actionCreatorUpdateInputPhoneOrderForm(phone) {
 	return {
 		type: types.UPDATE_INPUT_PHONE_ORDER_FORM,
 		phone
 	};
 }
+
 export function actionCreatorUpdateInputCityOrderForm(city) {
 	return {
 		type: types.UPDATE_INPUT_CITY_ORDER_FORM,
@@ -74,7 +76,9 @@ export function actionCreatorUpdateInputAdditionalInformationOrderForm(
 	};
 }
 
-export function actionCreatorChangePaymentTheInternetOrderForm(paymentTheInternet) {
+export function actionCreatorChangePaymentTheInternetOrderForm(
+	paymentTheInternet
+) {
 	return {
 		type: types.CHANGE_PAYMENT_THE_INTERNET_ORDER_FORM,
 		paymentTheInternet

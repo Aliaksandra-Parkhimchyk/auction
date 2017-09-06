@@ -5,7 +5,9 @@
   "repository": "https://github.com/Aliaksandra-Parkhimchyk/auction-app.git",
   "author": "Aliaksandra-Parkhimchyk",
   "scripts": {
-    "start": "webpack-dev-server --history-api-fallback"
+    "start": "webpack-dev-server --history-api-fallback",
+    "test": "jest",
+    "test:watch": "yarn test -- --watch"
   },
   "license": "MIT",
   "devDependencies": {
@@ -37,6 +39,7 @@
     "normalize.css": "^7.0.0",
     "prop-types": "^15.5.10",
     "qwest": "^4.4.6",
+    "raven": "^2.1.2",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-infinite-scroll": "^0.1.5",

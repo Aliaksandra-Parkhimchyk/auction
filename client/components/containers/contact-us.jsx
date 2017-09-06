@@ -27,11 +27,11 @@ class ContactUs extends React.Component {
 	}
 
 	handleUpdateInputEmail(event) {
-        contactUsFormApi.updateInputEmailContactUsForm(event.target.value);
+		contactUsFormApi.updateInputEmailContactUsForm(event.target.value);
 	}
 
 	handleUpdateQuery(event) {
-        contactUsFormApi.updateInputQueryContactUsForm(event.target.value);
+		contactUsFormApi.updateInputQueryContactUsForm(event.target.value);
 	}
 
 	handleSendContactUsForm() {
@@ -61,8 +61,8 @@ class ContactUs extends React.Component {
 const mapStateToProps = store => {
 	return {
 		cart: store.cartState.cart,
-        contact_us_form: store.contactUsState.contact_us_form,
-        isThanksForQuery: store.contactUsState.isThanksForQuery
+		contact_us_form: store.contactUsState.contact_us_form,
+		isThanksForQuery: store.contactUsState.isThanksForQuery
 	};
 };
 

@@ -7,27 +7,39 @@ import * as actionCreators from '../actions/form-actions';
 import server from '../../server/server';
 
 export function updateInputNameOrderForm(name) {
-	return store.dispatch(actionCreators.actionCreatorUpdateInputNameOrderForm(name));
+	return store.dispatch(
+		actionCreators.actionCreatorUpdateInputNameOrderForm(name)
+	);
 }
 
 export function updateInputEmailOrderForm(email) {
-	return store.dispatch(actionCreators.actionCreatorUpdateInputEmailOrderForm(email));
+	return store.dispatch(
+		actionCreators.actionCreatorUpdateInputEmailOrderForm(email)
+	);
 }
 
 export function updateInputPhoneOrderForm(phone) {
-	return store.dispatch(actionCreators.actionCreatorUpdateInputPhoneOrderForm(phone));
+	return store.dispatch(
+		actionCreators.actionCreatorUpdateInputPhoneOrderForm(phone)
+	);
 }
 
 export function updateInputCityOrderForm(city) {
-	return store.dispatch(actionCreators.actionCreatorUpdateInputCityOrderForm(city));
+	return store.dispatch(
+		actionCreators.actionCreatorUpdateInputCityOrderForm(city)
+	);
 }
 
 export function updateInputStreetOrderForm(street) {
-	return store.dispatch(actionCreators.actionCreatorUpdateInputStreetOrderForm(street));
+	return store.dispatch(
+		actionCreators.actionCreatorUpdateInputStreetOrderForm(street)
+	);
 }
 
 export function updateInputHouseOrderForm(house) {
-	return store.dispatch(actionCreators.actionCreatorUpdateInputHouseOrderForm(house));
+	return store.dispatch(
+		actionCreators.actionCreatorUpdateInputHouseOrderForm(house)
+	);
 }
 
 export function updateInputApartmentOrderForm(apartment) {
@@ -37,14 +49,20 @@ export function updateInputApartmentOrderForm(apartment) {
 }
 
 export function updateInputAccessOrderForm(access) {
-	return store.dispatch(actionCreators.actionCreatorUpdateInputAccessOrderForm(access));
+	return store.dispatch(
+		actionCreators.actionCreatorUpdateInputAccessOrderForm(access)
+	);
 }
 
 export function updateInputFloorOrderForm(floor) {
-	return store.dispatch(actionCreators.actionCreatorUpdateInputFloorOrderForm(floor));
+	return store.dispatch(
+		actionCreators.actionCreatorUpdateInputFloorOrderForm(floor)
+	);
 }
 
-export function updateInputAdditionalInformationOrderForm(additionalInformation) {
+export function updateInputAdditionalInformationOrderForm(
+	additionalInformation
+) {
 	return store.dispatch(
 		actionCreators.actionCreatorUpdateInputAdditionalInformationOrderForm(
 			additionalInformation
@@ -54,7 +72,9 @@ export function updateInputAdditionalInformationOrderForm(additionalInformation)
 
 export function changePaymentTheInternetOrderForm(paymentTheInternet) {
 	return store.dispatch(
-		actionCreators.actionCreatorChangePaymentTheInternetOrderForm(paymentTheInternet)
+		actionCreators.actionCreatorChangePaymentTheInternetOrderForm(
+			paymentTheInternet
+		)
 	);
 }
 
@@ -77,3 +97,10 @@ export function addCard(card) {
 	});
 }
 
+export function isRegistratedAndIsLogin(registered_users) {
+	console.log(registered_users);
+	let isRegistratedAndIsLogin = true;
+	return store.dispatch(
+		actionCreators.actionCreatorIsRegistratedAndIsLogin(isRegistratedAndIsLogin)
+	);
+}

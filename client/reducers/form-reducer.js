@@ -18,7 +18,8 @@ const initialState = {
 		additionalInformation: '',
 		paymentTheInternet: '1',
 		isCheckCutPizza: false
-	}
+	},
+	isRegistratedAndIsLogin: false
 };
 
 const formReducer = (state = initialState, action) => {
@@ -58,14 +59,14 @@ const formReducer = (state = initialState, action) => {
 				})
 			});
 
-        case types.UPDATE_INPUT_APARTMENT_ORDER_FORM:
-            return Object.assign({}, state, {
-                form: Object.assign({}, state.form, {
-                    house: action.house
-                })
-            });
-
 		case types.UPDATE_INPUT_HOUSE_ORDER_FORM:
+			return Object.assign({}, state, {
+				form: Object.assign({}, state.form, {
+					house: action.house
+				})
+			});
+
+		case types.UPDATE_INPUT_APARTMENT_ORDER_FORM:
 			return Object.assign({}, state, {
 				form: Object.assign({}, state.form, {
 					apartment: action.apartment
@@ -105,6 +106,11 @@ const formReducer = (state = initialState, action) => {
 				form: Object.assign({}, state.form, {
 					isCheckCutPizza: action.isCheckCutPizza
 				})
+			});
+
+		case types.IS_REGISTRATED_AND_IS_LOGIN:
+			return Object.assign({}, state, {
+				isRegistratedAndIsLogin: action.isRegistratedAndIsLogin
 			});
 	}
 

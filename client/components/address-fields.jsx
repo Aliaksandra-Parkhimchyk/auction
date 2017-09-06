@@ -16,7 +16,7 @@ export default props => {
 			<Paper zDepth={1}>
 				<TextField
 					hintText="Phone..."
-					floatingLabelText="Phone..."
+					floatingLabelText={props.phone ? props.phone : ''}
 					fullWidth={true}
 					style={style}
 					underlineShow={false}

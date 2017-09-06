@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 
 import * as cartApi from '../../api/cart-api';
 import * as formApi from '../../api/form-api';
+import * as signUpApi from '../../api/sign-up-api';
 
 import OrderForm from '../order-form.jsx';
 import Cart from './cart.jsx';
@@ -93,7 +94,6 @@ class Checkout extends React.Component {
 
 	handleSendOrderForm() {
 		const { form, cart } = this.props;
-        console.log(form);
 		cartApi.sendOrderForm(form, cart);
 	}
 
