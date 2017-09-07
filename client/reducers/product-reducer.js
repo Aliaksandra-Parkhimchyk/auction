@@ -26,7 +26,7 @@ const productReducer = (state = initialState, action) => {
 
 		case types.GET_DISPLAYED_PRODUCTS:
 			return Object.assign({}, state, {
-				displayedProducts: action.displayedProducts
+				displayedProducts: action.products
 			});
 
 		case types.FILTER_BY_SIZE:
