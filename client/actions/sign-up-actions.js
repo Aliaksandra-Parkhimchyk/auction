@@ -81,9 +81,16 @@ export function actionCreatorSignUpForm(isThanksForRegistration) {
 	};
 }
 
-export function actionCreatorGetRegisteredUsers(registered_users) {
+export function actionCreatorGetRegisteredUsersSuccess(registered_users) {
 	return {
-		type: types.GET_REGISTERED_USERS,
+		type: types.GET_REGISTERED_USERS_SUCCESS,
 		registered_users
+	};
+}
+
+export function actionCreatorGetRegisteredUsersFailure(message) {
+	return {
+		type: types.GET_REGISTERED_USERS_FAILURE,
+		message
 	};
 }

@@ -12,6 +12,9 @@ const initialState = {
 
 const cartReducer = (state = initialState, action) => {
 	switch (action.type) {
+		case types.GET_CART:
+			return Object.assign({}, state, { cart: action.cart });
+
 		case types.ADD_PRODUCT_TO_CART:
 			return Object.assign({}, state, { cart: action.cart });
 

@@ -43,7 +43,7 @@ export function login(registered_users, login_form) {
 
 export function logout() {
 	let currentUser = '';
-	localStorage.clear();
+	localStorage.removeItem('currentUser');
 	return store.dispatch(actionCreators.actionCreatorLogout(currentUser));
 }
 

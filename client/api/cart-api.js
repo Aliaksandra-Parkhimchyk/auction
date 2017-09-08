@@ -8,6 +8,10 @@ import * as actionCreators from '../actions/cart-actions';
 import * as urlsConst from '../const/urls';
 import _ from 'lodash';
 
+export function getCart(cart) {
+	return store.dispatch(actionCreators.actionCreatorGetTotalPrice(cart));
+}
+
 export function addProductToCart(product, cart) {
 	let obj = _.find(cart, o => {
 		return o.id === product.id;
@@ -43,7 +47,8 @@ export function getTotalPrice(cart) {
 	let totalPrice = 0;
 
 	if (!cart) {
-		return null;
+		localStorage.setItem('totalPrice', totalPrice);
+		return;
 	}
 
 	cart.forEach(item => {
@@ -59,6 +64,7 @@ export function sendOrderForm(form, order) {
 	let cart = [];
 	let isThanksForPurchase = true;
 	localStorage.removeItem('cart');
+	localStorage.removeItem('totalPrice');
 	return axios
 		.post(urlsConst.FORMS, {
 			form: form,

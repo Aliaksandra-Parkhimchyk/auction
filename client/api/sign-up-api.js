@@ -81,8 +81,31 @@ export function sendSignUpForm(sign_up_form) {
 export function getRegisteredUsers() {
 	return axios.get(urlsConst.REGISTERED_USERS).then(response => {
 		store.dispatch(
-			actionCreators.actionCreatorGetRegisteredUsers(response.data)
+			actionCreators.actionCreatorGetRegisteredUsersSuccess(response.data)
 		);
-		return response.data;
 	});
 }
+
+/*export function getRegisteredUsers() {
+    return async dispatch => {
+        try {
+            const { data: { success, message, data } } = await axios.get(
+                urlsConst.REGISTERED_USERS
+            );
+
+            console.log(data.data);
+
+            success
+                ? store.dispatch(
+                actionCreators.actionCreatorGetRegisteredUsersSuccess(data)
+            )
+                : dispatch(
+                actionCreators.actionCreatorGetRegisteredUsersFailure(message)
+            );
+        } catch (e) {
+            dispatch(
+                actionCreators.actionCreatorGetRegisteredUsersFailure(e.data.message)
+            );
+        }
+    };
+}*/

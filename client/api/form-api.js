@@ -96,11 +96,3 @@ export function addCard(card) {
 		}
 	});
 }
-
-export function isRegistratedAndIsLogin(registered_users) {
-	console.log(registered_users);
-	let isRegistratedAndIsLogin = true;
-	return store.dispatch(
-		actionCreators.actionCreatorIsRegistratedAndIsLogin(isRegistratedAndIsLogin)
-	);
-}

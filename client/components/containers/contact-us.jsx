@@ -35,7 +35,8 @@ class ContactUs extends React.Component {
 	}
 
 	handleSendContactUsForm() {
-		contactUsFormApi.sendContactUsForm(this.props.contact_us_form);
+		const { contact_us_form } = this.props;
+		contactUsFormApi.sendContactUsForm(contact_us_form);
 	}
 
 	render() {

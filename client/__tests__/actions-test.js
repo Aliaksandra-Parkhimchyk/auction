@@ -2,14 +2,14 @@
  * Created by a.parkhimchyk on 06.09.2017.
  */
 
-import * as actionCreatorsCartActions from './actions/cart-actions';
-import * as actionCreatorsContactUsActions from './actions/contact-us-actions';
-import * as actionCreatorsFormActions from './actions/form-actions';
+import * as actionCreatorsCartActions from '../actions/cart-actions';
+import * as actionCreatorsContactUsActions from '../actions/contact-us-actions';
+import * as actionCreatorsFormActions from '../actions/form-actions';
 import * as actionCreatorsLoginLogoutActions
-	from './actions/login-logout-actions';
-import * as actionCreatorsProductActions from './actions/product-actions';
-import * as actionCreatorsSignUpActions from './actions/sign-up-actions';
-import * as types from './actions/action-types';
+	from '../actions/login-logout-actions';
+import * as actionCreatorsProductActions from '../actions/product-actions';
+import * as actionCreatorsSignUpActions from '../actions/sign-up-actions';
+import * as types from '../actions/action-types';
 import expect from 'expect';
 
 describe('actions', () => {
