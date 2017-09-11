@@ -5,7 +5,7 @@
 import React from 'react';
 
 import { connect } from 'react-redux';
-
+import * as cartApi from '../../api/cart-api';
 import * as loginLogoutApi from '../../api/login-logout-api';
 
 import OrdersList from '../orders-list.jsx';
@@ -17,6 +17,8 @@ class Orders extends React.Component {
 	}
 
 	componentDidMount() {
+		const { cart } = this.props;
+		cartApi.getCart(cart);
 		loginLogoutApi.getCurrentUser();
 	}
 

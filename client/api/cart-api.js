@@ -9,10 +9,13 @@ import * as urlsConst from '../const/urls';
 import _ from 'lodash';
 
 export function getCart(cart) {
+	if (!cart) {
+		cart = [];
+	}
 	return store.dispatch(actionCreators.actionCreatorGetCart(cart));
 }
 
-export function addProductToCart(product, cart) {
+export async function addProductToCart(product, cart) {
 	let obj = _.find(cart, o => {
 		return o.id === product.id;
 	});
@@ -29,7 +32,9 @@ export function addProductToCart(product, cart) {
 
 	localStorage.setItem('cart', JSON.stringify(cart));
 
-	return store.dispatch(actionCreators.actionCreatorAddProductToCart(cart));
+	return await store.dispatch(
+		actionCreators.actionCreatorAddProductToCart(cart)
+	);
 }
 
 export function deleteProductFromCart(product, cart) {

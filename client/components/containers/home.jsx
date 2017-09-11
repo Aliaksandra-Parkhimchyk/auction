@@ -70,8 +70,9 @@ class Home extends React.Component {
 
 	handleAddProductToCart(product) {
 		const { cart } = this.props;
-		cartApi.addProductToCart(product, cart);
-		cartApi.getTotalPrice(cart);
+		cartApi
+			.addProductToCart(product, cart)
+			.then(result => cartApi.getTotalPrice(result.cart));
 	}
 
 	handleReset() {
