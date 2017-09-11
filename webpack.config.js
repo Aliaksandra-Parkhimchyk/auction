@@ -13,7 +13,7 @@ const ExtractTextPluginConfig = new ExtractTextPlugin({
 });
 
 module.exports = {
-	entry: ['./client/index.js', './client/main.scss'],
+	entry: ['babel-polyfill', './client/index.js', './client/main.scss'],
 	output: {
 		filename: 'index_bundle.js'
 	},

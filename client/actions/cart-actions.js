@@ -4,7 +4,7 @@
 
 import * as types from '../actions/action-types';
 
-export function getCart(cart) {
+export function actionCreatorGetCart(cart) {
 	return {
 		type: types.GET_CART,
 		cart

@@ -86,26 +86,3 @@ export function getRegisteredUsers() {
 	});
 }
 
-/*export function getRegisteredUsers() {
-    return async dispatch => {
-        try {
-            const { data: { success, message, data } } = await axios.get(
-                urlsConst.REGISTERED_USERS
-            );
-
-            console.log(data.data);
-
-            success
-                ? store.dispatch(
-                actionCreators.actionCreatorGetRegisteredUsersSuccess(data)
-            )
-                : dispatch(
-                actionCreators.actionCreatorGetRegisteredUsersFailure(message)
-            );
-        } catch (e) {
-            dispatch(
-                actionCreators.actionCreatorGetRegisteredUsersFailure(e.data.message)
-            );
-        }
-    };
-}*/

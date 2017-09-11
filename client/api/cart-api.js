@@ -9,7 +9,7 @@ import * as urlsConst from '../const/urls';
 import _ from 'lodash';
 
 export function getCart(cart) {
-	return store.dispatch(actionCreators.actionCreatorGetTotalPrice(cart));
+	return store.dispatch(actionCreators.actionCreatorGetCart(cart));
 }
 
 export function addProductToCart(product, cart) {

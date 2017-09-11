@@ -71,7 +71,6 @@ class Home extends React.Component {
 	handleAddProductToCart(product) {
 		const { cart } = this.props;
 		cartApi.addProductToCart(product, cart);
-		cartApi.getCart(cart);
 		cartApi.getTotalPrice(cart);
 	}
 
@@ -83,9 +82,7 @@ class Home extends React.Component {
 	// Сашунька ну как можно быть такой красавицей\ ну Сааааш ну смотрю на тебя и радуюсь ну мур
 
 	componentDidMount() {
-		const { cart } = this.props;
 		productApi.getProducts();
-		cartApi.getCart(cart);
 	}
 
 	render() {
