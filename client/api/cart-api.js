@@ -75,9 +75,12 @@ export function sendOrderForm(form, order) {
 			form: form,
 			order: order
 		})
-		.then(function(response) {
+		.then(response => {
 			store.dispatch(
 				actionCreators.actionCreatorSendOrderForm(cart, isThanksForPurchase)
 			);
+		})
+		.catch(error => {
+			alert(error.message);
 		});
 }

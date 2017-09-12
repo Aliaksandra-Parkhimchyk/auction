@@ -98,7 +98,7 @@ const signUpReducer = (state = initialState, action) => {
 				isThanksForRegistration: action.isThanksForRegistration
 			});
 
-		case types.GET_REGISTERED_USERS_SUCCESS:
+		case types.GET_REGISTERED_USERS:
 			return Object.assign({}, state, {
 				registered_users: action.registered_users
 			});

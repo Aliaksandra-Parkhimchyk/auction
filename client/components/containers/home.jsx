@@ -72,7 +72,10 @@ class Home extends React.Component {
 		const { cart } = this.props;
 		cartApi
 			.addProductToCart(product, cart)
-			.then(result => cartApi.getTotalPrice(result.cart));
+			.then(result => cartApi.getTotalPrice(result.cart))
+			.catch(error => {
+				alert(error.message);
+			});
 	}
 
 	handleReset() {

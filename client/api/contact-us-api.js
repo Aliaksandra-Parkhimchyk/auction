@@ -29,9 +29,12 @@ export function sendContactUsForm(contact_us_form) {
 	let isThanksForQuery = true;
 	return axios
 		.post(urlsConst.CONTACT_US_FORMS, contact_us_form)
-		.then(function(response) {
+		.then(response => {
 			store.dispatch(
 				actionCreators.actionCreatorSendContactUsForm(isThanksForQuery)
 			);
+		})
+		.catch(error => {
+			alert(error.message);
 		});
 }

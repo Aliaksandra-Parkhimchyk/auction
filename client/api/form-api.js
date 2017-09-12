@@ -4,7 +4,6 @@
 
 import store from '../store';
 import * as actionCreators from '../actions/form-actions';
-import server from '../../server/server';
 
 export function updateInputNameOrderForm(name) {
 	return store.dispatch(
@@ -88,7 +87,7 @@ export function addCard(card) {
 	Stripe.setPublishableKey('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
 	Stripe.card.createToken(card, (status, response) => {
 		if (response.error) {
-			alert('Adding card failed with error: ' + response.error.message);
+			alert(`Adding card failed with error: ${response.error.message}`);
 		} else {
 			const cardToken = response.id;
 			console.log(cardToken);

@@ -71,18 +71,25 @@ export function sendSignUpForm(sign_up_form) {
 	let isThanksForRegistration = true;
 	return axios
 		.post(urlsConst.REGISTERED_USERS, sign_up_form)
-		.then(function(response) {
+		.then(response => {
 			store.dispatch(
 				actionCreators.actionCreatorSignUpForm(isThanksForRegistration)
 			);
+		})
+		.catch(error => {
+			alert(error.message);
 		});
 }
 
 export function getRegisteredUsers() {
-	return axios.get(urlsConst.REGISTERED_USERS).then(response => {
-		store.dispatch(
-			actionCreators.actionCreatorGetRegisteredUsersSuccess(response.data)
-		);
-	});
+	return axios
+		.get(urlsConst.REGISTERED_USERS)
+		.then(response => {
+			store.dispatch(
+				actionCreators.actionCreatorGetRegisteredUsers(response.data)
+			);
+		})
+		.catch(error => {
+			alert(error.message);
+		});
 }
-

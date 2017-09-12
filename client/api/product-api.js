@@ -13,15 +13,20 @@ export function getProducts() {
 	const NUMBER_PIZZAS = 9;
 	let products = [];
 
-	return axios.get(urlsConst.PRODUCTS).then(response => {
-		response.data.forEach((item, i) => {
-			if (i < NUMBER_PIZZAS) {
-				products.push(item);
-			}
-		});
+	return axios
+		.get(urlsConst.PRODUCTS)
+		.then(response => {
+			response.data.forEach((item, i) => {
+				if (i < NUMBER_PIZZAS) {
+					products.push(item);
+				}
+			});
 
-		store.dispatch(actionCreators.actionCreatorGetProducts(products));
-	});
+			store.dispatch(actionCreators.actionCreatorGetProducts(products));
+		})
+		.catch(error => {
+			alert(error.message);
+		});
 }
 
 export function getDisplayedProducts(products) {
