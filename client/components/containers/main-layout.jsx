@@ -12,8 +12,6 @@ import * as loginLogoutApi from '../../api/login-logout-api';
 // for the latest version react-router (4.1.1)
 // import { HashRouter, Route, Link} from 'react-router-dom';
 
-import 'bootstrap/dist/css/bootstrap.css';
-
 import Header from '../header.jsx';
 import Footer from '../footer.jsx';
 import Paper from 'material-ui/Paper';

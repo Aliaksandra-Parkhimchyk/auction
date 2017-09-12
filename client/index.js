@@ -12,13 +12,14 @@ import Router from './router';
 // import { HashRouter, Route, Link} from 'react-router-dom';
 
 import 'bootstrap/dist/css/bootstrap.css';
+import 'normalize.css/normalize.css';
 
 import { pink900 } from 'material-ui/styles/colors';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 const muiTheme = getMuiTheme({
-    fontFamily: 'Frijole, cursive',
+	fontFamily: 'Georgia, serif',
 	palette: {
 		textColor: pink900
 	}

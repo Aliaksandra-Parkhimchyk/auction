@@ -8,8 +8,6 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 // for the latest version react-router (4.1.1)
 // import { HashRouter, Route, Link} from 'react-router-dom';
 
-import 'bootstrap/dist/css/bootstrap.css';
-
 import MainLayout from './components/containers/main-layout.jsx';
 import Home from './components/containers/home.jsx';
 import About from './components/containers/about.jsx';
