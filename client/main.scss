@@ -28,7 +28,7 @@ div.app {
 					color: $white;
 					font-size: 20px;
 					text-decoration: none;
-					padding: 10px 20px 37px 20px;
+					padding: 10px 20px 25px 20px;
 					cursor: pointer;
 					&.active, &:hover {
 						color: $pink900;
@@ -39,11 +39,12 @@ div.app {
 		}
 	}
 
-	.product-list {
+	.product-list, .cart {
 		padding-top: 100px;
 	}
 
 	footer.footer {
+		font-family: 'Frijole', cursive;
 		background: $pink900;
 		padding: 75px 0;
 

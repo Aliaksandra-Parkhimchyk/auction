@@ -13,11 +13,20 @@ import Router from './router';
 
 import 'bootstrap/dist/css/bootstrap.css';
 
+import { pink900 } from 'material-ui/styles/colors';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+
+const muiTheme = getMuiTheme({
+    fontFamily: 'Frijole, cursive',
+	palette: {
+		textColor: pink900
+	}
+});
 
 ReactDOM.render(
 	<Provider store={store}>
-		<MuiThemeProvider>
+		<MuiThemeProvider muiTheme={muiTheme}>
 			<Router />
 		</MuiThemeProvider>
 	</Provider>,
