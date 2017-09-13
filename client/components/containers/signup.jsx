@@ -6,7 +6,6 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 
-import * as formApi from '../../api/form-api';
 import * as signUpApi from '../../api/sign-up-api';
 
 import AccountFields from '../account-fields.jsx';

@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-
+import { ValidatorForm } from 'react-material-ui-form-validator';
 import { connect } from 'react-redux';
 
 import * as loginLogoutApi from '../../api/login-logout-api';
@@ -16,21 +16,17 @@ class Login extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {
-			dataSource: []
-		};
-
 		this.handleUpdateInputName = this.handleUpdateInputName.bind(this);
 		this.handleUpdateInputPassword = this.handleUpdateInputPassword.bind(this);
 		this.handleLogin = this.handleLogin.bind(this);
 	}
 
-	handleUpdateInputName(value) {
-		loginLogoutApi.updateInputNameLoginForm(value);
+	handleUpdateInputName(event) {
+		loginLogoutApi.updateInputNameLoginForm(event.target.value);
 	}
 
-	handleUpdateInputPassword(value) {
-		loginLogoutApi.updateInputPasswordLoginForm(value);
+	handleUpdateInputPassword(event) {
+		loginLogoutApi.updateInputPasswordLoginForm(event.target.value);
 	}
 
 	handleLogin() {
@@ -43,12 +39,23 @@ class Login extends React.Component {
 		loginLogoutApi.getCurrentUser();
 	}
 
+	componentWillMount() {
+		const { registered_users } = this.props;
+		ValidatorForm.addValidationRule('isPasswordMatch', value => {
+			if (!loginLogoutApi.isPasswordMatch(registered_users, value)) {
+				return false;
+			}
+			return true;
+		});
+	}
+
 	render() {
+		const { login_form } = this.props;
 		return !this.props.currentUser
 			? <div className="container">
 					<div className="row">
 						<LoginForm
-							dataSource={this.state.dataSource}
+							login_form={login_form}
 							handleUpdateInputName={this.handleUpdateInputName}
 							handleUpdateInputPassword={this.handleUpdateInputPassword}
 							handleLogin={this.handleLogin}

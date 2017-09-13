@@ -23,7 +23,7 @@ class Orders extends React.Component {
 	}
 
 	render() {
-		const { currentUser, cart } = this.props;
+		const { cart, currentUser } = this.props;
 		return currentUser
 			? <div className="container">
 					<div className="row">

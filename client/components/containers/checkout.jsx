@@ -7,7 +7,6 @@ import { connect } from 'react-redux';
 
 import * as cartApi from '../../api/cart-api';
 import * as formApi from '../../api/form-api';
-import * as signUpApi from '../../api/sign-up-api';
 
 import OrderForm from '../order-form.jsx';
 import Cart from './cart.jsx';
@@ -116,11 +115,12 @@ class Checkout extends React.Component {
 
 	render() {
 		const { paymentTheInternet } = this.props.form;
-		const { isThanksForPurchase } = this.props;
+		const { isThanksForPurchase, form } = this.props;
 		return (
 			<div className="container">
 				<div className="row">
 					<OrderForm
+						form={form}
 						paymentTheInternet={paymentTheInternet}
 						isThanksForPurchase={isThanksForPurchase}
 						handleUpdateInputName={this.handleUpdateInputName}

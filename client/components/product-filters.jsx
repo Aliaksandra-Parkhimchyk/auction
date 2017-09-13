@@ -3,11 +3,9 @@
  */
 
 import React from 'react';
-import AutoComplete from 'material-ui/AutoComplete';
+import TextField from 'material-ui/TextField';
 import Checkbox from 'material-ui/Checkbox';
 import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton';
-import Slider from 'material-ui/Slider';
-import RaisedButton from 'material-ui/RaisedButton';
 
 export default props => {
 	return (
@@ -74,12 +72,11 @@ export default props => {
 			<div className="col-md-4 col-sm-4">
 				<div className="filter-search">
 					<h3 className="filter-search-title">Search:</h3>
-					<AutoComplete
+					<TextField
 						hintText="Search"
-						dataSource={props.dataSource}
 						floatingLabelText="Search"
 						fullWidth={true}
-						onUpdateInput={props.handleSearchProducts}
+						onChange={props.handleSearchProducts}
 					/>
 				</div>
 			</div>

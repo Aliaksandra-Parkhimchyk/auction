@@ -16,10 +16,6 @@ class Home extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {
-			dataSource: []
-		};
-
 		this.handleFilterBySize = this.handleFilterBySize.bind(this);
 		this.handleFilterByIngredients = this.handleFilterByIngredients.bind(this);
 		this.handleChangePriceFrom = this.handleChangePriceFrom.bind(this);
@@ -57,9 +53,9 @@ class Home extends React.Component {
 		productApi.filterByPrice(priceFrom, priceTo, products);
 	}
 
-	handleSearchProducts(value) {
+	handleSearchProducts(event) {
 		const { products } = this.props;
-		productApi.searchProducts(value, products);
+		productApi.searchProducts(event.target.value, products);
 	}
 
 	handleInputChange(product, event) {
@@ -91,11 +87,9 @@ class Home extends React.Component {
 
 	render() {
 		const { displayedProducts, priceFrom, priceTo } = this.props;
-		const { dataSource } = this.state;
 		return (
 			<div className="container">
 				<ProductFilters
-					dataSource={dataSource}
 					priceFrom={priceFrom}
 					priceTo={priceTo}
 					handleFilterBySize={this.handleFilterBySize}

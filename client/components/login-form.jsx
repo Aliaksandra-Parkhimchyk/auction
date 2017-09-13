@@ -1,9 +1,9 @@
-/*
 import React from 'react';
 import Divider from 'material-ui/Divider';
 import Paper from 'material-ui/Paper';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
+import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 import { Link } from 'react-router';
 
 const style = {
@@ -15,70 +15,42 @@ export default props => {
 		<div className="col-md-9">
 			<div className="login-form">
 				<h1>Login Form</h1>
-				<Paper zDepth={1}>
-					<TextField
-						hintText="Name..."
-						floatingLabelText="Name..."
-						fullWidth={true}
-						style={style}
-						underlineShow={false}
-						onChange={props.handleUpdateInputName}
-					/>
-					<Divider />
-					<TextField
-						hintText="Password..."
-						floatingLabelText="Password..."
-						fullWidth={true}
-						style={style}
-						underlineShow={false}
-						type="password"
-						onChange={props.handleUpdateInputPassword}
-					/>
-					<Divider />
-				</Paper>
-				<RaisedButton
-					label="Login"
-					className="login"
-					onTouchTap={props.handleLogin}
-				/>
-				<Link className="sign-up" to={'/sign-up'}>Sign Up</Link>
-			</div>
-		</div>
-	);
-};
-*/
-
-import React from 'react';
-import AutoComplete from 'material-ui/AutoComplete';
-import RaisedButton from 'material-ui/RaisedButton';
-import { Link } from 'react-router';
-
-export default props => {
-	return (
-		<div className="col-md-9">
-			<div className="login-form">
-				<h1>Login Form</h1>
-				<AutoComplete
-					hintText="Name..."
-					dataSource={props.dataSource}
-					floatingLabelText="Name..."
-					fullWidth={true}
-					onUpdateInput={props.handleUpdateInputName}
-				/>
-				<AutoComplete
-					hintText="Password..."
-					dataSource={props.dataSource}
-					floatingLabelText="Password..."
-					fullWidth={true}
-					type="password"
-					onUpdateInput={props.handleUpdateInputPassword}
-				/>
-				<RaisedButton
-					label="Login"
-					className="login"
-					onTouchTap={props.handleLogin}
-				/>
-				<Link className="sign-up" to={'/sign-up'}>Sign Up</Link>
+				<ValidatorForm
+					onSubmit={props.handleLogin}
+					onError={errors => console.log(errors)}
+				>
+					<Paper zDepth={1}>
+						<TextValidator
+							hintText="Name..."
+							floatingLabelText="Name..."
+							fullWidth={true}
+							style={style}
+							underlineShow={false}
+							onChange={props.handleUpdateInputName}
+							name="name"
+							value={props.login_form.name}
+							validators={['required']}
+							errorMessages={['This field is required']}
+						/>
+						<Divider />
+						<TextValidator
+							hintText="Password..."
+							floatingLabelText="Password..."
+							fullWidth={true}
+							style={style}
+							underlineShow={false}
+							type="password"
+							onChange={props.handleUpdateInputPassword}
+							name="password"
+							value={props.login_form.password}
+							validators={['required']}
+							errorMessages={['This field is required']}
+						/>
+						<Divider />
+					</Paper>
+					<RaisedButton type="submit" label="Login" className="login" />
+					<Link className="sign-up" to={'/sign-up'}>Sign Up</Link>
+				</ValidatorForm>
 			</div>
 		</div>
 	);

@@ -5,9 +5,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import * as cartApi from '../../api/cart-api';
 import * as contactUsFormApi from '../../api/contact-us-api';
-import * as formApi from '../../api/form-api';
 
 import ContactUsForm from '../contact-us-form.jsx';
 import Cart from './cart.jsx';
@@ -40,12 +38,13 @@ class ContactUs extends React.Component {
 	}
 
 	render() {
-		const { cart, isThanksForQuery } = this.props;
+		const { cart, contact_us_form, isThanksForQuery } = this.props;
 		return (
 			<div className="container">
 				<div className="row">
 					<ContactUsForm
 						cart={cart}
+						contact_us_form={contact_us_form}
 						isThanksForQuery={isThanksForQuery}
 						handleUpdateInputName={this.handleUpdateInputName}
 						handleUpdateInputEmail={this.handleUpdateInputEmail}
