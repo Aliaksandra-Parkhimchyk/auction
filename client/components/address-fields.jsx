@@ -37,13 +37,17 @@ export default props => {
 						onChange={props.handleUpdateInputCity}
 					/>
 					<Divider />
-					<TextField
+					<TextValidator
 						hintText="Street..."
 						floatingLabelText={props.street ? props.street : ''}
 						fullWidth={true}
 						style={style}
 						underlineShow={false}
 						onChange={props.handleUpdateInputStreet}
+                        name="street"
+                        value={props.street}
+                        validators={['required']}
+                        errorMessages={['This field is required']}
 					/>
 					<Divider />
 					<TextValidator

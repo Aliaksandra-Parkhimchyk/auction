@@ -19,7 +19,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 
 const styles = {
 	paper: {
-		height: '1300px',
+		height: '1500px',
 		width: '100%',
 		display: 'inline-block'
 	}

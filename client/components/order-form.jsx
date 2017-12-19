@@ -83,6 +83,9 @@ export default props => {
 								underlineShow={false}
 								onChange={props.handleUpdateInputStreet}
 								name="street"
+                                value={props.form.street}
+                                validators={['required']}
+                                errorMessages={['This field is required']}
 							/>
 							<Divider />
 							<TextValidator

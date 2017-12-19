@@ -38,6 +38,11 @@ export function login(registered_users, login_form) {
 		return currentUser;
 	});
 
+	//TO DO AS A SEPARATE COMPONENT
+	if (!currentUser) {
+	    alert('Sorry, your username and/or password are incorrect. Please try again.');
+    }
+
 	return store.dispatch(actionCreators.actionCreatorLogin(currentUser));
 }
 
