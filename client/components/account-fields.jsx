@@ -1,7 +1,6 @@
 import React from 'react';
 import Divider from 'material-ui/Divider';
 import Paper from 'material-ui/Paper';
-import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';

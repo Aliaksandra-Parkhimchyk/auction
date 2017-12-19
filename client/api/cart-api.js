@@ -75,7 +75,7 @@ export function sendOrderForm(form, order) {
 			form: form,
 			order: order
 		})
-		.then(response => {
+		.then(() => {
 			store.dispatch(
 				actionCreators.actionCreatorSendOrderForm(cart, isThanksForPurchase)
 			);

@@ -22,7 +22,7 @@ class Cart extends React.Component {
 		const { cart } = this.props;
 		cartApi.deleteProductFromCart(product, cart);
 		cartApi.getTotalPrice(cart);
-		this.forceUpdate();
+		/*this.forceUpdate();*/
 	}
 
 	render() {

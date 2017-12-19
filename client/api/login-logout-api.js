@@ -44,7 +44,7 @@ export function login(registered_users, login_form) {
 export function isPasswordMatch(registered_users, password) {
 	registered_users.forEach(registered_user => {
 		if (
-			registered_user.hasOwnProperty('password') &&
+			!registered_user.hasOwnProperty('password') ||
 			registered_user.password !== password
 		) {
 			return false;

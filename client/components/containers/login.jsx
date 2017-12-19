@@ -37,9 +37,6 @@ class Login extends React.Component {
 	componentDidMount() {
 		signUpApi.getRegisteredUsers();
 		loginLogoutApi.getCurrentUser();
-	}
-
-	componentWillMount() {
 		const { registered_users } = this.props;
 		ValidatorForm.addValidationRule('isPasswordMatch', value => {
 			if (!loginLogoutApi.isPasswordMatch(registered_users, value)) {

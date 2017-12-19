@@ -79,8 +79,6 @@ class Home extends React.Component {
 		productApi.getDisplayedProducts(products);
 	}
 
-	// Сашунька ну как можно быть такой красавицей\ ну Сааааш ну смотрю на тебя и радуюсь ну мур
-
 	componentDidMount() {
 		productApi.getProducts();
 	}

@@ -71,7 +71,7 @@ export function sendSignUpForm(sign_up_form) {
 	let isThanksForRegistration = true;
 	return axios
 		.post(urlsConst.REGISTERED_USERS, sign_up_form)
-		.then(response => {
+		.then(() => {
 			store.dispatch(
 				actionCreators.actionCreatorSignUpForm(isThanksForRegistration)
 			);

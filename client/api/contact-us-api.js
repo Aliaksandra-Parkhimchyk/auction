@@ -29,7 +29,7 @@ export function sendContactUsForm(contact_us_form) {
 	let isThanksForQuery = true;
 	return axios
 		.post(urlsConst.CONTACT_US_FORMS, contact_us_form)
-		.then(response => {
+		.then(() => {
 			store.dispatch(
 				actionCreators.actionCreatorSendContactUsForm(isThanksForQuery)
 			);
