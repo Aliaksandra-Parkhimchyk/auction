@@ -19,7 +19,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 const muiTheme = getMuiTheme({
-	fontFamily: 'Georgia, serif',
+	fontFamily: 'Open Sans, sans-serif',
 	palette: {
 		textColor: pink900
 	}
